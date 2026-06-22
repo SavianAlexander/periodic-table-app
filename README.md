@@ -1,5 +1,12 @@
 # Interactive Academic Periodic Table App 🧪
 
+[![CI Status](https://github.com/SavianAlexander/periodic-table-app/actions/workflows/ci.yml/badge.svg)](https://github.com/SavianAlexander/periodic-table-app/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/github/license/SavianAlexander/periodic-table-app?color=yellow)](https://github.com/SavianAlexander/periodic-table-app/blob/main/LICENSE)
+[![React](https://img.shields.io/badge/React-18.2-blue?logo=react&logoColor=white)](https://react.dev/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-green?logo=sqlite&logoColor=white)](https://sqlite.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-purple?logo=vite&logoColor=white)](https://vite.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-E2E-orange?logo=playwright&logoColor=white)](https://playwright.dev/)
+
 Welcome to the **Interactive Academic Periodic Table App**—the most comprehensive, visually stunning, and educational chemistry reference tool built with React, Vite, and SQLite.
 
 This application is designed for students, educators, and science enthusiasts. It transitions seamlessly between three learning levels (**Beginner**, **Intermediate**, and **Advanced**), adjusting the information density and interactive tools dynamically.
