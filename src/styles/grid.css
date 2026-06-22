@@ -1,0 +1,22 @@
+.table-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  box-sizing: border-box;
+  min-height: 0;
+  overflow: hidden;
+  container-type: size;
+}
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+  gap: 0.4vmin;
+  width: min(100cqw, calc(100cqh * 1.8));
+  height: min(calc(100cqw / 1.8), 100cqh);
+  margin: auto;
+}

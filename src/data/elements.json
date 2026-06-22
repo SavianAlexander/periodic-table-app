@@ -1,0 +1,3904 @@
+[
+  {
+    "atomicNumber": 1,
+    "symbol": "H",
+    "name": "Hydrogen",
+    "atomicMass": 1.008,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "1s1",
+    "everydayUses": [
+      "Balloons",
+      "Rocket fuel"
+    ],
+    "emissionSpectra": [
+      410,
+      434,
+      486,
+      656
+    ],
+    "electronegativity": 2.2,
+    "meltingPoint": 13.99,
+    "boilingPoint": 20.271,
+    "discoverer": "Henry Cavendish",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1312.0,
+    "density": 8.988e-05,
+    "crystalStructure": "Hexagonal",
+    "isotopes": [
+      {
+        "isotopeName": "Hydrogen-1",
+        "massNumber": 1,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Hydrogen-2",
+        "massNumber": 2,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Hydrogen-3",
+        "massNumber": 3,
+        "halfLife": "12.32 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 2,
+    "symbol": "He",
+    "name": "Helium",
+    "atomicMass": 4.0026,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "1s2",
+    "everydayUses": [
+      "Balloons",
+      "Deep sea diving"
+    ],
+    "emissionSpectra": [
+      388,
+      447,
+      501,
+      587,
+      667
+    ],
+    "electronegativity": null,
+    "meltingPoint": 0.95,
+    "boilingPoint": 4.222,
+    "discoverer": "Pierre Janssen",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 2372.3,
+    "density": 0.0001785,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Helium-3",
+        "massNumber": 3,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Helium-4",
+        "massNumber": 4,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 3,
+    "symbol": "Li",
+    "name": "Lithium",
+    "atomicMass": 6.94,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[He] 2s1",
+    "everydayUses": [
+      "Batteries",
+      "Ceramics"
+    ],
+    "emissionSpectra": [
+      460,
+      497,
+      610,
+      670
+    ],
+    "electronegativity": 0.98,
+    "meltingPoint": 453.65,
+    "boilingPoint": 1603.0,
+    "discoverer": "Johan August Arfwedson",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 520.2,
+    "density": 0.534,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Lithium-6",
+        "massNumber": 6,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Lithium-7",
+        "massNumber": 7,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 4,
+    "symbol": "Be",
+    "name": "Beryllium",
+    "atomicMass": 9.0122,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[He] 2s2",
+    "everydayUses": [
+      "Aerospace",
+      "X-ray windows"
+    ],
+    "emissionSpectra": [
+      332,
+      457,
+      527
+    ],
+    "electronegativity": 1.57,
+    "meltingPoint": 1560.0,
+    "boilingPoint": 2742.0,
+    "discoverer": "Louis Nicolas Vauquelin",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 899.5,
+    "density": 1.85,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Beryllium-9",
+        "massNumber": 9,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Beryllium-10",
+        "massNumber": 10,
+        "halfLife": "1.39 million years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 5,
+    "symbol": "B",
+    "name": "Boron",
+    "atomicMass": 10.81,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[He] 2s2 2p1",
+    "everydayUses": [
+      "Glass",
+      "Detergents"
+    ],
+    "emissionSpectra": [
+      345,
+      419,
+      493
+    ],
+    "electronegativity": 2.04,
+    "meltingPoint": 2349.0,
+    "boilingPoint": 4200.0,
+    "discoverer": "Joseph Louis Gay-Lussac",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 800.6,
+    "density": 2.34,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Boron-10",
+        "massNumber": 10,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Boron-11",
+        "massNumber": 11,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 6,
+    "symbol": "C",
+    "name": "Carbon",
+    "atomicMass": 12.011,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[He] 2s2 2p2",
+    "everydayUses": [
+      "Diamonds",
+      "Pencils",
+      "Life"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.55,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Ancient Egypt",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1086.5,
+    "density": 2.267,
+    "crystalStructure": "Hexagonal",
+    "isotopes": [
+      {
+        "isotopeName": "Carbon-12",
+        "massNumber": 12,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Carbon-13",
+        "massNumber": 13,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Carbon-14",
+        "massNumber": 14,
+        "halfLife": "5730 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 7,
+    "symbol": "N",
+    "name": "Nitrogen",
+    "atomicMass": 14.007,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[He] 2s2 2p3",
+    "everydayUses": [
+      "Fertilizers",
+      "Coolant"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 3.04,
+    "meltingPoint": 63.15,
+    "boilingPoint": 77.355,
+    "discoverer": "Daniel Rutherford",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1402.3,
+    "density": 0.0012506,
+    "crystalStructure": "Hexagonal",
+    "isotopes": [
+      {
+        "isotopeName": "Nitrogen-14",
+        "massNumber": 14,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Nitrogen-15",
+        "massNumber": 15,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 8,
+    "symbol": "O",
+    "name": "Oxygen",
+    "atomicMass": 15.999,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[He] 2s2 2p4",
+    "everydayUses": [
+      "Breathing",
+      "Combustion"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 3.44,
+    "meltingPoint": 54.36,
+    "boilingPoint": 90.188,
+    "discoverer": "Carl Wilhelm Scheele",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1313.9,
+    "density": 0.001429,
+    "crystalStructure": "Cubic",
+    "isotopes": [
+      {
+        "isotopeName": "Oxygen-16",
+        "massNumber": 16,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Oxygen-17",
+        "massNumber": 17,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Oxygen-18",
+        "massNumber": 18,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 9,
+    "symbol": "F",
+    "name": "Fluorine",
+    "atomicMass": 18.998,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[He] 2s2 2p5",
+    "everydayUses": [
+      "Toothpaste",
+      "Teflon"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 3.98,
+    "meltingPoint": 53.48,
+    "boilingPoint": 85.03,
+    "discoverer": "André-Marie Ampère",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1681.0,
+    "density": 0.001696,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Fluorine-19",
+        "massNumber": 19,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 10,
+    "symbol": "Ne",
+    "name": "Neon",
+    "atomicMass": 20.18,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[He] 2s2 2p6",
+    "everydayUses": [
+      "Signs",
+      "Lasers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 24.56,
+    "boilingPoint": 27.104,
+    "discoverer": "Morris Travers",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 2080.7,
+    "density": 0.0008999,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Neon-20",
+        "massNumber": 20,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Neon-21",
+        "massNumber": 21,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Neon-22",
+        "massNumber": 22,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 11,
+    "symbol": "Na",
+    "name": "Sodium",
+    "atomicMass": 22.99,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[Ne] 3s1",
+    "everydayUses": [
+      "Salt",
+      "Streetlights"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.93,
+    "meltingPoint": 370.944,
+    "boilingPoint": 1156.09,
+    "discoverer": "Humphry Davy",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 495.8,
+    "density": 0.968,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Sodium-23",
+        "massNumber": 23,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 12,
+    "symbol": "Mg",
+    "name": "Magnesium",
+    "atomicMass": 24.305,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[Ne] 3s2",
+    "everydayUses": [
+      "Alloys",
+      "Flares"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.31,
+    "meltingPoint": 923.0,
+    "boilingPoint": 1363.0,
+    "discoverer": "Joseph Black",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 737.7,
+    "density": 1.738,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Magnesium-24",
+        "massNumber": 24,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Magnesium-25",
+        "massNumber": 25,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Magnesium-26",
+        "massNumber": 26,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 13,
+    "symbol": "Al",
+    "name": "Aluminum",
+    "atomicMass": 26.982,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Ne] 3s2 3p1",
+    "everydayUses": [
+      "Cans",
+      "Foil"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.61,
+    "meltingPoint": 933.47,
+    "boilingPoint": 2743.0,
+    "discoverer": null,
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 577.5,
+    "density": 2.7,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Aluminum-27",
+        "massNumber": 27,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Aluminum-28",
+        "massNumber": 28,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 14,
+    "symbol": "Si",
+    "name": "Silicon",
+    "atomicMass": 28.085,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Ne] 3s2 3p2",
+    "everydayUses": [
+      "Microchips",
+      "Glass"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.9,
+    "meltingPoint": 1687.0,
+    "boilingPoint": 3538.0,
+    "discoverer": "Jöns Jacob Berzelius",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 786.5,
+    "density": 2.329,
+    "crystalStructure": "Diamond Cubic",
+    "isotopes": [
+      {
+        "isotopeName": "Silicon-28",
+        "massNumber": 28,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Silicon-29",
+        "massNumber": 29,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 15,
+    "symbol": "P",
+    "name": "Phosphorus",
+    "atomicMass": 30.974,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[Ne] 3s2 3p3",
+    "everydayUses": [
+      "Matches",
+      "Fertilizers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.19,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Hennig Brand",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1011.8,
+    "density": 1.823,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Phosphorus-31",
+        "massNumber": 31,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Phosphorus-32",
+        "massNumber": 32,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 16,
+    "symbol": "S",
+    "name": "Sulfur",
+    "atomicMass": 32.06,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[Ne] 3s2 3p4",
+    "everydayUses": [
+      "Gunpowder",
+      "Matches"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.58,
+    "meltingPoint": 388.36,
+    "boilingPoint": 717.8,
+    "discoverer": "Ancient china",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 999.6,
+    "density": 2.07,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Sulfur-32",
+        "massNumber": 32,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Sulfur-33",
+        "massNumber": 33,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 17,
+    "symbol": "Cl",
+    "name": "Chlorine",
+    "atomicMass": 35.45,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[Ne] 3s2 3p5",
+    "everydayUses": [
+      "Bleach",
+      "Pools"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 3.16,
+    "meltingPoint": 171.6,
+    "boilingPoint": 239.11,
+    "discoverer": "Carl Wilhelm Scheele",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1251.2,
+    "density": 0.0032,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Chlorine-35",
+        "massNumber": 35,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Chlorine-36",
+        "massNumber": 36,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 18,
+    "symbol": "Ar",
+    "name": "Argon",
+    "atomicMass": 39.95,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[Ne] 3s2 3p6",
+    "everydayUses": [
+      "Lightbulbs",
+      "Welding"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 83.81,
+    "boilingPoint": 87.302,
+    "discoverer": "Lord Rayleigh",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1520.6,
+    "density": 0.001784,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Argon-40",
+        "massNumber": 40,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Argon-41",
+        "massNumber": 41,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 19,
+    "symbol": "K",
+    "name": "Potassium",
+    "atomicMass": 39.098,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[Ar] 4s1",
+    "everydayUses": [
+      "Fertilizers",
+      "Soap"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.82,
+    "meltingPoint": 336.7,
+    "boilingPoint": 1032.0,
+    "discoverer": "Humphry Davy",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 418.8,
+    "density": 0.862,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Potassium-39",
+        "massNumber": 39,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Potassium-40",
+        "massNumber": 40,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 20,
+    "symbol": "Ca",
+    "name": "Calcium",
+    "atomicMass": 40.078,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[Ar] 4s2",
+    "everydayUses": [
+      "Bones",
+      "Cement"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.0,
+    "meltingPoint": 1115.0,
+    "boilingPoint": 1757.0,
+    "discoverer": "Humphry Davy",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 589.8,
+    "density": 1.54,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Calcium-40",
+        "massNumber": 40,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Calcium-41",
+        "massNumber": 41,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 21,
+    "symbol": "Sc",
+    "name": "Scandium",
+    "atomicMass": 44.956,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d1 4s2",
+    "everydayUses": [
+      "Bicycles",
+      "Stadium lights"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.36,
+    "meltingPoint": 1814.0,
+    "boilingPoint": 3109.0,
+    "discoverer": "Lars Fredrik Nilson",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 633.1,
+    "density": 2.989,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Scandium-45",
+        "massNumber": 45,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Scandium-46",
+        "massNumber": 46,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 22,
+    "symbol": "Ti",
+    "name": "Titanium",
+    "atomicMass": 47.867,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d2 4s2",
+    "everydayUses": [
+      "Aerospace",
+      "Joint replacements"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.54,
+    "meltingPoint": 1941.0,
+    "boilingPoint": 3560.0,
+    "discoverer": "William Gregor",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 658.8,
+    "density": 4.54,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Titanium-48",
+        "massNumber": 48,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Titanium-49",
+        "massNumber": 49,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 23,
+    "symbol": "V",
+    "name": "Vanadium",
+    "atomicMass": 50.942,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d3 4s2",
+    "everydayUses": [
+      "Springs",
+      "Tools"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.63,
+    "meltingPoint": 2183.0,
+    "boilingPoint": 3680.0,
+    "discoverer": "Andrés Manuel del Río",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 650.9,
+    "density": 6.11,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Vanadium-51",
+        "massNumber": 51,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Vanadium-52",
+        "massNumber": 52,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 24,
+    "symbol": "Cr",
+    "name": "Chromium",
+    "atomicMass": 51.996,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d5 4s1",
+    "everydayUses": [
+      "Stainless steel",
+      "Plating"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.66,
+    "meltingPoint": 2180.0,
+    "boilingPoint": 2944.0,
+    "discoverer": "Louis Nicolas Vauquelin",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 652.9,
+    "density": 7.15,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Chromium-52",
+        "massNumber": 52,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Chromium-53",
+        "massNumber": 53,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 25,
+    "symbol": "Mn",
+    "name": "Manganese",
+    "atomicMass": 54.938,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d5 4s2",
+    "everydayUses": [
+      "Steel production",
+      "Batteries"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.55,
+    "meltingPoint": 1519.0,
+    "boilingPoint": 2334.0,
+    "discoverer": "Torbern Olof Bergman",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 717.3,
+    "density": 7.3,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Manganese-55",
+        "massNumber": 55,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Manganese-56",
+        "massNumber": 56,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 26,
+    "symbol": "Fe",
+    "name": "Iron",
+    "atomicMass": 55.845,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d6 4s2",
+    "everydayUses": [
+      "Steel",
+      "Magnets"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.83,
+    "meltingPoint": 1811.0,
+    "boilingPoint": 3134.0,
+    "discoverer": "5000 BC",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 762.5,
+    "density": 7.874,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Iron-56",
+        "massNumber": 56,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Iron-57",
+        "massNumber": 57,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 27,
+    "symbol": "Co",
+    "name": "Cobalt",
+    "atomicMass": 58.933,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d7 4s2",
+    "everydayUses": [
+      "Magnets",
+      "Blue glass"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.88,
+    "meltingPoint": 1768.0,
+    "boilingPoint": 3200.0,
+    "discoverer": "Georg Brandt",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 760.4,
+    "density": 8.9,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Cobalt-59",
+        "massNumber": 59,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Cobalt-60",
+        "massNumber": 60,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 28,
+    "symbol": "Ni",
+    "name": "Nickel",
+    "atomicMass": 58.693,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d8 4s2",
+    "everydayUses": [
+      "Coins",
+      "Batteries"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.91,
+    "meltingPoint": 1728.0,
+    "boilingPoint": 3003.0,
+    "discoverer": "Axel Fredrik Cronstedt",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 737.1,
+    "density": 8.908,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Nickel-59",
+        "massNumber": 59,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Nickel-60",
+        "massNumber": 60,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 29,
+    "symbol": "Cu",
+    "name": "Copper",
+    "atomicMass": 63.546,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d10 4s1",
+    "everydayUses": [
+      "Wires",
+      "Coins"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.9,
+    "meltingPoint": 1357.77,
+    "boilingPoint": 2835.0,
+    "discoverer": "Middle East",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 745.5,
+    "density": 8.96,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Copper-64",
+        "massNumber": 64,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Copper-65",
+        "massNumber": 65,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 30,
+    "symbol": "Zn",
+    "name": "Zinc",
+    "atomicMass": 65.38,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Ar] 3d10 4s2",
+    "everydayUses": [
+      "Galvanizing",
+      "Brass"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.65,
+    "meltingPoint": 692.68,
+    "boilingPoint": 1180.0,
+    "discoverer": "India",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 906.4,
+    "density": 7.14,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Zinc-65",
+        "massNumber": 65,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Zinc-66",
+        "massNumber": 66,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 31,
+    "symbol": "Ga",
+    "name": "Gallium",
+    "atomicMass": 69.723,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p1",
+    "everydayUses": [
+      "Semiconductors",
+      "LEDs"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.81,
+    "meltingPoint": 302.9146,
+    "boilingPoint": 2673.0,
+    "discoverer": "Lecoq de Boisbaudran",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 578.8,
+    "density": 5.91,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Gallium-70",
+        "massNumber": 70,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Gallium-71",
+        "massNumber": 71,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 32,
+    "symbol": "Ge",
+    "name": "Germanium",
+    "atomicMass": 72.63,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p2",
+    "everydayUses": [
+      "Fiber optics",
+      "Semiconductors"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.01,
+    "meltingPoint": 1211.4,
+    "boilingPoint": 3106.0,
+    "discoverer": "Clemens Winkler",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 762.0,
+    "density": 5.323,
+    "crystalStructure": "Diamond Cubic",
+    "isotopes": [
+      {
+        "isotopeName": "Germanium-73",
+        "massNumber": 73,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Germanium-74",
+        "massNumber": 74,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 33,
+    "symbol": "As",
+    "name": "Arsenic",
+    "atomicMass": 74.922,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p3",
+    "everydayUses": [
+      "Pesticides",
+      "Wood preservation"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.18,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Bronze Age",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 947.0,
+    "density": 5.727,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Arsenic-75",
+        "massNumber": 75,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Arsenic-76",
+        "massNumber": 76,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 34,
+    "symbol": "Se",
+    "name": "Selenium",
+    "atomicMass": 78.971,
+    "groupBlock": "Nonmetal",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p4",
+    "everydayUses": [
+      "Photocells",
+      "Dandruff shampoo"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.55,
+    "meltingPoint": 494.0,
+    "boilingPoint": 958.0,
+    "discoverer": "Jöns Jakob Berzelius",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 941.0,
+    "density": 4.81,
+    "crystalStructure": "Hexagonal",
+    "isotopes": [
+      {
+        "isotopeName": "Selenium-79",
+        "massNumber": 79,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Selenium-80",
+        "massNumber": 80,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 35,
+    "symbol": "Br",
+    "name": "Bromine",
+    "atomicMass": 79.904,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p5",
+    "everydayUses": [
+      "Flame retardants",
+      "Water purification"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.96,
+    "meltingPoint": 265.8,
+    "boilingPoint": 332.0,
+    "discoverer": "Antoine Jérôme Balard",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1139.9,
+    "density": 3.1028,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Bromine-80",
+        "massNumber": 80,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Bromine-81",
+        "massNumber": 81,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 36,
+    "symbol": "Kr",
+    "name": "Krypton",
+    "atomicMass": 83.798,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[Ar] 3d10 4s2 4p6",
+    "everydayUses": [
+      "Flashbulbs",
+      "Fluorescent lights"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 3.0,
+    "meltingPoint": 115.78,
+    "boilingPoint": 119.93,
+    "discoverer": "William Ramsay",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1350.8,
+    "density": 0.0037493,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Krypton-84",
+        "massNumber": 84,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Krypton-85",
+        "massNumber": 85,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 37,
+    "symbol": "Rb",
+    "name": "Rubidium",
+    "atomicMass": 85.468,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[Kr] 5s1",
+    "everydayUses": [
+      "Atomic clocks",
+      "Fireworks"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.82,
+    "meltingPoint": 312.45,
+    "boilingPoint": 961.0,
+    "discoverer": "Robert Bunsen",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 403.0,
+    "density": 1.532,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Rubidium-85",
+        "massNumber": 85,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Rubidium-86",
+        "massNumber": 86,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 38,
+    "symbol": "Sr",
+    "name": "Strontium",
+    "atomicMass": 87.62,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[Kr] 5s2",
+    "everydayUses": [
+      "Fireworks",
+      "Flares"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.95,
+    "meltingPoint": 1050.0,
+    "boilingPoint": 1650.0,
+    "discoverer": "William Cruickshank (chemist)",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 549.5,
+    "density": 2.64,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Strontium-88",
+        "massNumber": 88,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Strontium-89",
+        "massNumber": 89,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 39,
+    "symbol": "Y",
+    "name": "Yttrium",
+    "atomicMass": 88.906,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d1 5s2",
+    "everydayUses": [
+      "LEDs",
+      "Phosphors"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.22,
+    "meltingPoint": 1799.0,
+    "boilingPoint": 3203.0,
+    "discoverer": "Johan Gadolin",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 600.0,
+    "density": 4.472,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Yttrium-89",
+        "massNumber": 89,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Yttrium-90",
+        "massNumber": 90,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 40,
+    "symbol": "Zr",
+    "name": "Zirconium",
+    "atomicMass": 91.224,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d2 5s2",
+    "everydayUses": [
+      "Nuclear reactors",
+      "Fake diamonds"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.33,
+    "meltingPoint": 2128.0,
+    "boilingPoint": 4650.0,
+    "discoverer": "Martin Heinrich Klaproth",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 640.1,
+    "density": 6.52,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Zirconium-91",
+        "massNumber": 91,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Zirconium-92",
+        "massNumber": 92,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 41,
+    "symbol": "Nb",
+    "name": "Niobium",
+    "atomicMass": 92.906,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d4 5s1",
+    "everydayUses": [
+      "Superconductors",
+      "Alloys"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.6,
+    "meltingPoint": 2750.0,
+    "boilingPoint": 5017.0,
+    "discoverer": "Charles Hatchett",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 652.1,
+    "density": 8.57,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Niobium-93",
+        "massNumber": 93,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Niobium-94",
+        "massNumber": 94,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 42,
+    "symbol": "Mo",
+    "name": "Molybdenum",
+    "atomicMass": 95.95,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d5 5s1",
+    "everydayUses": [
+      "High-strength steel",
+      "Lubricants"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.16,
+    "meltingPoint": 2896.0,
+    "boilingPoint": 4912.0,
+    "discoverer": "Carl Wilhelm Scheele",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 684.3,
+    "density": 10.28,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Molybdenum-96",
+        "massNumber": 96,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Molybdenum-97",
+        "massNumber": 97,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 43,
+    "symbol": "Tc",
+    "name": "Technetium",
+    "atomicMass": 98.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d5 5s2",
+    "everydayUses": [
+      "Medical imaging"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.9,
+    "meltingPoint": 2430.0,
+    "boilingPoint": 4538.0,
+    "discoverer": "Emilio Segrè",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 702.0,
+    "density": 11.0,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Technetium-97",
+        "massNumber": 97,
+        "halfLife": "4.21 million years"
+      },
+      {
+        "isotopeName": "Technetium-98",
+        "massNumber": 98,
+        "halfLife": "4.2 million years"
+      },
+      {
+        "isotopeName": "Technetium-99",
+        "massNumber": 99,
+        "halfLife": "211,100 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 44,
+    "symbol": "Ru",
+    "name": "Ruthenium",
+    "atomicMass": 101.07,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d7 5s1",
+    "everydayUses": [
+      "Electrical contacts",
+      "Alloys"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 2607.0,
+    "boilingPoint": 4423.0,
+    "discoverer": "Karl Ernst Claus",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 710.2,
+    "density": 12.45,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Ruthenium-101",
+        "massNumber": 101,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Ruthenium-102",
+        "massNumber": 102,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 45,
+    "symbol": "Rh",
+    "name": "Rhodium",
+    "atomicMass": 102.91,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d8 5s1",
+    "everydayUses": [
+      "Catalytic converters",
+      "Jewelry"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.28,
+    "meltingPoint": 2237.0,
+    "boilingPoint": 3968.0,
+    "discoverer": "William Hyde Wollaston",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 719.7,
+    "density": 12.41,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Rhodium-103",
+        "massNumber": 103,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Rhodium-104",
+        "massNumber": 104,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 46,
+    "symbol": "Pd",
+    "name": "Palladium",
+    "atomicMass": 106.42,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d10",
+    "everydayUses": [
+      "Catalytic converters",
+      "Dental crowns"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 1828.05,
+    "boilingPoint": 3236.0,
+    "discoverer": "William Hyde Wollaston",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 804.4,
+    "density": 12.023,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Palladium-106",
+        "massNumber": 106,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Palladium-107",
+        "massNumber": 107,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 47,
+    "symbol": "Ag",
+    "name": "Silver",
+    "atomicMass": 107.87,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d10 5s1",
+    "everydayUses": [
+      "Jewelry",
+      "Photography"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.93,
+    "meltingPoint": 1234.93,
+    "boilingPoint": 2435.0,
+    "discoverer": "unknown, before 5000 BC",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 731.0,
+    "density": 10.49,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Silver-108",
+        "massNumber": 108,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Silver-109",
+        "massNumber": 109,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 48,
+    "symbol": "Cd",
+    "name": "Cadmium",
+    "atomicMass": 112.41,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Kr] 4d10 5s2",
+    "everydayUses": [
+      "Batteries",
+      "Pigments"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.69,
+    "meltingPoint": 594.22,
+    "boilingPoint": 1040.0,
+    "discoverer": "Karl Samuel Leberecht Hermann",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 867.8,
+    "density": 8.69,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Cadmium-112",
+        "massNumber": 112,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Cadmium-113",
+        "massNumber": 113,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 49,
+    "symbol": "In",
+    "name": "Indium",
+    "atomicMass": 114.82,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p1",
+    "everydayUses": [
+      "Touchscreens",
+      "LCDs"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.78,
+    "meltingPoint": 429.7485,
+    "boilingPoint": 2345.0,
+    "discoverer": "Ferdinand Reich",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 558.3,
+    "density": 7.31,
+    "crystalStructure": "Tetragonal",
+    "isotopes": [
+      {
+        "isotopeName": "Indium-115",
+        "massNumber": 115,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Indium-116",
+        "massNumber": 116,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 50,
+    "symbol": "Sn",
+    "name": "Tin",
+    "atomicMass": 118.71,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p2",
+    "everydayUses": [
+      "Cans",
+      "Solder"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.96,
+    "meltingPoint": 505.08,
+    "boilingPoint": 2875.0,
+    "discoverer": "unknown, before 3500 BC",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 708.6,
+    "density": 7.287,
+    "crystalStructure": "Tetragonal",
+    "isotopes": [
+      {
+        "isotopeName": "Tin-119",
+        "massNumber": 119,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Tin-120",
+        "massNumber": 120,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 51,
+    "symbol": "Sb",
+    "name": "Antimony",
+    "atomicMass": 121.76,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p3",
+    "everydayUses": [
+      "Flame retardants",
+      "Batteries"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.05,
+    "meltingPoint": 903.78,
+    "boilingPoint": 1908.0,
+    "discoverer": "unknown, before 3000 BC",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 834.0,
+    "density": 6.697,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Antimony-122",
+        "massNumber": 122,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Antimony-123",
+        "massNumber": 123,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 52,
+    "symbol": "Te",
+    "name": "Tellurium",
+    "atomicMass": 127.6,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p4",
+    "everydayUses": [
+      "Solar panels",
+      "Thermoelectrics"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.1,
+    "meltingPoint": 722.66,
+    "boilingPoint": 1261.0,
+    "discoverer": "Franz-Joseph Müller von Reichenstein",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 869.3,
+    "density": 6.24,
+    "crystalStructure": "Hexagonal",
+    "isotopes": [
+      {
+        "isotopeName": "Tellurium-128",
+        "massNumber": 128,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Tellurium-129",
+        "massNumber": 129,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 53,
+    "symbol": "I",
+    "name": "Iodine",
+    "atomicMass": 126.9,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p5",
+    "everydayUses": [
+      "Disinfectants",
+      "Nutrition"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.66,
+    "meltingPoint": 386.85,
+    "boilingPoint": 457.4,
+    "discoverer": "Bernard Courtois",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1008.4,
+    "density": 4.933,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Iodine-127",
+        "massNumber": 127,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Iodine-128",
+        "massNumber": 128,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 54,
+    "symbol": "Xe",
+    "name": "Xenon",
+    "atomicMass": 131.29,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[Kr] 4d10 5s2 5p6",
+    "everydayUses": [
+      "Flash lamps",
+      "Ion thrusters"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.6,
+    "meltingPoint": 161.4,
+    "boilingPoint": 165.051,
+    "discoverer": "William Ramsay",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1170.4,
+    "density": 0.005887,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Xenon-131",
+        "massNumber": 131,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Xenon-132",
+        "massNumber": 132,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 55,
+    "symbol": "Cs",
+    "name": "Cesium",
+    "atomicMass": 132.91,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[Xe] 6s1",
+    "everydayUses": [
+      "Atomic clocks",
+      "Drilling fluids"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.79,
+    "meltingPoint": 301.7,
+    "boilingPoint": 944.0,
+    "discoverer": "Robert Bunsen",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 375.7,
+    "density": 1.93,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Cesium-133",
+        "massNumber": 133,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Cesium-134",
+        "massNumber": 134,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 56,
+    "symbol": "Ba",
+    "name": "Barium",
+    "atomicMass": 137.33,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[Xe] 6s2",
+    "everydayUses": [
+      "Spark plugs",
+      "Medical imaging"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.89,
+    "meltingPoint": 1000.0,
+    "boilingPoint": 2118.0,
+    "discoverer": "Carl Wilhelm Scheele",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 502.9,
+    "density": 3.51,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Barium-137",
+        "massNumber": 137,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Barium-138",
+        "massNumber": 138,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 57,
+    "symbol": "La",
+    "name": "Lanthanum",
+    "atomicMass": 138.91,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 5d1 6s2",
+    "everydayUses": [
+      "Camera lenses",
+      "Telescopes"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.1,
+    "meltingPoint": 1193.0,
+    "boilingPoint": 3737.0,
+    "discoverer": "Carl Gustaf Mosander",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 538.1,
+    "density": 6.162,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Lanthanum-139",
+        "massNumber": 139,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Lanthanum-140",
+        "massNumber": 140,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 58,
+    "symbol": "Ce",
+    "name": "Cerium",
+    "atomicMass": 140.12,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f1 5d1 6s2",
+    "everydayUses": [
+      "Lighter flints",
+      "Catalytic converters"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.12,
+    "meltingPoint": 1068.0,
+    "boilingPoint": 3716.0,
+    "discoverer": "Martin Heinrich Klaproth",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 534.4,
+    "density": 6.77,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Cerium-140",
+        "massNumber": 140,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Cerium-141",
+        "massNumber": 141,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 59,
+    "symbol": "Pr",
+    "name": "Praseodymium",
+    "atomicMass": 140.91,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f3 6s2",
+    "everydayUses": [
+      "Magnets",
+      "Welding goggles"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.13,
+    "meltingPoint": 1208.0,
+    "boilingPoint": 3403.0,
+    "discoverer": "Carl Auer von Welsbach",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 527.0,
+    "density": 6.77,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Praseodymium-141",
+        "massNumber": 141,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Praseodymium-142",
+        "massNumber": 142,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 60,
+    "symbol": "Nd",
+    "name": "Neodymium",
+    "atomicMass": 144.24,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f4 6s2",
+    "everydayUses": [
+      "Strong magnets",
+      "Lasers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.14,
+    "meltingPoint": 1297.0,
+    "boilingPoint": 3347.0,
+    "discoverer": "Carl Auer von Welsbach",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 533.1,
+    "density": 7.01,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Neodymium-144",
+        "massNumber": 144,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Neodymium-145",
+        "massNumber": 145,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 61,
+    "symbol": "Pm",
+    "name": "Promethium",
+    "atomicMass": 145.0,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f5 6s2",
+    "everydayUses": [
+      "Nuclear batteries",
+      "Luminous paint"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.13,
+    "meltingPoint": 1315.0,
+    "boilingPoint": 3273.0,
+    "discoverer": "Chien Shiung Wu",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 540.0,
+    "density": 7.26,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Promethium-145",
+        "massNumber": 145,
+        "halfLife": "17.7 years"
+      },
+      {
+        "isotopeName": "Promethium-147",
+        "massNumber": 147,
+        "halfLife": "2.62 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 62,
+    "symbol": "Sm",
+    "name": "Samarium",
+    "atomicMass": 150.36,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f6 6s2",
+    "everydayUses": [
+      "Magnets",
+      "Cancer treatment"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.17,
+    "meltingPoint": 1345.0,
+    "boilingPoint": 2173.0,
+    "discoverer": "Lecoq de Boisbaudran",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 544.5,
+    "density": 7.52,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Samarium-150",
+        "massNumber": 150,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Samarium-151",
+        "massNumber": 151,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 63,
+    "symbol": "Eu",
+    "name": "Europium",
+    "atomicMass": 151.96,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f7 6s2",
+    "everydayUses": [
+      "Phosphors in TVs",
+      "Euro banknotes"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.2,
+    "meltingPoint": 1099.0,
+    "boilingPoint": 1802.0,
+    "discoverer": "Eugène-Anatole Demarçay",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 547.1,
+    "density": 5.244,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Europium-152",
+        "massNumber": 152,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Europium-153",
+        "massNumber": 153,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 64,
+    "symbol": "Gd",
+    "name": "Gadolinium",
+    "atomicMass": 157.25,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f7 5d1 6s2",
+    "everydayUses": [
+      "MRI contrast agents",
+      "Nuclear reactors"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.2,
+    "meltingPoint": 1585.0,
+    "boilingPoint": 3273.0,
+    "discoverer": "Jean Charles Galissard de Marignac",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 593.4,
+    "density": 7.9,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Gadolinium-157",
+        "massNumber": 157,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Gadolinium-158",
+        "massNumber": 158,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 65,
+    "symbol": "Tb",
+    "name": "Terbium",
+    "atomicMass": 158.93,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f9 6s2",
+    "everydayUses": [
+      "Green phosphors",
+      "Solid-state devices"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.1,
+    "meltingPoint": 1629.0,
+    "boilingPoint": 3396.0,
+    "discoverer": "Carl Gustaf Mosander",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 565.8,
+    "density": 8.23,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Terbium-159",
+        "massNumber": 159,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Terbium-160",
+        "massNumber": 160,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 66,
+    "symbol": "Dy",
+    "name": "Dysprosium",
+    "atomicMass": 162.5,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f10 6s2",
+    "everydayUses": [
+      "Magnets",
+      "Nuclear reactors"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.22,
+    "meltingPoint": 1680.0,
+    "boilingPoint": 2840.0,
+    "discoverer": "Lecoq de Boisbaudran",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 573.0,
+    "density": 8.54,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Dysprosium-162",
+        "massNumber": 162,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Dysprosium-163",
+        "massNumber": 163,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 67,
+    "symbol": "Ho",
+    "name": "Holmium",
+    "atomicMass": 164.93,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f11 6s2",
+    "everydayUses": [
+      "Lasers",
+      "Magnets"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.23,
+    "meltingPoint": 1734.0,
+    "boilingPoint": 2873.0,
+    "discoverer": "Marc Delafontaine",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 581.0,
+    "density": 8.79,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Holmium-165",
+        "massNumber": 165,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Holmium-166",
+        "massNumber": 166,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 68,
+    "symbol": "Er",
+    "name": "Erbium",
+    "atomicMass": 167.26,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f12 6s2",
+    "everydayUses": [
+      "Fiber optics",
+      "Lasers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.24,
+    "meltingPoint": 1802.0,
+    "boilingPoint": 3141.0,
+    "discoverer": "Carl Gustaf Mosander",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 589.3,
+    "density": 9.066,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Erbium-167",
+        "massNumber": 167,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Erbium-168",
+        "massNumber": 168,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 69,
+    "symbol": "Tm",
+    "name": "Thulium",
+    "atomicMass": 168.93,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f13 6s2",
+    "everydayUses": [
+      "Portable X-ray machines",
+      "Lasers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.25,
+    "meltingPoint": 1818.0,
+    "boilingPoint": 2223.0,
+    "discoverer": "Per Teodor Cleve",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 596.7,
+    "density": 9.32,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Thulium-169",
+        "massNumber": 169,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Thulium-170",
+        "massNumber": 170,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 70,
+    "symbol": "Yb",
+    "name": "Ytterbium",
+    "atomicMass": 173.05,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f14 6s2",
+    "everydayUses": [
+      "Atomic clocks",
+      "Stainless steel alloys"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.1,
+    "meltingPoint": 1097.0,
+    "boilingPoint": 1469.0,
+    "discoverer": "Jean Charles Galissard de Marignac",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 603.4,
+    "density": 6.9,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Ytterbium-173",
+        "massNumber": 173,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Ytterbium-174",
+        "massNumber": 174,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 71,
+    "symbol": "Lu",
+    "name": "Lutetium",
+    "atomicMass": 174.97,
+    "groupBlock": "Lanthanide",
+    "electronConfiguration": "[Xe] 4f14 5d1 6s2",
+    "everydayUses": [
+      "PET scan detectors",
+      "LEDs"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.27,
+    "meltingPoint": 1925.0,
+    "boilingPoint": 3675.0,
+    "discoverer": "Georges Urbain",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 523.5,
+    "density": 9.841,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Lutetium-175",
+        "massNumber": 175,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Lutetium-176",
+        "massNumber": 176,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 72,
+    "symbol": "Hf",
+    "name": "Hafnium",
+    "atomicMass": 178.49,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d2 6s2",
+    "everydayUses": [
+      "Nuclear control rods",
+      "Microchips"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 2506.0,
+    "boilingPoint": 4876.0,
+    "discoverer": "Dirk Coster",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 658.5,
+    "density": 13.31,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Hafnium-178",
+        "massNumber": 178,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Hafnium-179",
+        "massNumber": 179,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 73,
+    "symbol": "Ta",
+    "name": "Tantalum",
+    "atomicMass": 180.95,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d3 6s2",
+    "everydayUses": [
+      "Electronics",
+      "Surgical implants"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.5,
+    "meltingPoint": 3290.0,
+    "boilingPoint": 5731.0,
+    "discoverer": "Anders Gustaf Ekeberg",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 761.0,
+    "density": 16.69,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Tantalum-181",
+        "massNumber": 181,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Tantalum-182",
+        "massNumber": 182,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 74,
+    "symbol": "W",
+    "name": "Tungsten",
+    "atomicMass": 183.84,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d4 6s2",
+    "everydayUses": [
+      "Lightbulb filaments",
+      "Cutting tools"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.36,
+    "meltingPoint": 3695.0,
+    "boilingPoint": 6203.0,
+    "discoverer": "Carl Wilhelm Scheele",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 770.0,
+    "density": 19.25,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Tungsten-184",
+        "massNumber": 184,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Tungsten-185",
+        "massNumber": 185,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 75,
+    "symbol": "Re",
+    "name": "Rhenium",
+    "atomicMass": 186.21,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d5 6s2",
+    "everydayUses": [
+      "Jet engines",
+      "Oven filaments"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.9,
+    "meltingPoint": 3459.0,
+    "boilingPoint": 5869.0,
+    "discoverer": "Masataka Ogawa",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 760.0,
+    "density": 21.02,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Rhenium-186",
+        "massNumber": 186,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Rhenium-187",
+        "massNumber": 187,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 76,
+    "symbol": "Os",
+    "name": "Osmium",
+    "atomicMass": 190.23,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d6 6s2",
+    "everydayUses": [
+      "Fountain pen tips",
+      "Electrical contacts"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 3306.0,
+    "boilingPoint": 5285.0,
+    "discoverer": "Smithson Tennant",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 840.0,
+    "density": 22.59,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Osmium-190",
+        "massNumber": 190,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Osmium-191",
+        "massNumber": 191,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 77,
+    "symbol": "Ir",
+    "name": "Iridium",
+    "atomicMass": 192.22,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d7 6s2",
+    "everydayUses": [
+      "Spark plugs",
+      "Crucibles"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 2719.0,
+    "boilingPoint": 4403.0,
+    "discoverer": "Smithson Tennant",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 880.0,
+    "density": 22.56,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Iridium-192",
+        "massNumber": 192,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Iridium-193",
+        "massNumber": 193,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 78,
+    "symbol": "Pt",
+    "name": "Platinum",
+    "atomicMass": 195.08,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d9 6s1",
+    "everydayUses": [
+      "Jewelry",
+      "Catalytic converters"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.28,
+    "meltingPoint": 2041.4,
+    "boilingPoint": 4098.0,
+    "discoverer": "Antonio de Ulloa",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 870.0,
+    "density": 21.45,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Platinum-195",
+        "massNumber": 195,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Platinum-196",
+        "massNumber": 196,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 79,
+    "symbol": "Au",
+    "name": "Gold",
+    "atomicMass": 196.97,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s1",
+    "everydayUses": [
+      "Jewelry",
+      "Electronics"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.54,
+    "meltingPoint": 1337.33,
+    "boilingPoint": 3243.0,
+    "discoverer": "Middle East",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 890.1,
+    "density": 19.3,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Gold-197",
+        "massNumber": 197,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Gold-198",
+        "massNumber": 198,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 80,
+    "symbol": "Hg",
+    "name": "Mercury",
+    "atomicMass": 200.59,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2",
+    "everydayUses": [
+      "Thermometers",
+      "Fluorescent lamps"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.0,
+    "meltingPoint": 234.321,
+    "boilingPoint": 629.88,
+    "discoverer": "unknown, before 2000 BCE",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1007.1,
+    "density": 13.5336,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Mercury-201",
+        "massNumber": 201,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Mercury-202",
+        "massNumber": 202,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 81,
+    "symbol": "Tl",
+    "name": "Thallium",
+    "atomicMass": 204.38,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p1",
+    "everydayUses": [
+      "Special glass",
+      "Electronics"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.62,
+    "meltingPoint": 577.0,
+    "boilingPoint": 1746.0,
+    "discoverer": "William Crookes",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 589.4,
+    "density": 11.85,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Thallium-204",
+        "massNumber": 204,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Thallium-205",
+        "massNumber": 205,
+        "halfLife": "Stable"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 82,
+    "symbol": "Pb",
+    "name": "Lead",
+    "atomicMass": 207.2,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p2",
+    "everydayUses": [
+      "Batteries",
+      "Radiation shielding"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.87,
+    "meltingPoint": 600.61,
+    "boilingPoint": 2022.0,
+    "discoverer": "Middle East",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 715.6,
+    "density": 11.34,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Lead-207",
+        "massNumber": 207,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Lead-208",
+        "massNumber": 208,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 83,
+    "symbol": "Bi",
+    "name": "Bismuth",
+    "atomicMass": 208.98,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p3",
+    "everydayUses": [
+      "Pepto-Bismol",
+      "Fire sprinklers"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.02,
+    "meltingPoint": 544.7,
+    "boilingPoint": 1837.0,
+    "discoverer": "Claude François Geoffroy",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 703.0,
+    "density": 9.78,
+    "crystalStructure": "Rhombohedral",
+    "isotopes": [
+      {
+        "isotopeName": "Bismuth-209",
+        "massNumber": 209,
+        "halfLife": "Stable"
+      },
+      {
+        "isotopeName": "Bismuth-210",
+        "massNumber": 210,
+        "halfLife": "Radioactive"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 84,
+    "symbol": "Po",
+    "name": "Polonium",
+    "atomicMass": 209.0,
+    "groupBlock": "Metalloid",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p4",
+    "everydayUses": [
+      "Anti-static brushes",
+      "Spacecraft heating"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.0,
+    "meltingPoint": 527.0,
+    "boilingPoint": 1235.0,
+    "discoverer": "Pierre Curie",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 812.1,
+    "density": 9.196,
+    "crystalStructure": "Simple Cubic",
+    "isotopes": [
+      {
+        "isotopeName": "Polonium-209",
+        "massNumber": 209,
+        "halfLife": "125 years"
+      },
+      {
+        "isotopeName": "Polonium-210",
+        "massNumber": 210,
+        "halfLife": "138.376 days"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 85,
+    "symbol": "At",
+    "name": "Astatine",
+    "atomicMass": 210.0,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p5",
+    "everydayUses": [
+      "Cancer treatment"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 575.0,
+    "boilingPoint": 610.0,
+    "discoverer": "Dale R. Corson",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 890.0,
+    "density": 6.2,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Astatine-210",
+        "massNumber": 210,
+        "halfLife": "8.1 hours"
+      },
+      {
+        "isotopeName": "Astatine-211",
+        "massNumber": 211,
+        "halfLife": "7.2 hours"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 86,
+    "symbol": "Rn",
+    "name": "Radon",
+    "atomicMass": 222.0,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[Xe] 4f14 5d10 6s2 6p6",
+    "everydayUses": [
+      "Cancer treatment"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 2.2,
+    "meltingPoint": 202.0,
+    "boilingPoint": 211.5,
+    "discoverer": "Friedrich Ernst Dorn",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1037.0,
+    "density": 0.00973,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Radon-222",
+        "massNumber": 222,
+        "halfLife": "3.8235 days"
+      },
+      {
+        "isotopeName": "Radon-220",
+        "massNumber": 220,
+        "halfLife": "55.6 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 87,
+    "symbol": "Fr",
+    "name": "Francium",
+    "atomicMass": 223.0,
+    "groupBlock": "Alkali metal",
+    "electronConfiguration": "[Rn] 7s1",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.79,
+    "meltingPoint": 300.0,
+    "boilingPoint": 950.0,
+    "discoverer": "Marguerite Perey",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 380.0,
+    "density": 1.87,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Francium-223",
+        "massNumber": 223,
+        "halfLife": "22 minutes"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 88,
+    "symbol": "Ra",
+    "name": "Radium",
+    "atomicMass": 226.0,
+    "groupBlock": "Alkaline earth metal",
+    "electronConfiguration": "[Rn] 7s2",
+    "everydayUses": [
+      "Luminous dials (historical)",
+      "Cancer treatment"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 0.9,
+    "meltingPoint": 1233.0,
+    "boilingPoint": 2010.0,
+    "discoverer": "Pierre Curie",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 509.3,
+    "density": 5.5,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Radium-226",
+        "massNumber": 226,
+        "halfLife": "1600 years"
+      },
+      {
+        "isotopeName": "Radium-228",
+        "massNumber": 228,
+        "halfLife": "5.75 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 89,
+    "symbol": "Ac",
+    "name": "Actinium",
+    "atomicMass": 227.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 6d1 7s2",
+    "everydayUses": [
+      "Radiation therapy"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.1,
+    "meltingPoint": 1500.0,
+    "boilingPoint": 3500.0,
+    "discoverer": "Friedrich Oskar Giesel",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 499.0,
+    "density": 10.0,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Actinium-227",
+        "massNumber": 227,
+        "halfLife": "21.772 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 90,
+    "symbol": "Th",
+    "name": "Thorium",
+    "atomicMass": 232.04,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 6d2 7s2",
+    "everydayUses": [
+      "Gas mantles",
+      "Alloys"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 2023.0,
+    "boilingPoint": 5061.0,
+    "discoverer": "Jöns Jakob Berzelius",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 587.0,
+    "density": 11.7,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Thorium-232",
+        "massNumber": 232,
+        "halfLife": "14.05 billion years"
+      },
+      {
+        "isotopeName": "Thorium-230",
+        "massNumber": 230,
+        "halfLife": "75,380 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 91,
+    "symbol": "Pa",
+    "name": "Protactinium",
+    "atomicMass": 231.04,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f2 6d1 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.5,
+    "meltingPoint": 1841.0,
+    "boilingPoint": 4300.0,
+    "discoverer": "William Crookes",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 568.0,
+    "density": 15.37,
+    "crystalStructure": "Tetragonal",
+    "isotopes": [
+      {
+        "isotopeName": "Protactinium-231",
+        "massNumber": 231,
+        "halfLife": "32,760 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 92,
+    "symbol": "U",
+    "name": "Uranium",
+    "atomicMass": 238.03,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f3 6d1 7s2",
+    "everydayUses": [
+      "Nuclear power",
+      "Armor piercing"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.38,
+    "meltingPoint": 1405.3,
+    "boilingPoint": 4404.0,
+    "discoverer": "Martin Heinrich Klaproth",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 597.6,
+    "density": 19.1,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Uranium-238",
+        "massNumber": 238,
+        "halfLife": "4.468 billion years"
+      },
+      {
+        "isotopeName": "Uranium-235",
+        "massNumber": 235,
+        "halfLife": "703.8 million years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 93,
+    "symbol": "Np",
+    "name": "Neptunium",
+    "atomicMass": 237.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f4 6d1 7s2",
+    "everydayUses": [
+      "Plutonium production"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.36,
+    "meltingPoint": 912.0,
+    "boilingPoint": 4447.0,
+    "discoverer": "Edwin McMillan",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 604.5,
+    "density": 20.45,
+    "crystalStructure": "Orthorhombic",
+    "isotopes": [
+      {
+        "isotopeName": "Neptunium-237",
+        "massNumber": 237,
+        "halfLife": "2.14 million years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 94,
+    "symbol": "Pu",
+    "name": "Plutonium",
+    "atomicMass": 244.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f6 7s2",
+    "everydayUses": [
+      "Nuclear weapons",
+      "Spacecraft power"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.28,
+    "meltingPoint": 912.5,
+    "boilingPoint": 3505.0,
+    "discoverer": "Glenn T. Seaborg",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 584.7,
+    "density": 19.82,
+    "crystalStructure": "Monoclinic",
+    "isotopes": [
+      {
+        "isotopeName": "Plutonium-244",
+        "massNumber": 244,
+        "halfLife": "80 million years"
+      },
+      {
+        "isotopeName": "Plutonium-239",
+        "massNumber": 239,
+        "halfLife": "24,110 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 95,
+    "symbol": "Am",
+    "name": "Americium",
+    "atomicMass": 243.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f7 7s2",
+    "everydayUses": [
+      "Smoke detectors"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.13,
+    "meltingPoint": 1449.0,
+    "boilingPoint": 2880.0,
+    "discoverer": "Glenn T. Seaborg",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 578.0,
+    "density": 13.67,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Americium-241",
+        "massNumber": 241,
+        "halfLife": "432.2 years"
+      },
+      {
+        "isotopeName": "Americium-243",
+        "massNumber": 243,
+        "halfLife": "7370 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 96,
+    "symbol": "Cm",
+    "name": "Curium",
+    "atomicMass": 247.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f7 6d1 7s2",
+    "everydayUses": [
+      "Spacecraft power"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.28,
+    "meltingPoint": 1613.0,
+    "boilingPoint": 3383.0,
+    "discoverer": "Glenn T. Seaborg",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 581.0,
+    "density": 13.51,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Curium-247",
+        "massNumber": 247,
+        "halfLife": "15.6 million years"
+      },
+      {
+        "isotopeName": "Curium-244",
+        "massNumber": 244,
+        "halfLife": "18.1 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 97,
+    "symbol": "Bk",
+    "name": "Berkelium",
+    "atomicMass": 247.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f9 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1259.0,
+    "boilingPoint": 2900.0,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 601.0,
+    "density": 14.78,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Berkelium-247",
+        "massNumber": 247,
+        "halfLife": "1380 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 98,
+    "symbol": "Cf",
+    "name": "Californium",
+    "atomicMass": 251.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f10 7s2",
+    "everydayUses": [
+      "Metal detectors",
+      "Moisture gauges"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1173.0,
+    "boilingPoint": 1743.0,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 608.0,
+    "density": 15.1,
+    "crystalStructure": "DHCP",
+    "isotopes": [
+      {
+        "isotopeName": "Californium-251",
+        "massNumber": 251,
+        "halfLife": "900 years"
+      },
+      {
+        "isotopeName": "Californium-252",
+        "massNumber": 252,
+        "halfLife": "2.645 years"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 99,
+    "symbol": "Es",
+    "name": "Einsteinium",
+    "atomicMass": 252.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f11 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1133.0,
+    "boilingPoint": 1269.0,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 619.0,
+    "density": 8.84,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Einsteinium-252",
+        "massNumber": 252,
+        "halfLife": "471.7 days"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 100,
+    "symbol": "Fm",
+    "name": "Fermium",
+    "atomicMass": 257.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f12 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1800.0,
+    "boilingPoint": null,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 627.0,
+    "density": 9.7,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Fermium-257",
+        "massNumber": 257,
+        "halfLife": "100.5 days"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 101,
+    "symbol": "Md",
+    "name": "Mendelevium",
+    "atomicMass": 258.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f13 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1100.0,
+    "boilingPoint": null,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 635.0,
+    "density": 10.3,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Mendelevium-258",
+        "massNumber": 258,
+        "halfLife": "51.5 days"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 102,
+    "symbol": "No",
+    "name": "Nobelium",
+    "atomicMass": 259.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f14 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1100.0,
+    "boilingPoint": null,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 642.0,
+    "density": 9.9,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Nobelium-259",
+        "massNumber": 259,
+        "halfLife": "58 minutes"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 103,
+    "symbol": "Lr",
+    "name": "Lawrencium",
+    "atomicMass": 266.0,
+    "groupBlock": "Actinide",
+    "electronConfiguration": "[Rn] 5f14 7s2 7p1",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": 1.3,
+    "meltingPoint": 1900.0,
+    "boilingPoint": null,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 470.0,
+    "density": 15.6,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Lawrencium-262",
+        "massNumber": 262,
+        "halfLife": "3.6 hours"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 104,
+    "symbol": "Rf",
+    "name": "Rutherfordium",
+    "atomicMass": 267.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d2 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 2400.0,
+    "boilingPoint": 5800.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 580.0,
+    "density": 23.2,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Rutherfordium-267",
+        "massNumber": 267,
+        "halfLife": "1.3 hours"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 105,
+    "symbol": "Db",
+    "name": "Dubnium",
+    "atomicMass": 268.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d3 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 650.0,
+    "density": 29.3,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Dubnium-268",
+        "massNumber": 268,
+        "halfLife": "28 hours"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 106,
+    "symbol": "Sg",
+    "name": "Seaborgium",
+    "atomicMass": 269.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d4 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Lawrence Berkeley National Laboratory",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 610.0,
+    "density": 35.0,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Seaborgium-269",
+        "massNumber": 269,
+        "halfLife": "14 minutes"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 107,
+    "symbol": "Bh",
+    "name": "Bohrium",
+    "atomicMass": 270.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d5 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 740.0,
+    "density": 37.1,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Bohrium-270",
+        "massNumber": 270,
+        "halfLife": "1 minute"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 108,
+    "symbol": "Hs",
+    "name": "Hassium",
+    "atomicMass": 277.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d6 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 126.0,
+    "boilingPoint": null,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 730.0,
+    "density": 40.7,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Hassium-269",
+        "massNumber": 269,
+        "halfLife": "9.7 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 109,
+    "symbol": "Mt",
+    "name": "Meitnerium",
+    "atomicMass": 278.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d7 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 800.0,
+    "density": 37.4,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Meitnerium-278",
+        "massNumber": 278,
+        "halfLife": "4.5 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 110,
+    "symbol": "Ds",
+    "name": "Darmstadtium",
+    "atomicMass": 281.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d8 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 960.0,
+    "density": 34.8,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Darmstadtium-281",
+        "massNumber": 281,
+        "halfLife": "12.7 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 111,
+    "symbol": "Rg",
+    "name": "Roentgenium",
+    "atomicMass": 282.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d9 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": null,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 950.0,
+    "density": 28.7,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Roentgenium-282",
+        "massNumber": 282,
+        "halfLife": "120 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 112,
+    "symbol": "Cn",
+    "name": "Copernicium",
+    "atomicMass": 285.0,
+    "groupBlock": "Transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": 3570.0,
+    "discoverer": "Gesellschaft für Schwerionenforschung",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 1150.0,
+    "density": 14.0,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Copernicium-285",
+        "massNumber": 285,
+        "halfLife": "29 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 113,
+    "symbol": "Nh",
+    "name": "Nihonium",
+    "atomicMass": 286.0,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p1",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 700.0,
+    "boilingPoint": 1430.0,
+    "discoverer": "RIKEN",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 700.0,
+    "density": 16.0,
+    "crystalStructure": "HCP",
+    "isotopes": [
+      {
+        "isotopeName": "Nihonium-286",
+        "massNumber": 286,
+        "halfLife": "9.5 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 114,
+    "symbol": "Fl",
+    "name": "Flerovium",
+    "atomicMass": 289.0,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p2",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 340.0,
+    "boilingPoint": 420.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 820.0,
+    "density": 14.0,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Flerovium-289",
+        "massNumber": 289,
+        "halfLife": "1.9 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 115,
+    "symbol": "Mc",
+    "name": "Moscovium",
+    "atomicMass": 290.0,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p3",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 670.0,
+    "boilingPoint": 1400.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 530.0,
+    "density": 13.5,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Moscovium-290",
+        "massNumber": 290,
+        "halfLife": "0.65 seconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 116,
+    "symbol": "Lv",
+    "name": "Livermorium",
+    "atomicMass": 293.0,
+    "groupBlock": "Post-transition metal",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p4",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 709.0,
+    "boilingPoint": 1085.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 720.0,
+    "density": 12.9,
+    "crystalStructure": "BCC",
+    "isotopes": [
+      {
+        "isotopeName": "Livermorium-293",
+        "massNumber": 293,
+        "halfLife": "53 milliseconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 117,
+    "symbol": "Ts",
+    "name": "Tennessine",
+    "atomicMass": 294.0,
+    "groupBlock": "Halogen",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p5",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": 723.0,
+    "boilingPoint": 883.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 740.0,
+    "density": 7.2,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Tennessine-294",
+        "massNumber": 294,
+        "halfLife": "51 milliseconds"
+      }
+    ]
+  },
+  {
+    "atomicNumber": 118,
+    "symbol": "Og",
+    "name": "Oganesson",
+    "atomicMass": 294.0,
+    "groupBlock": "Noble gas",
+    "electronConfiguration": "[Rn] 5f14 6d10 7s2 7p6",
+    "everydayUses": [
+      "Research"
+    ],
+    "emissionSpectra": "Visible spectrum lines",
+    "electronegativity": null,
+    "meltingPoint": null,
+    "boilingPoint": 350.0,
+    "discoverer": "Joint Institute for Nuclear Research",
+    "discoveryYear": null,
+    "stateAtRoomTemp": null,
+    "ionizationEnergy": 860.0,
+    "density": 7.0,
+    "crystalStructure": "FCC",
+    "isotopes": [
+      {
+        "isotopeName": "Oganesson-294",
+        "massNumber": 294,
+        "halfLife": "0.7 milliseconds"
+      }
+    ]
+  }
+]
