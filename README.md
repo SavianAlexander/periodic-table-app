@@ -43,6 +43,22 @@ This application is designed for students, educators, and science enthusiasts. I
 
 ---
 
+## 🖼️ Screenshots
+
+### Main Interface (Standard IUPAC Table Layout)
+![Main Grid](docs/screenshots/main_grid.png)
+
+### Beginner Mode (Everyday Uses & Real-World Element Photo)
+![Beginner Mode Dashboard](docs/screenshots/beginner_view.png)
+
+### Intermediate Mode (Physical & Chemical Parameters & Photo)
+![Intermediate Mode Dashboard](docs/screenshots/intermediate_view.png)
+
+### Advanced Mode (Interactive Bohr Model & Glowing Emission Spectra)
+![Advanced Mode Dashboard](docs/screenshots/advanced_view.png)
+
+---
+
 ## 📁 Project Structure
 
 ```
