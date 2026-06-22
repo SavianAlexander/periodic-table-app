@@ -7,6 +7,8 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0-purple?logo=vite&logoColor=white)](https://vite.dev/)
 [![Playwright](https://img.shields.io/badge/Playwright-E2E-orange?logo=playwright&logoColor=white)](https://playwright.dev/)
 
+🚀 **[Live Interactive Demo](https://SavianAlexander.github.io/periodic-table-app/)**
+
 Welcome to the **Interactive Academic Periodic Table App**—the most comprehensive, visually stunning, and educational chemistry reference tool built with React, Vite, and SQLite.
 
 This application is designed for students, educators, and science enthusiasts. It transitions seamlessly between three learning levels (**Beginner**, **Intermediate**, and **Advanced**), adjusting the information density and interactive tools dynamically.
