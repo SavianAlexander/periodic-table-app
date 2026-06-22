@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/main.css';
 import { BohrModel } from './BohrModel';
 import { EmissionSpectra } from './EmissionSpectra';
@@ -23,6 +23,20 @@ const waveToColor = (wavelength) => {
 export function RightPanel({ element, difficulty, onClose }) {
   const closeBtnRef = useRef(null);
   const panelRef = useRef(null);
+  const [photoState, setPhotoState] = useState({ loading: true, error: false, url: '' });
+
+  useEffect(() => {
+    if (element) {
+      const url = element.atomicNumber <= 94
+        ? `https://images-of-elements.com/${element.name.toLowerCase()}.jpg`
+        : null;
+      setPhotoState({
+        loading: !!url,
+        error: !url,
+        url: url || ''
+      });
+    }
+  }, [element]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -84,6 +98,44 @@ export function RightPanel({ element, difficulty, onClose }) {
   // Compute a simple, elegant academic description of the element for Beginner overview
   const simpleDescription = `${element.name} (${element.symbol}) is a chemical element with atomic number ${element.atomicNumber}. Classified as a ${element.groupBlock ? element.groupBlock.toLowerCase() : 'chemical element'}, it has an atomic mass of ${element.atomicMass} u. ${Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? `It is commonly used in applications such as ${element.everydayUses.slice(0, 2).join(' and ')}.` : ''}`;
 
+  const renderPhotoSection = () => {
+    if (element.atomicNumber > 94) {
+      return (
+        <div className="right-panel-section photo-section">
+          <h3>Real-World Appearance</h3>
+          <div className="synthetic-fallback">
+            <span className="radiation-warning">⚠️</span>
+            <p><strong>Highly Synthetic & Radioactive</strong></p>
+            <p className="synthetic-desc">This element is highly unstable. It decays too rapidly to exist in visible quantities for photographing.</p>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="right-panel-section photo-section">
+        <h3>Real-World Appearance</h3>
+        <div className="element-photo-wrapper">
+          {photoState.loading && <div className="photo-skeleton">Loading photo...</div>}
+          {!photoState.error && (
+            <img 
+              src={photoState.url} 
+              alt={`${element.name}`}
+              className={`element-photo ${photoState.loading ? 'hidden' : ''}`}
+              onLoad={() => setPhotoState(prev => ({ ...prev, loading: false }))}
+              onError={() => setPhotoState(prev => ({ ...prev, loading: false, error: true }))}
+            />
+          )}
+          {photoState.error && (
+            <div className="photo-error-fallback">
+              <p>Photo not available for {element.name}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="right-panel-overlay" data-testid="right-panel-overlay" onClick={(e) => {
@@ -115,7 +167,7 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <p><strong>Category:</strong> {element.groupBlock || 'Data not available'}</p>
                   </div>
                 </div>
-                
+                {renderPhotoSection()}
                 <div className="right-panel-section" data-testid="right-panel-everyday-uses">
                   <h3>Everyday Uses</h3>
                   {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
@@ -141,7 +193,7 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <p><strong>Category:</strong> {element.groupBlock || 'Data not available'}</p>
                   </div>
                 </div>
-
+                {renderPhotoSection()}
                 <div className="right-panel-section" data-testid="right-panel-everyday-uses">
                   <h3>Everyday Uses</h3>
                   {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
