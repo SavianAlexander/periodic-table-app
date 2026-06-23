@@ -4,8 +4,10 @@ export default defineConfig({
   testDir: './tests/e2e',
   retries: process.env.CI ? 2 : 1,
   workers: process.env.CI ? 2 : 6,
+  reporter: 'list',
   use: {
     baseURL: 'http://127.0.0.1:5173',
+    initScript: './tests/e2e/global-mocks.js',
   },
   webServer: {
     command: 'npm run dev',

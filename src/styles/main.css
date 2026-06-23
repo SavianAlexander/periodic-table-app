@@ -357,8 +357,8 @@
   top: 50%;
   left: calc((100vw - 400px) / 2);
   transform: translate(-50%, -50%);
-  width: 600px;
-  max-width: calc(100vw - 450px);
+  width: 800px;
+  max-width: calc(100vw - 460px);
   z-index: 950;
   box-sizing: border-box;
   animation: fadeInScale 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -375,8 +375,10 @@
   margin: 0;
 }
 
-.floating-video-container .curated-video-iframe {
-  height: 340px !important;
+.floating-video-container .curated-video-iframe,
+.floating-video-container .element-video-player {
+  aspect-ratio: 16 / 9;
+  height: auto !important;
 }
 
 .right-panel-header h2 {
