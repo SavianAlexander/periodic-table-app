@@ -286,9 +286,10 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 400px;
+  width: 850px;
+  max-width: 95vw;
   height: 100vh;
-  background: rgba(20, 22, 35, 0.65);
+  background: rgba(20, 22, 35, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -298,6 +299,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slideIn {
@@ -350,6 +352,31 @@
   padding-bottom: 20px;
 }
 
+.right-panel-body-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.right-panel-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.right-panel-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: sticky;
+  top: 10px;
+  align-self: start;
+  min-width: 0;
+}
+
 .right-panel-header h2 {
   margin: 0 0 8px 0;
   font-size: 1.8rem;
@@ -393,6 +420,19 @@
 
 .right-panel-section ul {
   padding-left: 20px;
+}
+
+@media (max-width: 1300px) {
+  .right-panel {
+    width: 400px;
+  }
+  .right-panel-body-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .right-panel-right-col {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
