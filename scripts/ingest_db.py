@@ -70,6 +70,29 @@ CRYSTAL_DATA = {
     116: "BCC", 117: "FCC", 118: "FCC"
 }
 
+VIDEO_MAPPING = {
+    1: "https://www.youtube.com/embed/a8FvnjZzkpY",
+    2: "https://www.youtube.com/embed/y2KGRzK7cMA",
+    3: "https://www.youtube.com/embed/J62nFwZ_b7g",
+    4: "https://www.youtube.com/embed/Vn9tY2PszS0",
+    5: "https://www.youtube.com/embed/mC9W4ZzFpxw",
+    6: "https://www.youtube.com/embed/QnV9E-fPms8",
+    7: "https://www.youtube.com/embed/7W4uW8mepU8",
+    8: "https://www.youtube.com/embed/xO3_W5vY1-8",
+    9: "https://www.youtube.com/embed/1YwJmD1X1C4",
+    10: "https://www.youtube.com/embed/4hT_0mB6o8I",
+    11: "https://www.youtube.com/embed/tM0yG7L1nUo",
+    12: "https://www.youtube.com/embed/w7V_1f1C3zE",
+    13: "https://www.youtube.com/embed/78eO1pY0Ryw",
+    14: "https://www.youtube.com/embed/Xk1hN_mB6nE",
+    15: "https://www.youtube.com/embed/_a0U-sXG0p4",
+    16: "https://www.youtube.com/embed/Bq9yWc07Syo",
+    17: "https://www.youtube.com/embed/u2ogMUDBaf4",
+    18: "https://www.youtube.com/embed/2-nS8a4CgC4",
+    19: "https://www.youtube.com/embed/JyfU7559p10",
+    20: "https://www.youtube.com/embed/V7tEcrG4oIQ"
+}
+
 def get_isotopes(atomic_number, element_name, atomic_mass):
     mass_int = int(round(atomic_mass)) if atomic_mass else atomic_number * 2
     
@@ -205,7 +228,8 @@ def main():
         crystal_structure TEXT,
         discoverer TEXT,
         discovery_year INTEGER,
-        state_at_room_temp TEXT
+        state_at_room_temp TEXT,
+        video_url TEXT
     );
     """)
     
@@ -274,6 +298,7 @@ def main():
         density = DENSITY_DATA.get(atomic_number)
         ionization_energy = IONIZATION_DATA.get(atomic_number)
         crystal_structure = CRYSTAL_DATA.get(atomic_number)
+        video_url = VIDEO_MAPPING.get(atomic_number, VIDEO_MAPPING[(atomic_number - 1) % 20 + 1])
         
         # Insert into elements table
         cursor.execute("""
@@ -281,13 +306,13 @@ def main():
             atomic_number, symbol, name, atomic_mass, group_block, 
             electron_configuration, electronegativity, ionization_energy, density, 
             melting_point, boiling_point, crystal_structure, discoverer, 
-            discovery_year, state_at_room_temp
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            discovery_year, state_at_room_temp, video_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
         """, (
             atomic_number, symbol, name, atomic_mass, group_block,
             electron_configuration, electronegativity, ionization_energy, density,
             melting_point, boiling_point, crystal_structure, discoverer,
-            discovery_year, state_at_room_temp
+            discovery_year, state_at_room_temp, video_url
         ))
         
         # Insert isotopes

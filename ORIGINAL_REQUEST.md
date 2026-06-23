@@ -151,3 +151,52 @@ Integrity mode: development
 - [ ] All Playwright E2E tests pass without error.
 
 
+## Follow-up — 2026-06-23T00:33:16Z
+
+The user wants to add an interactive multimedia feature to the Periodic Table App: when an element card is clicked and the detailed panel opens, the user can watch a curated video showing the element's materials and listen to a read-aloud voice explanation in their chosen language. The user must be able to control (play, pause, resume) both the video and the voice narration while reading the right panel details.
+
+Working directory: c:/Users/Administrator/Desktop/periodic-table-app
+Integrity mode: benchmark
+
+## Requirements
+
+### R1. Curated Multilingual Video Player
+- Integrate a video player within the element detailed view panel.
+- Play a curated video demonstrating the element's physical appearance, materials, or real-world applications.
+- Videos can use embed sources (e.g. YouTube/Vimeo) or fallback local video mock files.
+- The UI should support changing the interface/narration language (e.g. English, Spanish, French) and update the video/narrator target settings accordingly.
+
+### R2. Voice Narration / Read-Aloud (Web Speech API)
+- Provide a voice read-aloud narration of the element's information displayed in the right panel.
+- Use the browser's native Web Speech API (`SpeechSynthesis`) to generate voice narration in the selected language.
+- Provide simple controls (Play/Pause/Stop) for the voice narrator.
+
+### R3. Non-Blocking Interactive Controls
+- Both the video player and voice narrator controls must be non-blocking, allowing the user to read through the right panel text, scroll, and interact with other panel elements simultaneously.
+- Closing the right panel must immediately stop/terminate any active video playback and voice narration.
+
+## Acceptance Criteria
+
+### Video Player
+- [ ] Clicking any element card renders a visible video player in the detail panel (e.g. `data-testid="element-video-player"`).
+- [ ] The video player has controls to play and pause the media.
+
+### Voice Narration
+- [ ] A voice narrator control dashboard is visible (e.g. `data-testid="voice-narrator-controls"`).
+- [ ] Clicking the play button triggers the browser's voice synthesis to read aloud element details.
+- [ ] The narrator correctly detects and uses the active language voice if available in the browser.
+
+### Layout & Cleanup
+- [ ] Right panel remains scrollable and interactive during active playback.
+- [ ] Closing the panel stops all voice synthesis and pauses/destroys the video player context.
+
+
+## Follow-up — 2026-06-23T00:34:30Z
+
+The user explicitly emphasized: "Like i need a complete video really nice and super planned for each element you know?"
+Ensure that you curate/map actual high-quality educational video links (e.g., embedding elements' videos from the renowned "Periodic Videos" YouTube channel by Brady Haran, or CrashCourse Chemistry) directly into the database/mappings for each element, rather than just using generic placeholders, so that the video content is genuinely curated and informative for each individual element.
+
+
+## Follow-up — 2026-06-23T00:35:50Z
+
+The user requested that the real-world appearance photos shouldn't get cut off. I have modified src/styles/main.css to set .element-photo to object-fit: contain; instead of object-fit: cover;. Please ensure that during the multimedia feature implementation, the right panel styling preserves this or layout elements keep photos and the new video player scaled nicely.

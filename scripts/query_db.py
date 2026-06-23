@@ -73,6 +73,7 @@ def main():
             "ionizationEnergy": el_row["ionization_energy"],
             "density": el_row["density"],
             "crystalStructure": el_row["crystal_structure"],
+            "videoUrl": el_row["video_url"],
             "isotopes": isotopes
         }
         elements_list.append(element_dict)
