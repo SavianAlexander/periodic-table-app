@@ -515,8 +515,10 @@ export function RightPanel({ element, difficulty, onClose }) {
       }}></div>
 
       {isLargeScreen && (
-        <div className="floating-video-container" onClick={(e) => e.stopPropagation()}>
-          {renderVideoSection()}
+        <div className="floating-video-wrapper">
+          <div className="floating-video-container" onClick={(e) => e.stopPropagation()}>
+            {renderVideoSection()}
+          </div>
         </div>
       )}
       
