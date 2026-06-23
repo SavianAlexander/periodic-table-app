@@ -37,7 +37,7 @@ const translations = {
     visibleSpectrumLines: 'Visible spectrum lines',
     isChemicalElement: 'is a chemical element with atomic number',
     classifiedAs: 'Classified as a',
-    hasAtomicMass: 'it has an atomic mass of',
+    hasAtomicMass: 'it has an academic mass of',
     commonlyUsed: 'It is commonly used in applications such as',
     and: 'and',
     play: 'Play',
@@ -253,6 +253,16 @@ export function RightPanel({ element, difficulty, onClose }) {
   const [photoState, setPhotoState] = useState({ loading: true, error: false, url: '' });
   const [language, setLanguage] = useState('en');
   const [activeVideoTab, setActiveVideoTab] = useState('curated');
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    setIsLargeScreen(window.innerWidth >= 1025);
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1025);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (element) {
@@ -441,12 +451,74 @@ export function RightPanel({ element, difficulty, onClose }) {
     );
   };
 
+  const renderVideoSection = () => {
+    return (
+      <div className="right-panel-section media-section">
+        <h3>{translations[language].videoTab}</h3>
+        <div className="media-tabs-controls">
+          <button 
+            onClick={() => setActiveVideoTab('local')}
+            className={`tab-btn ${activeVideoTab === 'local' ? 'active' : ''}`}
+          >
+            {translations[language].videoNarrative}
+          </button>
+          <button 
+            onClick={() => setActiveVideoTab('curated')}
+            className={`tab-btn ${activeVideoTab === 'curated' ? 'active' : ''}`}
+          >
+            {translations[language].curatedVideo}
+          </button>
+        </div>
+        
+        {/* HTML5 Video Player */}
+        <div style={{ display: activeVideoTab === 'local' ? 'block' : 'none' }}>
+          <p 
+            data-testid="local-video-fallback"
+            style={{ margin: '10px 0', fontSize: '0.9em', color: '#888', lineHeight: '1.4', fontStyle: 'italic' }}
+          >
+            Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson.
+          </p>
+          <video
+            ref={videoRef}
+            data-testid="element-video-player"
+            controls
+            src={`/videos/${element.name.toLowerCase()}_${language}.mp4`}
+            className="element-video-player"
+            style={{ width: '100%', borderRadius: '8px', marginTop: '10px' }}
+          />
+        </div>
+        
+        {/* Curated YouTube Video Player */}
+        <div style={{ display: activeVideoTab === 'curated' ? 'block' : 'none' }}>
+          {element.videoUrl ? (
+            <iframe
+              src={`${element.videoUrl}?hl=${language}&cc_lang_pref=${language}&cc_load_policy=1`}
+              title={`${element.name} Curated Video`}
+              className="curated-video-iframe"
+              style={{ width: '100%', height: '280px', border: 'none', borderRadius: '8px', marginTop: '10px' }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <p>{translations[language].dataNotAvailable}</p>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="right-panel-overlay" data-testid="right-panel-overlay" onClick={(e) => {
         if (e.detail > 1) return;
         onClose();
       }}></div>
+
+      {isLargeScreen && (
+        <div className="floating-video-container" onClick={(e) => e.stopPropagation()}>
+          {renderVideoSection()}
+        </div>
+      )}
       
       <div className="right-panel" role="dialog" aria-modal="true" data-testid="right-panel" ref={panelRef} onClick={(e) => e.stopPropagation()}>
         <div className={`${difficulty === 'Advanced' ? 'density-high' : ''} right-panel-content`.trim()} data-testid="right-panel-content">
@@ -474,225 +546,168 @@ export function RightPanel({ element, difficulty, onClose }) {
           </div>
           
           <div className="right-panel-body">
-            <div className="right-panel-body-grid">
-              <div className="right-panel-left-col">
-                {/* Voice Narrator Control Dashboard */}
-                <div className="right-panel-section voice-section">
-                  <h3>{translations[language].voiceNarrator}</h3>
-                  <div data-testid="voice-narrator-controls" className="voice-narrator-controls">
-                    <button onClick={handlePlaySpeech} className="speech-btn play-btn" aria-label={translations[language].play}>
-                      ◀ {translations[language].play}
-                    </button>
-                    <button onClick={handlePauseSpeech} className="speech-btn pause-btn" aria-label={translations[language].pause}>
-                      ⏸ {translations[language].pause}
-                    </button>
-                    <button onClick={handleStopSpeech} className="speech-btn stop-btn" aria-label={translations[language].stop}>
-                      ⏹ {translations[language].stop}
-                    </button>
-                  </div>
-                </div>
-
-                {/* Photo / Photos section (where the video player was) */}
-                {renderPhotoSection()}
-                
-                {/* Beginner Mode Dashboard */}
-                {difficulty === 'Beginner' && (
-                  <div className="dashboard-beginner">
-                    <div className="right-panel-section educational-section">
-                      <h3>{translations[language].elementOverview}</h3>
-                      <p className="element-desc">{getSimpleDescription(element, language)}</p>
-                      <div className="overview-details" style={{ marginTop: '12px' }}>
-                        <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
-                      </div>
-                    </div>
-                    <div className="right-panel-section" data-testid="right-panel-everyday-uses">
-                      <h3>{translations[language].everydayUses}</h3>
-                      {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
-                        <ul className="uses-list">
-                          {element.everydayUses.map((use, index) => (
-                            <li key={index}>{use}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p>{translations[language].dataNotAvailable}</p>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {/* Intermediate Mode Dashboard */}
-                {difficulty === 'Intermediate' && (
-                  <div className="dashboard-intermediate" data-testid="right-panel-intermediate-details">
-                    <div className="right-panel-section educational-section">
-                      <h3>{translations[language].elementOverview}</h3>
-                      <p className="element-desc">{getSimpleDescription(element, language)}</p>
-                      <div className="overview-details" style={{ marginTop: '12px' }}>
-                        <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
-                      </div>
-                    </div>
-                    <div className="right-panel-section" data-testid="right-panel-everyday-uses">
-                      <h3>{translations[language].everydayUses}</h3>
-                      {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
-                        <ul className="uses-list">
-                          {element.everydayUses.map((use, index) => (
-                            <li key={index}>{use}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p>{translations[language].dataNotAvailable}</p>
-                      )}
-                    </div>
-
-                    <div className="right-panel-section physical-properties">
-                      <h3>{translations[language].physicalChemicalParameters}</h3>
-                      <div className="properties-grid">
-                        <p><strong>{translations[language].stateAtRoomTemp}:</strong> {translateState(element.stateAtRoomTemp, language)}</p>
-                        <p><strong>{translations[language].meltingPoint}:</strong> {formatProperty(element.meltingPoint, ' K', language)}</p>
-                        <p><strong>{translations[language].boilingPoint}:</strong> {formatProperty(element.boilingPoint, ' K', language)}</p>
-                        <p><strong>{translations[language].density}:</strong> {formatProperty(element.density, element.stateAtRoomTemp === 'Gas' ? ' g/L' : ' g/cm³', language)}</p>
-                        <p><strong>{translations[language].crystalStructure}:</strong> {formatProperty(element.crystalStructure, '', language)}</p>
-                        <p><strong>{translations[language].discoverer}:</strong> {formatProperty(element.discoverer, '', language)}</p>
-                        <p><strong>{translations[language].discoveryYear}:</strong> {formatProperty(element.discoveryYear, '', language)}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Advanced Mode Dashboard */}
-                {difficulty === 'Advanced' && (
-                  <div className="dashboard-advanced" data-testid="right-panel-advanced-data">
-                    <div className="right-panel-section educational-section">
-                      <h3>{translations[language].elementOverview}</h3>
-                      <p className="element-desc">{getSimpleDescription(element, language)}</p>
-                      <div className="overview-details" style={{ marginTop: '12px' }}>
-                        <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
-                      </div>
-                    </div>
-
-                    <div className="right-panel-section physical-properties">
-                      <h3>{translations[language].physicalChemicalParameters}</h3>
-                      <div className="properties-grid">
-                        <p><strong>{translations[language].stateAtRoomTemp}:</strong> {translateState(element.stateAtRoomTemp, language)}</p>
-                        <p><strong>{translations[language].meltingPoint}:</strong> {formatProperty(element.meltingPoint, ' K', language)}</p>
-                        <p><strong>{translations[language].boilingPoint}:</strong> {formatProperty(element.boilingPoint, ' K', language)}</p>
-                        <p><strong>{translations[language].density}:</strong> {formatProperty(element.density, element.stateAtRoomTemp === 'Gas' ? ' g/L' : ' g/cm³', language)}</p>
-                        <p><strong>{translations[language].crystalStructure}:</strong> {formatProperty(element.crystalStructure, '', language)}</p>
-                        <p><strong>{translations[language].discoverer}:</strong> {formatProperty(element.discoverer, '', language)}</p>
-                        <p><strong>{translations[language].discoveryYear}:</strong> {formatProperty(element.discoveryYear, '', language)}</p>
-                        <p><strong>{translations[language].electronegativity}:</strong> {formatProperty(element.electronegativity, '', language)}</p>
-                        <p><strong>{translations[language].ionizationEnergy}:</strong> {formatProperty(element.ionizationEnergy, ' kJ/mol', language)}</p>
-                      </div>
-                    </div>
-
-                    <div className="right-panel-section">
-                      <h3>{translations[language].electronConfiguration}</h3>
-                      {element.electronConfiguration ? (
-                        <p className="highlight-box" dangerouslySetInnerHTML={{ __html: typeof element.electronConfiguration === 'string' ? element.electronConfiguration.replace(/([spdf])(\d+)/g, '$1<sup>$2</sup>') : translations[language].dataNotAvailable }}></p>
-                      ) : (
-                        <p className="highlight-box">{translations[language].dataNotAvailable}</p>
-                      )}
-                    </div>
-
-                    <div className="right-panel-section isotopes-section">
-                      <h3>{translations[language].isotopes}</h3>
-                      {Array.isArray(element.isotopes) && element.isotopes.length > 0 ? (
-                        <div className="isotopes-table-container">
-                          <table className="isotopes-table">
-                            <thead>
-                              <tr>
-                                <th>{translations[language].isotope}</th>
-                                <th>{translations[language].massNo}</th>
-                                <th>{translations[language].halfLife}</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {element.isotopes.map((iso, idx) => (
-                                <tr key={idx}>
-                                  <td>{iso.isotopeName || 'Unknown'}</td>
-                                  <td>{iso.massNumber !== undefined ? iso.massNumber : 'Unknown'}</td>
-                                  <td>{iso.halfLife || 'Unknown'}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      ) : (
-                        <p className="highlight-box">{translations[language].dataNotAvailable}</p>
-                      )}
-                    </div>
-
-                    {/* Bohr Model visualizer */}
-                    <div className="right-panel-section">
-                      <h3>{translations[language].interactiveBohrModel}</h3>
-                      <BohrModel element={element} />
-                    </div>
-
-                    {/* Emission Spectra visualizer */}
-                    <div className="right-panel-section">
-                      <h3>{translations[language].emissionSpectra}</h3>
-                      <EmissionSpectra spectra={element.emissionSpectra} />
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="right-panel-right-col">
-                {/* Video Player Dashboard Section */}
-                <div className="right-panel-section media-section">
-                  <h3>{translations[language].videoTab}</h3>
-                  <div className="media-tabs-controls">
-                    <button 
-                      onClick={() => setActiveVideoTab('local')}
-                      className={`tab-btn ${activeVideoTab === 'local' ? 'active' : ''}`}
-                    >
-                      {translations[language].videoNarrative}
-                    </button>
-                    <button 
-                      onClick={() => setActiveVideoTab('curated')}
-                      className={`tab-btn ${activeVideoTab === 'curated' ? 'active' : ''}`}
-                    >
-                      {translations[language].curatedVideo}
-                    </button>
-                  </div>
-                  
-                  {/* HTML5 Video Player */}
-                  <div style={{ display: activeVideoTab === 'local' ? 'block' : 'none' }}>
-                    <p 
-                      data-testid="local-video-fallback"
-                      style={{ margin: '10px 0', fontSize: '0.9em', color: '#888', lineHeight: '1.4', fontStyle: 'italic' }}
-                    >
-                      Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson.
-                    </p>
-                    <video
-                      ref={videoRef}
-                      data-testid="element-video-player"
-                      controls
-                      src={`/videos/${element.name.toLowerCase()}_${language}.mp4`}
-                      className="element-video-player"
-                      style={{ width: '100%', borderRadius: '8px', marginTop: '10px' }}
-                    />
-                  </div>
-                  
-                  {/* Curated YouTube Video Player */}
-                  <div style={{ display: activeVideoTab === 'curated' ? 'block' : 'none' }}>
-                    {element.videoUrl ? (
-                      <iframe
-                        src={`${element.videoUrl}?hl=${language}&cc_lang_pref=${language}&cc_load_policy=1`}
-                        title={`${element.name} Curated Video`}
-                        className="curated-video-iframe"
-                        style={{ width: '100%', height: '280px', border: 'none', borderRadius: '8px', marginTop: '10px' }}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <p>{translations[language].dataNotAvailable}</p>
-                    )}
-                  </div>
-                </div>
+            {/* Voice Narrator Control Dashboard */}
+            <div className="right-panel-section voice-section">
+              <h3>{translations[language].voiceNarrator}</h3>
+              <div data-testid="voice-narrator-controls" className="voice-narrator-controls">
+                <button onClick={handlePlaySpeech} className="speech-btn play-btn" aria-label={translations[language].play}>
+                  ◀ {translations[language].play}
+                </button>
+                <button onClick={handlePauseSpeech} className="speech-btn pause-btn" aria-label={translations[language].pause}>
+                  ⏸ {translations[language].pause}
+                </button>
+                <button onClick={handleStopSpeech} className="speech-btn stop-btn" aria-label={translations[language].stop}>
+                  ⏹ {translations[language].stop}
+                </button>
               </div>
             </div>
-          </div>
 
+            {/* Photo / Photos section */}
+            {renderPhotoSection()}
+
+            {/* Render video section in panel ONLY on small screens */}
+            {!isLargeScreen && renderVideoSection()}
+            
+            {/* Beginner Mode Dashboard */}
+            {difficulty === 'Beginner' && (
+              <div className="dashboard-beginner">
+                <div className="right-panel-section educational-section">
+                  <h3>{translations[language].elementOverview}</h3>
+                  <p className="element-desc">{getSimpleDescription(element, language)}</p>
+                  <div className="overview-details" style={{ marginTop: '12px' }}>
+                    <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
+                  </div>
+                </div>
+                <div className="right-panel-section" data-testid="right-panel-everyday-uses">
+                  <h3>{translations[language].everydayUses}</h3>
+                  {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
+                    <ul className="uses-list">
+                      {element.everydayUses.map((use, index) => (
+                        <li key={index}>{use}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{translations[language].dataNotAvailable}</p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Intermediate Mode Dashboard */}
+            {difficulty === 'Intermediate' && (
+              <div className="dashboard-intermediate" data-testid="right-panel-intermediate-details">
+                <div className="right-panel-section educational-section">
+                  <h3>{translations[language].elementOverview}</h3>
+                  <p className="element-desc">{getSimpleDescription(element, language)}</p>
+                  <div className="overview-details" style={{ marginTop: '12px' }}>
+                    <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
+                  </div>
+                </div>
+                <div className="right-panel-section" data-testid="right-panel-everyday-uses">
+                  <h3>{translations[language].everydayUses}</h3>
+                  {Array.isArray(element.everydayUses) && element.everydayUses.length > 0 ? (
+                    <ul className="uses-list">
+                      {element.everydayUses.map((use, index) => (
+                        <li key={index}>{use}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{translations[language].dataNotAvailable}</p>
+                  )}
+                </div>
+
+                <div className="right-panel-section physical-properties">
+                  <h3>{translations[language].physicalChemicalParameters}</h3>
+                  <div className="properties-grid">
+                    <p><strong>{translations[language].stateAtRoomTemp}:</strong> {translateState(element.stateAtRoomTemp, language)}</p>
+                    <p><strong>{translations[language].meltingPoint}:</strong> {formatProperty(element.meltingPoint, ' K', language)}</p>
+                    <p><strong>{translations[language].boilingPoint}:</strong> {formatProperty(element.boilingPoint, ' K', language)}</p>
+                    <p><strong>{translations[language].density}:</strong> {formatProperty(element.density, element.stateAtRoomTemp === 'Gas' ? ' g/L' : ' g/cm³', language)}</p>
+                    <p><strong>{translations[language].crystalStructure}:</strong> {formatProperty(element.crystalStructure, '', language)}</p>
+                    <p><strong>{translations[language].discoverer}:</strong> {formatProperty(element.discoverer, '', language)}</p>
+                    <p><strong>{translations[language].discoveryYear}:</strong> {formatProperty(element.discoveryYear, '', language)}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Advanced Mode Dashboard */}
+            {difficulty === 'Advanced' && (
+              <div className="dashboard-advanced" data-testid="right-panel-advanced-data">
+                <div className="right-panel-section educational-section">
+                  <h3>{translations[language].elementOverview}</h3>
+                  <p className="element-desc">{getSimpleDescription(element, language)}</p>
+                  <div className="overview-details" style={{ marginTop: '12px' }}>
+                    <p><strong>{translations[language].category}:</strong> {element.groupBlock ? (translations[language].groupBlocks[element.groupBlock.toLowerCase()] || element.groupBlock) : translations[language].dataNotAvailable}</p>
+                  </div>
+                </div>
+
+                <div className="right-panel-section physical-properties">
+                  <h3>{translations[language].physicalChemicalParameters}</h3>
+                  <div className="properties-grid">
+                    <p><strong>{translations[language].stateAtRoomTemp}:</strong> {translateState(element.stateAtRoomTemp, language)}</p>
+                    <p><strong>{translations[language].meltingPoint}:</strong> {formatProperty(element.meltingPoint, ' K', language)}</p>
+                    <p><strong>{translations[language].boilingPoint}:</strong> {formatProperty(element.boilingPoint, ' K', language)}</p>
+                    <p><strong>{translations[language].density}:</strong> {formatProperty(element.density, element.stateAtRoomTemp === 'Gas' ? ' g/L' : ' g/cm³', language)}</p>
+                    <p><strong>{translations[language].crystalStructure}:</strong> {formatProperty(element.crystalStructure, '', language)}</p>
+                    <p><strong>{translations[language].discoverer}:</strong> {formatProperty(element.discoverer, '', language)}</p>
+                    <p><strong>{translations[language].discoveryYear}:</strong> {formatProperty(element.discoveryYear, '', language)}</p>
+                    <p><strong>{translations[language].electronegativity}:</strong> {formatProperty(element.electronegativity, '', language)}</p>
+                    <p><strong>{translations[language].ionizationEnergy}:</strong> {formatProperty(element.ionizationEnergy, ' kJ/mol', language)}</p>
+                  </div>
+                </div>
+
+                <div className="right-panel-section">
+                  <h3>{translations[language].electronConfiguration}</h3>
+                  {element.electronConfiguration ? (
+                    <p className="highlight-box" dangerouslySetInnerHTML={{ __html: typeof element.electronConfiguration === 'string' ? element.electronConfiguration.replace(/([spdf])(\d+)/g, '$1<sup>$2</sup>') : translations[language].dataNotAvailable }}></p>
+                  ) : (
+                    <p className="highlight-box">{translations[language].dataNotAvailable}</p>
+                  )}
+                </div>
+
+                <div className="right-panel-section isotopes-section">
+                  <h3>{translations[language].isotopes}</h3>
+                  {Array.isArray(element.isotopes) && element.isotopes.length > 0 ? (
+                    <div className="isotopes-table-container">
+                      <table className="isotopes-table">
+                        <thead>
+                          <tr>
+                            <th>{translations[language].isotope}</th>
+                            <th>{translations[language].massNo}</th>
+                            <th>{translations[language].halfLife}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {element.isotopes.map((iso, idx) => (
+                            <tr key={idx}>
+                              <td>{iso.isotopeName || 'Unknown'}</td>
+                              <td>{iso.massNumber !== undefined ? iso.massNumber : 'Unknown'}</td>
+                              <td>{iso.halfLife || 'Unknown'}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <p className="highlight-box">{translations[language].dataNotAvailable}</p>
+                  )}
+                </div>
+
+                {/* Bohr Model visualizer */}
+                <div className="right-panel-section">
+                  <h3>{translations[language].interactiveBohrModel}</h3>
+                  <BohrModel element={element} />
+                </div>
+
+                {/* Emission Spectra visualizer */}
+                <div className="right-panel-section">
+                  <h3>{translations[language].emissionSpectra}</h3>
+                  <EmissionSpectra spectra={element.emissionSpectra} />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>
