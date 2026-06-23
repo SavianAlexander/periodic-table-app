@@ -128,9 +128,9 @@ npm run build
 
 The application is thoroughly verified using a **Playwright End-to-End** testing suite covering user scenarios, accessibility compliance, keyboard shortcuts, and fallback behaviors.
 
-To execute the test suite (sequentially to conserve system memory):
+To execute the test suite (using 3 parallel workers):
 ```bash
-npm test -- --workers=1
+npm test -- --workers=3
 ```
 
 ---
