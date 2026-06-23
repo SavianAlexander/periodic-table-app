@@ -1,5 +1,4 @@
-// Global mock for speech synthesis and HTMLMediaElement methods to prevent browser teardown hangs in E2E tests
-
+console.log('GLOBAL MOCKS LOADED AND RUNNING');
 window.__speechSynthesisCalls = [];
 
 class MockSpeechSynthesisUtterance {
@@ -40,31 +39,90 @@ const mockSpeechSynthesis = {
 };
 
 // Define on window
-Object.defineProperty(window, 'SpeechSynthesisUtterance', {
-  value: MockSpeechSynthesisUtterance,
-  configurable: true,
-  writable: true
-});
+try {
+  Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+    value: MockSpeechSynthesisUtterance,
+    configurable: true,
+    writable: true
+  });
+} catch (e) {
+  try {
+    Object.defineProperty(Window.prototype, 'SpeechSynthesisUtterance', {
+      value: MockSpeechSynthesisUtterance,
+      configurable: true,
+      writable: true
+    });
+  } catch (err) {
+    try {
+      window.SpeechSynthesisUtterance = MockSpeechSynthesisUtterance;
+    } catch (err2) {
+      console.error('Failed to define SpeechSynthesisUtterance:', err2);
+    }
+  }
+}
 
-Object.defineProperty(window, 'speechSynthesis', {
-  value: mockSpeechSynthesis,
-  configurable: true,
-  writable: true
-});
+try {
+  // Try defining as a getter on window
+  try {
+    Object.defineProperty(window, 'speechSynthesis', {
+      get() { return mockSpeechSynthesis; },
+      configurable: true
+    });
+  } catch (e1) {
+    // Try defining as a value on window
+    try {
+      Object.defineProperty(window, 'speechSynthesis', {
+        value: mockSpeechSynthesis,
+        configurable: true,
+        writable: true
+      });
+    } catch (e2) {
+      // Try defining as a getter on Window.prototype
+      try {
+        Object.defineProperty(Window.prototype, 'speechSynthesis', {
+          get() { return mockSpeechSynthesis; },
+          configurable: true
+        });
+      } catch (e3) {
+        // Try defining as a value on Window.prototype
+        try {
+          Object.defineProperty(Window.prototype, 'speechSynthesis', {
+            value: mockSpeechSynthesis,
+            configurable: true,
+            writable: true
+          });
+        } catch (e4) {
+          // Final fallback: just try assignment
+          try {
+            window.speechSynthesis = mockSpeechSynthesis;
+          } catch (e5) {
+            console.error('Failed to mock speechSynthesis:', e5);
+          }
+        }
+      }
+    }
+  }
+} catch (outerError) {
+  console.error('Outer error in speechSynthesis mocking:', outerError);
+}
 
 // Stub HTMLMediaElement.prototype.play and pause
-Object.defineProperty(HTMLMediaElement.prototype, 'play', {
-  value: function () {
-    return Promise.resolve();
-  },
-  configurable: true,
-  writable: true
-});
+try {
+  Object.defineProperty(HTMLMediaElement.prototype, 'play', {
+    value: function () {
+      return Promise.resolve();
+    },
+    configurable: true,
+    writable: true
+  });
+} catch (e) {}
 
-Object.defineProperty(HTMLMediaElement.prototype, 'pause', {
-  value: function () {
-    // no-op
-  },
-  configurable: true,
-  writable: true
-});
+try {
+  Object.defineProperty(HTMLMediaElement.prototype, 'pause', {
+    value: function () {
+      // no-op
+    },
+    configurable: true,
+    writable: true
+  });
+} catch (e) {}

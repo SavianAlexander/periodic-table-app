@@ -822,7 +822,7 @@
 /* Premium Search & Interactive Legend Styles */
 .controls-container {
   position: relative;
-  z-index: 950;
+  z-index: 990;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -832,6 +832,11 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  pointer-events: none;
+}
+
+.controls-container > * {
+  pointer-events: auto;
 }
 
 .search-container {

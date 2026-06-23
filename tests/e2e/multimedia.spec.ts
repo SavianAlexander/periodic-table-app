@@ -12,6 +12,10 @@ test.describe('Multimedia and Multilingual Features E2E Tests', () => {
     page.on('pageerror', (err) => {
       console.error('Browser Page Error:', err.message);
     });
+    // Listen for console messages
+    page.on('console', (msg) => {
+      console.log(`BROWSER CONSOLE (${msg.type()}):`, msg.text());
+    });
 
     await page.goto('/');
   });
@@ -78,26 +82,34 @@ test.describe('Multimedia and Multilingual Features E2E Tests', () => {
 
     const expectedNarrationText = "Hydrogen. Símbolo: H. Número Atómico: 1. Hydrogen (H) es un elemento químico con número atómico 1. Clasificado como un nonmetal, tiene una masa atómica de 1.008 u. Se usa comúnmente en aplicaciones como Balloons y Rocket fuel.";
     
-    let calls = await page.evaluate(() => window.__speechSynthesisCalls);
-    const speakCall = calls.find(c => c.method === 'speak');
-    expect(speakCall).toBeDefined();
+    await expect.poll(async () => {
+      const calls = await page.evaluate(() => window.__speechSynthesisCalls);
+      const isSpeechObj = await page.evaluate(() => typeof window.speechSynthesis);
+      console.log('DEBUG speech synthesis calls:', calls, 'type:', isSpeechObj);
+      return calls.find(c => c.method === 'speak');
+    }).toBeDefined();
+
+    const callsSpeak = await page.evaluate(() => window.__speechSynthesisCalls);
+    const speakCall = callsSpeak.find(c => c.method === 'speak');
     expect(speakCall.text).toBe(expectedNarrationText);
 
     // Click the Pause button, and assert that it contains a record for 'pause'
     const pauseBtn = voiceControls.locator('.pause-btn');
     await pauseBtn.click();
 
-    calls = await page.evaluate(() => window.__speechSynthesisCalls);
-    const pauseCall = calls.find(c => c.method === 'pause');
-    expect(pauseCall).toBeDefined();
+    await expect.poll(async () => {
+      const calls = await page.evaluate(() => window.__speechSynthesisCalls);
+      return calls.find(c => c.method === 'pause');
+    }).toBeDefined();
 
     // Click the Stop button, and assert that it contains a record for 'cancel'
     const stopBtn = voiceControls.locator('.stop-btn');
     await stopBtn.click();
 
-    calls = await page.evaluate(() => window.__speechSynthesisCalls);
-    const stopCall = calls.find(c => c.method === 'cancel');
-    expect(stopCall).toBeDefined();
+    await expect.poll(async () => {
+      const calls = await page.evaluate(() => window.__speechSynthesisCalls);
+      return calls.find(c => c.method === 'cancel');
+    }).toBeDefined();
   });
 });
 
