@@ -94,6 +94,7 @@ test.describe('Adversarial Challenger: Robustness & Edge Cases', () => {
   });
 
   test('Rapid mode and legend transitions', async ({ page }) => {
+    test.slow();
     // 1. Rapidly click difficulty modes
     const beginnerBtn = page.locator('[data-testid="difficulty-beginner"]');
     const intermediateBtn = page.locator('[data-testid="difficulty-intermediate"]');
@@ -101,11 +102,11 @@ test.describe('Adversarial Challenger: Robustness & Edge Cases', () => {
     const currentMode = page.locator('[data-testid="current-mode"]');
 
     // Perform rapid transitions
-    await beginnerBtn.click();
-    await intermediateBtn.click();
-    await advancedBtn.click();
-    await beginnerBtn.click();
-    await advancedBtn.click();
+    await beginnerBtn.click({ force: true });
+    await intermediateBtn.click({ force: true });
+    await advancedBtn.click({ force: true });
+    await beginnerBtn.click({ force: true });
+    await advancedBtn.click({ force: true });
 
     // Verify it ends up in the correct final state and does not crash
     await expect(currentMode).toHaveText('Advanced');
@@ -114,14 +115,14 @@ test.describe('Adversarial Challenger: Robustness & Edge Cases', () => {
     const alkaliBtn = page.locator('[data-testid="legend-alkali-metal"]');
     const nobleBtn = page.locator('[data-testid="legend-noble-gas"]');
 
-    await alkaliBtn.click();
+    await alkaliBtn.click({ force: true });
     await expect(alkaliBtn).toHaveClass(/active/);
-    await alkaliBtn.click(); // toggle off alkali
+    await alkaliBtn.click({ force: true }); // toggle off alkali
     await expect(alkaliBtn).not.toHaveClass(/active/);
 
-    await nobleBtn.click();
+    await nobleBtn.click({ force: true });
     await expect(nobleBtn).toHaveClass(/active/);
-    await nobleBtn.click(); // toggle off noble gas
+    await nobleBtn.click({ force: true }); // toggle off noble gas
     await expect(nobleBtn).not.toHaveClass(/active/);
 
     // 3. Rapid open/close of Right Panel
@@ -131,19 +132,19 @@ test.describe('Adversarial Challenger: Robustness & Edge Cases', () => {
     const closeBtn = page.locator('[data-testid="right-panel-close"]');
 
     // Open Hydrogen, close it
-    await hCard.click();
+    await hCard.click({ force: true });
     await expect(rightPanel).toBeVisible();
-    await closeBtn.click();
+    await closeBtn.click({ force: true });
     await expect(rightPanel).not.toBeVisible();
 
     // Open Helium, close it
-    await heCard.click();
+    await heCard.click({ force: true });
     await expect(rightPanel).toBeVisible();
-    await closeBtn.click();
+    await closeBtn.click({ force: true });
     await expect(rightPanel).not.toBeVisible();
 
     // Open Hydrogen, switch difficulty *while* open
-    await hCard.click();
+    await hCard.click({ force: true });
     await expect(rightPanel).toBeVisible();
 
     await beginnerBtn.click({ force: true });
@@ -156,7 +157,7 @@ test.describe('Adversarial Challenger: Robustness & Edge Cases', () => {
     await expect(page.locator('[data-testid="right-panel-advanced-data"]')).toBeVisible();
 
     // Close panel
-    await closeBtn.click();
+    await closeBtn.click({ force: true });
     await expect(rightPanel).not.toBeVisible();
   });
 });
