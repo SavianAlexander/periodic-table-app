@@ -367,7 +367,7 @@
 }
 
 .floating-video-container {
-  width: 800px;
+  width: 1050px;
   max-width: calc(100% - 60px);
   pointer-events: auto;
   box-sizing: border-box;
