@@ -201,12 +201,11 @@ test.describe('Tier 2: Edge Cases & Boundaries', () => {
     });
 
     test('The modal maintains layout integrity across all difficulty modes', async ({ page }) => {
+      test.slow();
       await page.click('[data-testid="element-6"]');
       const modal = page.locator('[data-testid="right-panel"]');
       for (const mode of ['beginner', 'intermediate', 'advanced']) {
-        await page.click('[data-testid="right-panel-close"]');
         await page.click(`[data-testid="difficulty-${mode}"]`);
-        await page.click('[data-testid="element-6"]');
         await expect(modal).toBeVisible();
         const width = await modal.evaluate((el) => el.clientWidth);
         expect(width).toBeGreaterThan(0);

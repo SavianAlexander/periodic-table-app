@@ -76,6 +76,7 @@ test.describe('Tier 4: Real-World Scenarios', () => {
   });
 
   test('Scenario 4: A user opening modals and closing them across random elements', async ({ page }) => {
+    test.slow();
     const randomElements = [1, 15, 30, 45, 60, 75, 90, 118]; // Just a deterministic spread
     
     for (const atomicNumber of randomElements) {

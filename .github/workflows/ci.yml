@@ -44,7 +44,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --workers=3
+        run: npx playwright test
 
       - name: Upload Test Results Artifact
         if: always()

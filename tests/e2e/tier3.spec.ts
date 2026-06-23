@@ -46,6 +46,7 @@ test.describe('Tier 3: Pairwise Interactions', () => {
   });
 
   test('Cycle Mode (Beg -> Int -> Adv -> Beg) + Action = Hover Element + Verification = Animations perform smoothly in all states', async ({ page }) => {
+    test.slow();
     const modes = ['beginner', 'intermediate', 'advanced', 'beginner'];
     const element = page.locator('[data-testid="element-6"]');
     

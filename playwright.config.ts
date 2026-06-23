@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   retries: process.env.CI ? 2 : 1,
-  workers: 3,
+  workers: process.env.CI ? 2 : 6,
   use: {
     baseURL: 'http://127.0.0.1:5173',
   },
