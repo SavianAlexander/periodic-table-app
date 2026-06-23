@@ -17,6 +17,7 @@ test.describe('Multimedia and Multilingual Features E2E Tests', () => {
       console.log(`BROWSER CONSOLE (${msg.type()}):`, msg.text());
     });
 
+    await page.addInitScript({ path: './tests/e2e/global-mocks.js' });
     await page.goto('/');
   });
 
