@@ -252,7 +252,7 @@ export function RightPanel({ element, difficulty, onClose }) {
   const videoRef = useRef(null);
   const [photoState, setPhotoState] = useState({ loading: true, error: false, url: '' });
   const [language, setLanguage] = useState('en');
-  const [activeVideoTab, setActiveVideoTab] = useState('local');
+  const [activeVideoTab, setActiveVideoTab] = useState('curated');
 
   useEffect(() => {
     if (element) {
@@ -511,6 +511,12 @@ export function RightPanel({ element, difficulty, onClose }) {
               
               {/* HTML5 Video Player */}
               <div style={{ display: activeVideoTab === 'local' ? 'block' : 'none' }}>
+                <p 
+                  data-testid="local-video-fallback"
+                  style={{ margin: '10px 0', fontSize: '0.9em', color: '#888', lineHeight: '1.4', fontStyle: 'italic' }}
+                >
+                  Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson.
+                </p>
                 <video
                   ref={videoRef}
                   data-testid="element-video-player"

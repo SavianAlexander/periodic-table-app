@@ -19,6 +19,9 @@ test.describe('Multimedia and Multilingual Features E2E Tests', () => {
     await expect(langSelect).toBeVisible();
     await expect(langSelect).toHaveValue('en');
 
+    // Switch to local video tab to make the HTML5 video player visible
+    await page.getByRole('button', { name: 'Video Narrative' }).click();
+
     // Video player should be present and active
     const videoPlayer = page.locator('[data-testid="element-video-player"]');
     await expect(videoPlayer).toBeVisible();

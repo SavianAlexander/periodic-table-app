@@ -298,7 +298,10 @@ def main():
         density = DENSITY_DATA.get(atomic_number)
         ionization_energy = IONIZATION_DATA.get(atomic_number)
         crystal_structure = CRYSTAL_DATA.get(atomic_number)
-        video_url = VIDEO_MAPPING.get(atomic_number, VIDEO_MAPPING[(atomic_number - 1) % 20 + 1])
+        if atomic_number in VIDEO_MAPPING:
+            video_url = VIDEO_MAPPING[atomic_number]
+        else:
+            video_url = f"https://www.youtube.com/embed/videoseries?list=PL7AFAA40EAEAC50BA&index={atomic_number - 1}"
         
         # Insert into elements table
         cursor.execute("""
