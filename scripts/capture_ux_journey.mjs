@@ -40,6 +40,72 @@ async function main() {
   
   const page = await context.newPage();
 
+  // Mock YouTube iframe embeds to look beautiful and premium instead of "video unavailable"
+  await page.route('**/youtube.com/embed/**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'text/html',
+      body: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body {
+              margin: 0;
+              background-color: #0b0f19;
+              color: #8fa0dd;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .play-icon {
+              width: 54px;
+              height: 54px;
+              background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 12px;
+              box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            }
+            .play-icon::after {
+              content: '';
+              display: block;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 10px 0 10px 18px;
+              border-color: transparent transparent transparent #ffffff;
+              margin-left: 5px;
+            }
+            h2 {
+              font-size: 14px;
+              margin: 0;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+            }
+            p {
+              font-size: 11px;
+              color: #64748b;
+              margin: 4px 0 0 0;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="play-icon"></div>
+          <h2>Curated YouTube Video</h2>
+          <p>Interactive Lesson Active</p>
+        </body>
+        </html>
+      `
+    });
+  });
+
   // Inject the global mocks script before navigating
   const mocksPath = path.join(process.cwd(), 'tests', 'e2e', 'global-mocks.js');
   console.log(`Injecting global mocks from: ${mocksPath}`);
