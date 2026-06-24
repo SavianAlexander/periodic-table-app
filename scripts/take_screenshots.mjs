@@ -98,6 +98,46 @@ async function main() {
     });
   });
 
+  // Mock images-of-elements.com to return beautiful sample SVG cards instead of remaining on "loading" state
+  await page.route('**/images-of-elements.com/**', (route) => {
+    const url = route.request().url();
+    const filename = url.substring(url.lastIndexOf('/') + 1);
+    const elementName = filename.split('.')[0];
+    const formattedName = elementName.charAt(0).toUpperCase() + elementName.slice(1);
+
+    let startColor = '#374151';
+    let endColor = '#1f2937';
+
+    if (elementName === 'iron') {
+      startColor = '#9ca3af';
+      endColor = '#4b5563';
+    } else if (elementName === 'hydrogen') {
+      startColor = '#60a5fa';
+      endColor = '#2563eb';
+    }
+
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+        <defs>
+          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${startColor}" />
+            <stop offset="100%" stop-color="${endColor}" />
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#g)" />
+        <circle cx="150" cy="100" r="45" fill="white" opacity="0.08" />
+        <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="28" fill="#ffffff" opacity="0.95">${formattedName}</text>
+        <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#ffffff" opacity="0.6" letter-spacing="1.5">REAL-WORLD SAMPLE</text>
+      </svg>
+    `;
+
+    route.fulfill({
+      status: 200,
+      contentType: 'image/svg+xml',
+      body: svg
+    });
+  });
+
   // Set a clean viewport size for screenshots
   await page.setViewportSize({ width: 1440, height: 900 });
 
