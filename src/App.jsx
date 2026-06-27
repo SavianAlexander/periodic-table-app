@@ -9,6 +9,8 @@ function App() {
   const [selectedElement, setSelectedElement] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [activeGroup, setActiveGroup] = useState(null)
+  const [stateFilter, setStateFilter] = useState(null)
+  const [maxElectronegativity, setMaxElectronegativity] = useState(4.0)
 
   const handleClosePanel = useCallback(() => setSelectedElement(null), [])
 
@@ -23,11 +25,17 @@ function App() {
           setSearchQuery={setSearchQuery}
           activeGroup={activeGroup}
           setActiveGroup={setActiveGroup}
+          stateFilter={stateFilter}
+          setStateFilter={setStateFilter}
+          maxElectronegativity={maxElectronegativity}
+          setMaxElectronegativity={setMaxElectronegativity}
         />
         <PeriodicTable 
           difficulty={difficulty} 
           searchQuery={searchQuery}
           activeGroup={activeGroup}
+          stateFilter={stateFilter}
+          maxElectronegativity={maxElectronegativity}
           onElementClick={setSelectedElement} 
         />
       </div>

@@ -15,6 +15,17 @@ function matchesGroup(elementGroupBlock, activeGroup) {
   return elementGroup === filterGroup || elementGroup.replace(/\s+/g, '-') === filterGroup.replace(/\s+/g, '-');
 }
 
+function matchesState(elementState, activeState) {
+  if (!activeState) return true;
+  return (elementState || '').toLowerCase() === activeState.toLowerCase();
+}
+
+function matchesElectronegativity(elementEN, maxEN) {
+  if (maxEN === undefined || maxEN === null || maxEN >= 4.0) return true;
+  if (elementEN === undefined || elementEN === null) return false;
+  return elementEN <= maxEN;
+}
+
 function matchesSearch(element, searchQuery) {
   if (!searchQuery || !searchQuery.trim()) return true;
   const q = searchQuery.trim();
@@ -72,10 +83,10 @@ function matchesSearch(element, searchQuery) {
   return !!(symbolMatch || nameMatch || numberMatch);
 }
 
-export function PeriodicTable({ difficulty, searchQuery, activeGroup, onElementClick }) {
+export function PeriodicTable({ difficulty, searchQuery, activeGroup, stateFilter, maxElectronegativity, onElementClick }) {
   const [hoveredGroup, setHoveredGroup] = useState(null);
 
-  const hasActiveFilters = !!((searchQuery && searchQuery.trim()) || activeGroup);
+  const hasActiveFilters = !!((searchQuery && searchQuery.trim()) || activeGroup || stateFilter || maxElectronegativity < 4.0);
 
   return (
     <div className="table-container">
@@ -88,7 +99,10 @@ export function PeriodicTable({ difficulty, searchQuery, activeGroup, onElementC
         <div data-testid="actinide-series" style={{ gridRow: 10, gridColumn: '1 / 4', alignSelf: 'center', textAlign: 'right', paddingRight: '10px', fontSize: '0.8rem', fontWeight: 'bold', color: '#fff' }}>Actinides</div>
         {elements.map((element) => {
           const { row, col } = getGridPosition(element.atomicNumber);
-          const isMatch = matchesGroup(element.groupBlock, activeGroup) && matchesSearch(element, searchQuery);
+          const isMatch = matchesGroup(element.groupBlock, activeGroup) && 
+                          matchesSearch(element, searchQuery) &&
+                          matchesState(element.stateAtRoomTemp, stateFilter) &&
+                          matchesElectronegativity(element.electronegativity, maxElectronegativity);
           return (
             <ElementCard 
               key={element.atomicNumber} 

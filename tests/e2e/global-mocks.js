@@ -126,3 +126,31 @@ try {
     writable: true
   });
 } catch (e) {}
+
+// Disable all CSS transitions and animations to speed up testing
+try {
+  const injectStyle = () => {
+    const style = document.createElement('style');
+    style.id = 'playwright-speed-overrides';
+    style.innerHTML = `
+      * {
+        transition: none !important;
+        transition-duration: 0s !important;
+        animation: none !important;
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+      }
+    `;
+    if (document.head) {
+      document.head.appendChild(style);
+    } else if (document.documentElement) {
+      document.documentElement.appendChild(style);
+    }
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectStyle);
+  } else {
+    injectStyle();
+  }
+} catch (e) {}
+

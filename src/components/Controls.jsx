@@ -18,7 +18,11 @@ export function Controls({
   searchQuery,
   setSearchQuery,
   activeGroup,
-  setActiveGroup
+  setActiveGroup,
+  stateFilter,
+  setStateFilter,
+  maxElectronegativity,
+  setMaxElectronegativity
 }) {
   const handleGroupClick = (groupId) => {
     if (activeGroup === groupId) {
@@ -72,6 +76,63 @@ export function Controls({
           value={searchQuery || ''}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+      </div>
+
+      {/* Polish Filter Row */}
+      <div className="advanced-filters-row" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', width: '100%', margin: '12px 0', padding: '8px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+        <div className="state-filter-container" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <span style={{ fontSize: '0.85rem', opacity: 0.8, color: '#fff' }}>State:</span>
+          {['Gas', 'Liquid', 'Solid', 'Synthetic'].map(state => {
+            const isActive = stateFilter === state;
+            return (
+              <button
+                key={state}
+                onClick={() => setStateFilter(stateFilter === state ? null : state)}
+                style={{
+                  background: isActive ? '#4facfe' : 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  padding: '4px 10px',
+                  color: '#fff',
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  boxShadow: isActive ? '0 0 10px rgba(79, 172, 254, 0.5)' : 'none'
+                }}
+              >
+                {state}
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="electronegativity-filter" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <span style={{ fontSize: '0.85rem', opacity: 0.8, color: '#fff' }}>Max Electronegativity:</span>
+          <input
+            type="range"
+            min="0.7"
+            max="4.0"
+            step="0.1"
+            value={maxElectronegativity}
+            onChange={(e) => setMaxElectronegativity(parseFloat(e.target.value))}
+            style={{ width: '120px', cursor: 'pointer' }}
+          />
+          <span style={{ fontSize: '0.85rem', color: '#4facfe', fontWeight: 'bold' }}>{maxElectronegativity.toFixed(1)}</span>
+          {maxElectronegativity < 4.0 && (
+            <button
+              onClick={() => setMaxElectronegativity(4.0)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: 'rgba(255,255,255,0.4)',
+                cursor: 'pointer',
+                fontSize: '0.8rem'
+              }}
+            >
+              Reset
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="interactive-legend" data-testid="group-legend">
