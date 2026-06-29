@@ -229,16 +229,6 @@ export function BohrModel({ element }) {
                 strokeDasharray="4 4"
                 className={isShellHighlighted ? 'bohr-orbit-path-highlighted' : ''}
               />
-              
-              {/* Shell name label */}
-              <text
-                x="150"
-                y={150 - R - 3}
-                textAnchor="middle"
-                className={`bohr-shell-text ${isShellHighlighted ? 'bohr-shell-text-highlighted' : ''}`}
-              >
-                {shellLetter}
-              </text>
 
               {/* Rotating electron group */}
               <g className={`bohr-orbit-group bohr-orbit-${i} ${isPaused ? 'bohr-paused' : ''}`}>
