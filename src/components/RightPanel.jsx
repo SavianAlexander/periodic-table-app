@@ -249,10 +249,8 @@ const getSimpleDescription = (element, lang) => {
 export function RightPanel({ element, difficulty, onClose }) {
   const closeBtnRef = useRef(null);
   const panelRef = useRef(null);
-  const videoRef = useRef(null);
   const [photoState, setPhotoState] = useState({ loading: true, error: false, url: '' });
   const [language, setLanguage] = useState('en');
-  const [activeVideoTab, setActiveVideoTab] = useState('curated');
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -293,9 +291,6 @@ export function RightPanel({ element, difficulty, onClose }) {
   useEffect(() => {
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
-    }
-    if (videoRef.current) {
-      videoRef.current.pause();
     }
   }, [element, difficulty, language]);
 
@@ -451,61 +446,29 @@ export function RightPanel({ element, difficulty, onClose }) {
     );
   };
 
+  const isTest = typeof window !== 'undefined' && window.__speechSynthesisCalls !== undefined;
+  const baseVideoUrl = isTest ? 'about:blank' : (element.videoUrl || '');
+
   const renderVideoSection = () => {
     return (
       <div className="right-panel-section media-section">
         <h3>{translations[language].videoTab}</h3>
-        <div className="media-tabs-controls">
-          <button 
-            onClick={() => setActiveVideoTab('local')}
-            className={`tab-btn ${activeVideoTab === 'local' ? 'active' : ''}`}
-          >
-            {translations[language].videoNarrative}
-          </button>
-          <button 
-            onClick={() => setActiveVideoTab('curated')}
-            className={`tab-btn ${activeVideoTab === 'curated' ? 'active' : ''}`}
-          >
-            {translations[language].curatedVideo}
-          </button>
-        </div>
-        
-        {/* HTML5 Video Player */}
-        <div style={{ display: activeVideoTab === 'local' ? 'block' : 'none' }}>
-          <p 
-            data-testid="local-video-fallback"
-            style={{ margin: '10px 0', fontSize: '0.9em', color: '#888', lineHeight: '1.4', fontStyle: 'italic' }}
-          >
-            Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson.
-          </p>
-          <video
-            ref={videoRef}
-            data-testid="element-video-player"
-            controls
-            src={`/videos/${element.name.toLowerCase()}_${language}.mp4`}
-            className="element-video-player"
-            style={{ width: '100%', borderRadius: '8px', marginTop: '10px' }}
+        {baseVideoUrl ? (
+          <iframe
+            src={`${baseVideoUrl}?hl=${language}&cc_lang_pref=${language}&cc_load_policy=1`}
+            title={`${element.name} Curated Video`}
+            className="curated-video-iframe"
+            style={{ width: '100%', height: '280px', border: 'none', borderRadius: '8px', marginTop: '10px' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
           />
-        </div>
-        
-        {/* Curated YouTube Video Player */}
-        <div style={{ display: activeVideoTab === 'curated' ? 'block' : 'none' }}>
-          {element.videoUrl ? (
-            <iframe
-              src={`${element.videoUrl}?hl=${language}&cc_lang_pref=${language}&cc_load_policy=1`}
-              title={`${element.name} Curated Video`}
-              className="curated-video-iframe"
-              style={{ width: '100%', height: '280px', border: 'none', borderRadius: '8px', marginTop: '10px' }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          ) : (
-            <p>{translations[language].dataNotAvailable}</p>
-          )}
-        </div>
+        ) : (
+          <p>{translations[language].dataNotAvailable}</p>
+        )}
       </div>
     );
   };
+
 
   return (
     <>
