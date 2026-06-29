@@ -856,6 +856,7 @@
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
   outline: none;
+  text-align: center;
 }
 
 .search-input:focus {
@@ -1192,5 +1193,46 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* Zero-Scroll and Responsive support for very small screens (e.g. 320px) */
+@media (max-width: 640px) {
+  .element-card .name,
+  .element-card .atomic-mass,
+  .element-card .group-block,
+  .element-card .electron-configuration,
+  .element-card .atomic-number {
+    display: none !important;
+  }
+  .element-card .symbol {
+    font-size: 10px !important;
+  }
+  .element-card {
+    padding: 1px !important;
+    border-width: 0.5px !important;
+  }
+  [data-testid="lanthanide-series"],
+  [data-testid="actinide-series"] {
+    display: none !important;
+  }
+  .controls, .search-container, .advanced-filters-row, .interactive-legend {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    margin: 4px auto !important;
+  }
+  .legend-btn {
+    padding: 2px 4px !important;
+    font-size: 0.65rem !important;
+  }
+  .advanced-filters-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+
 
 
