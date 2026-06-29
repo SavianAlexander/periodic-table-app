@@ -276,7 +276,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 9995;
+  z-index: 900;
   display: block;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -295,7 +295,7 @@
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: -10px 0 30px rgba(0,0,0,0.5);
   color: #fff;
-  z-index: 9999;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -361,7 +361,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9997;
+  z-index: 1000;
   pointer-events: none;
   box-sizing: border-box;
 }
@@ -822,7 +822,7 @@
 /* Premium Search & Interactive Legend Styles */
 .controls-container {
   position: relative;
-  z-index: 10;
+  z-index: 950;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1204,11 +1204,12 @@
     display: none !important;
   }
   .element-card .symbol {
-    font-size: 10px !important;
+    font-size: 7px !important;
   }
   .element-card {
-    padding: 1px !important;
-    border-width: 0.5px !important;
+    padding: 0 !important;
+    border: none !important;
+    gap: 0 !important;
   }
   [data-testid="lanthanide-series"],
   [data-testid="actinide-series"] {
@@ -1226,6 +1227,15 @@
   .legend-btn, .nav-tabs .tab-btn {
     padding: 2px 4px !important;
     font-size: 0.65rem !important;
+  }
+  .nav-tabs {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .nav-tabs .tab-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
   }
   .advanced-filters-row {
     flex-direction: column !important;
