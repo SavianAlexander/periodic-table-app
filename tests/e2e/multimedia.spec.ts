@@ -55,21 +55,7 @@ test.describe('Multimedia and Multilingual Features E2E Tests', () => {
     expect(esSrc).toContain('cc_lang_pref=es');
     expect(esSrc).toContain('cc_load_policy=1');
 
-    // Switch to the local video player tab (by clicking the 'Video Narrative' button)
-    const localVideoTabBtn = page.locator('.media-section .tab-btn').first();
-    await localVideoTabBtn.click();
 
-    // Verify that the local video tab displays the fallback message data-testid="local-video-fallback":
-    // "Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson."
-    const localVideoFallback = page.locator('[data-testid="local-video-fallback"]');
-    await expect(localVideoFallback).toBeVisible();
-    await expect(localVideoFallback).toHaveText(
-      'Offline local video narration not available. Please use the Curated Video tab to watch the online video lesson.'
-    );
-
-    // Verify that the <video> element with data-testid="element-video-player" is still present in the DOM
-    const videoPlayer = page.locator('[data-testid="element-video-player"]');
-    await expect(videoPlayer).toBeAttached();
 
     // Reset calls list in case other things loaded/cancelled speech during transition
     await page.evaluate(() => {

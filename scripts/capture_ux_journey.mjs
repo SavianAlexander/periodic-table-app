@@ -249,9 +249,8 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '10_detail_advanced_hydrogen_spectra.png') });
 
-  // 11. 11_floating_video_player.png: While on Hydrogen, click the tab button to select the Local video player tab (this renders video[data-testid="element-video-player"]), displaying the floating video player centered in the screen outside the right panel. Take a screenshot showing this layout.
-  console.log("Step 11: Switching to Local Video Player (floating layout)...");
-  await page.locator('.media-section .tab-btn').first().click({ force: true });
+  // 11. 11_floating_video_player.png: Capturing the floating video player layout centered in the screen outside the right panel.
+  console.log("Step 11: Capturing floating video player layout...");
   await delay(2000);
   await page.screenshot({ path: path.join(screenshotDir, '11_floating_video_player.png') });
 
