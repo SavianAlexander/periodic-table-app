@@ -27,6 +27,30 @@ test.describe('Academic Upgrades E2E Tests', () => {
     // Verify comparison graph loads
     const graphHeader = page.locator('h2:has-text("Multi-Dimensional Property Analyzer")');
     await expect(graphHeader).toBeVisible();
+
+    // Click Aufbau Sandbox tab
+    const aufbauTab = page.locator('button:has-text("Aufbau Sandbox")');
+    await expect(aufbauTab).toBeVisible();
+    await aufbauTab.click();
+    await expect(page.locator('h2:has-text("Aufbau Electron Configuration Sandbox")')).toBeVisible();
+
+    // Click Equation Balancer tab
+    const balancerTab = page.locator('button:has-text("Equation Balancer")');
+    await expect(balancerTab).toBeVisible();
+    await balancerTab.click();
+    await expect(page.locator('h2:has-text("Chemical Equation Balancing Game")')).toBeVisible();
+
+    // Click Explorer Quiz tab
+    const quizTab = page.locator('button:has-text("Explorer Quiz")');
+    await expect(quizTab).toBeVisible();
+    await quizTab.click();
+    await expect(page.locator('h2:has-text("Periodic Table Explorer Quiz")')).toBeVisible();
+
+    // Click Solubility Matrix tab
+    const solubilityTab = page.locator('button:has-text("Solubility Matrix")');
+    await expect(solubilityTab).toBeVisible();
+    await solubilityTab.click();
+    await expect(page.locator('h2:has-text("Solubility Matrix Calculator")')).toBeVisible();
     
     // Switch back to grid
     const gridTab = page.locator('button:has-text("Periodic Grid")');

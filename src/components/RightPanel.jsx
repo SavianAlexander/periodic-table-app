@@ -4,6 +4,8 @@ import { BohrModel } from './BohrModel';
 import { EmissionSpectra } from './EmissionSpectra';
 import { CrystalLattice } from './CrystalLattice';
 import { IsotopeDecay } from './IsotopeDecay';
+import { AufbauSandbox } from './AufbauSandbox';
+
 
 
 const translations = {
@@ -640,7 +642,12 @@ export function RightPanel({ element, difficulty, onClose }) {
                 <div className="right-panel-section">
                   <h3>{translations[language].electronConfiguration}</h3>
                   {element.electronConfiguration ? (
-                    <p className="highlight-box" dangerouslySetInnerHTML={{ __html: typeof element.electronConfiguration === 'string' ? element.electronConfiguration.replace(/([spdf])(\d+)/g, '$1<sup>$2</sup>') : translations[language].dataNotAvailable }}></p>
+                    <>
+                      <p className="highlight-box" dangerouslySetInnerHTML={{ __html: typeof element.electronConfiguration === 'string' ? element.electronConfiguration.replace(/([spdf])(\d+)/g, '$1<sup>$2</sup>') : translations[language].dataNotAvailable }}></p>
+                      <div style={{ marginTop: '12px' }}>
+                        <AufbauSandbox selectedElement={element} />
+                      </div>
+                    </>
                   ) : (
                     <p className="highlight-box">{translations[language].dataNotAvailable}</p>
                   )}

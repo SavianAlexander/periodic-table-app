@@ -5,6 +5,10 @@ import { Controls } from './components/Controls'
 import { RightPanel } from './components/RightPanel'
 import { BondingSimulator } from './components/BondingSimulator'
 import { ComparisonGraph } from './components/ComparisonGraph'
+import { AufbauSandbox } from './components/AufbauSandbox'
+import { EquationBalancer } from './components/EquationBalancer'
+import { ElementQuiz } from './components/ElementQuiz'
+import { SolubilityCalculator } from './components/SolubilityCalculator'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -42,6 +46,30 @@ function App() {
           >
             Property Analyzer
           </button>
+          <button 
+            onClick={() => setActiveTab('aufbau')} 
+            className={`tab-btn ${activeTab === 'aufbau' ? 'active' : ''}`}
+          >
+            Aufbau Sandbox
+          </button>
+          <button 
+            onClick={() => setActiveTab('balancer')} 
+            className={`tab-btn ${activeTab === 'balancer' ? 'active' : ''}`}
+          >
+            Equation Balancer
+          </button>
+          <button 
+            onClick={() => setActiveTab('quiz')} 
+            className={`tab-btn ${activeTab === 'quiz' ? 'active' : ''}`}
+          >
+            Explorer Quiz
+          </button>
+          <button 
+            onClick={() => setActiveTab('solubility')} 
+            className={`tab-btn ${activeTab === 'solubility' ? 'active' : ''}`}
+          >
+            Solubility Matrix
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -71,6 +99,10 @@ function App() {
 
         {activeTab === 'bonding' && <BondingSimulator />}
         {activeTab === 'graph' && <ComparisonGraph />}
+        {activeTab === 'aufbau' && <AufbauSandbox />}
+        {activeTab === 'balancer' && <EquationBalancer />}
+        {activeTab === 'quiz' && <ElementQuiz />}
+        {activeTab === 'solubility' && <SolubilityCalculator />}
       </div>
       {selectedElement && (
         <RightPanel 
