@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/main.css';
 import { BohrModel } from './BohrModel';
 import { EmissionSpectra } from './EmissionSpectra';
+import { CrystalLattice } from './CrystalLattice';
+import { IsotopeDecay } from './IsotopeDecay';
+
 
 const translations = {
   en: {
@@ -593,6 +596,12 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <p><strong>{translations[language].discoveryYear}:</strong> {formatProperty(element.discoveryYear, '', language)}</p>
                   </div>
                 </div>
+
+                {element.stateAtRoomTemp === 'Solid' && element.crystalStructure && (
+                  <div className="right-panel-section">
+                    <CrystalLattice structure={element.crystalStructure} />
+                  </div>
+                )}
               </div>
             )}
 
@@ -621,6 +630,12 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <p><strong>{translations[language].ionizationEnergy}:</strong> {formatProperty(element.ionizationEnergy, ' kJ/mol', language)}</p>
                   </div>
                 </div>
+
+                {element.stateAtRoomTemp === 'Solid' && element.crystalStructure && (
+                  <div className="right-panel-section">
+                    <CrystalLattice structure={element.crystalStructure} />
+                  </div>
+                )}
 
                 <div className="right-panel-section">
                   <h3>{translations[language].electronConfiguration}</h3>
@@ -657,7 +672,12 @@ export function RightPanel({ element, difficulty, onClose }) {
                   ) : (
                     <p className="highlight-box">{translations[language].dataNotAvailable}</p>
                   )}
+                  {/* Decay Sandbox */}
+                  <div style={{ marginTop: '12px' }}>
+                    <IsotopeDecay element={element} />
+                  </div>
                 </div>
+
 
                 {/* Bohr Model visualizer */}
                 <div className="right-panel-section">

@@ -1214,7 +1214,7 @@
   [data-testid="actinide-series"] {
     display: none !important;
   }
-  .controls, .search-container, .advanced-filters-row, .interactive-legend {
+  .controls, .search-container, .advanced-filters-row, .interactive-legend, .nav-tabs {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -1223,7 +1223,7 @@
     padding: 4px !important;
     margin: 4px auto !important;
   }
-  .legend-btn {
+  .legend-btn, .nav-tabs .tab-btn {
     padding: 2px 4px !important;
     font-size: 0.65rem !important;
   }
@@ -1232,6 +1232,16 @@
     align-items: center !important;
   }
 }
+
+/* Nav Tabs Dashboard styles */
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px auto;
+  flex-wrap: wrap;
+}
+
 
 
 
