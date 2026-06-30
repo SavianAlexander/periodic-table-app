@@ -48,16 +48,30 @@ This application is designed for students, educators, and science enthusiasts. I
 ## 🖼️ Screenshots
 
 ### Main Interface (Standard IUPAC Table Layout)
-![Main Grid](docs/screenshots/main_grid.png)
+![Main Grid](docs/ux_journey/01_beginner_grid.png)
 
 ### Beginner Mode (Everyday Uses & Real-World Element Photo)
-![Beginner Mode Dashboard](docs/screenshots/beginner_view.png)
+![Beginner Mode Dashboard](docs/ux_journey/06_detail_beginner_carbon_en.png)
 
 ### Intermediate Mode (Physical & Chemical Parameters & Photo)
-![Intermediate Mode Dashboard](docs/screenshots/intermediate_view.png)
+![Intermediate Mode Dashboard](docs/ux_journey/08_detail_intermediate_iron.png)
 
 ### Advanced Mode (Interactive Bohr Model & Glowing Emission Spectra)
-![Advanced Mode Dashboard](docs/screenshots/advanced_view.png)
+![Advanced Mode Dashboard](docs/ux_journey/09_detail_advanced_hydrogen_bohr.png)
+
+### 🚀 Academic Visualizer Upgrades (New!)
+
+#### 1. Aufbau Electron Configuration Sandbox
+![Aufbau Sandbox](docs/ux_journey/13_aufbau_sandbox.png)
+
+#### 2. Chemical Equation Balancing Game
+![Equation Balancer](docs/ux_journey/14_equation_balancer.png)
+
+#### 3. Periodic Explorer Quiz Game
+![Explorer Quiz](docs/ux_journey/15_explorer_quiz.png)
+
+#### 4. Solubility Matrix Calculator
+![Solubility Matrix](docs/ux_journey/16_solubility_matrix.png)
 
 ---
 
