@@ -68,11 +68,66 @@ const getSolubility = (cation, anion) => {
   return { soluble: true, formula: 'Compound', rule: 'General Solubility rules applied.' };
 };
 
+const getReactionEquations = (cation, anion, result) => {
+  const cat = cation.symbol;
+  const ani = anion.symbol;
+  const catBase = cat.replace(/[⁺²⁺]/g, '');
+  const aniBase = ani.replace(/[⁻²⁻]/g, '');
+  
+  const catCharge = ['Na⁺', 'K⁺', 'NH₄⁺', 'Ag⁺'].includes(cat) ? 1 : 2;
+  const aniCharge = ['NO₃⁻', 'Cl⁻', 'OH⁻'].includes(ani) ? 1 : 2;
+  
+  const nitrateReactant = catCharge === 1 ? `${catBase}NO₃` : `${catBase}(NO₃)₂`;
+  const sodiumReactant = aniCharge === 1 ? `Na${aniBase}` : `Na₂${aniBase}`;
+  const spectatorNitrate = "NaNO₃";
+  
+  if (result.soluble) {
+    const molecular = `${nitrateReactant} (aq) + ${sodiumReactant} (aq) → ${nitrateReactant} (aq) + ${sodiumReactant} (aq)`;
+    const spectators = `${cation.symbol}, ${anion.symbol}, Na⁺, NO₃⁻`;
+    const netIonic = "No Reaction (All ions remain dissolved)";
+    return { molecular, spectators, netIonic };
+  } else {
+    let coeffReact1 = 1;
+    let coeffReact2 = 1;
+    let coeffSpectator = 1;
+    
+    if (catCharge === 1 && aniCharge === 2) {
+      coeffReact1 = 2;
+      coeffSpectator = 2;
+    } else if (catCharge === 2 && aniCharge === 1) {
+      coeffReact2 = 2;
+      coeffSpectator = 2;
+    } else if (catCharge === 2 && aniCharge === 2) {
+      coeffSpectator = 2;
+    }
+    
+    const r1 = coeffReact1 > 1 ? `${coeffReact1} ` : '';
+    const r2 = coeffReact2 > 1 ? `${coeffReact2} ` : '';
+    const p2 = coeffSpectator > 1 ? `${coeffSpectator} ` : '';
+    
+    const molecular = `${r1}${nitrateReactant} (aq) + ${r2}${sodiumReactant} (aq) → ${result.formula} (s) ↓ + ${p2}${spectatorNitrate} (aq)`;
+    const spectators = `Na⁺, NO₃⁻`;
+    
+    let netCatCoeff = '';
+    let netAniCoeff = '';
+    if (catCharge === 1 && aniCharge === 2) {
+      netCatCoeff = '2 ';
+    } else if (catCharge === 2 && aniCharge === 1) {
+      netAniCoeff = '2 ';
+    }
+    
+    const netIonic = `${netCatCoeff}${cation.symbol} (aq) + ${netAniCoeff}${anion.symbol} (aq) → ${result.formula} (s) ↓`;
+    
+    return { molecular, spectators, netIonic };
+  }
+};
+
 export function SolubilityCalculator() {
   const [selectedCation, setSelectedCation] = useState(CATIONS[0]);
   const [selectedAnion, setSelectedAnion] = useState(ANIONS[1]); // Nitrate default
 
   const result = getSolubility(selectedCation, selectedAnion);
+  const eq = getReactionEquations(selectedCation, selectedAnion, result);
 
   return (
     <div className="solubility-calculator-container" style={{
@@ -140,17 +195,34 @@ export function SolubilityCalculator() {
             border: '1px solid rgba(255,255,255,0.05)',
             borderRadius: '8px',
             padding: '12px',
-            fontSize: '0.9rem',
-            lineHeight: 1.4
+            fontSize: '0.85rem',
+            lineHeight: 1.45,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px'
           }}>
-            <div style={{ fontWeight: 'bold', color: '#00f2fe', marginBottom: '4px' }}>Reaction Equation:</div>
-            <div style={{ fontFamily: 'monospace' }}>
-              {`${selectedCation.symbol} + ${selectedAnion.symbol} → `}
-              <strong style={{ color: result.soluble ? '#2ed573' : '#ff4757' }}>
-                {result.formula} {result.soluble ? '(aq)' : '(s) ↓'}
-              </strong>
+            <div>
+              <div style={{ fontWeight: 'bold', color: '#00f2fe', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Molecular Equation:</div>
+              <div style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: '#fff', marginTop: '2px', background: 'rgba(0,0,0,0.2)', padding: '6px', borderRadius: '4px' }}>
+                {eq.molecular}
+              </div>
             </div>
-            <div style={{ marginTop: '8px', fontSize: '0.8rem', opacity: 0.7 }}>
+
+            <div>
+              <div style={{ fontWeight: 'bold', color: '#00f2fe', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Net Ionic Equation:</div>
+              <div style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: '#fff', marginTop: '2px', background: 'rgba(0,0,0,0.2)', padding: '6px', borderRadius: '4px' }}>
+                {eq.netIonic}
+              </div>
+            </div>
+
+            <div>
+              <div style={{ fontWeight: 'bold', color: '#ffb86c', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Spectator Ions (Dissolved):</div>
+              <div style={{ fontSize: '0.85rem', color: '#ffb86c', marginTop: '2px' }}>
+                {eq.spectators}
+              </div>
+            </div>
+
+            <div style={{ marginTop: '4px', fontSize: '0.8rem', opacity: 0.7, borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px' }}>
               {result.rule}
             </div>
           </div>
@@ -160,21 +232,30 @@ export function SolubilityCalculator() {
         <div style={{ flex: '1 1 250px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
           <h3 style={{ margin: 0, fontSize: '0.95rem', opacity: 0.8 }}>Precipitation Visualizer</h3>
           
-          <svg width="80" height="200" viewBox="0 0 80 200" style={{ overflow: 'visible' }}>
+          <svg width="80" height="200" viewBox="0 0 80 200" style={{ overflow: 'visible', userSelect: 'none' }}>
             {/* Liquid Level */}
             <path
               d="M 15 80 Q 40 78 65 80 L 65 180 Q 40 185 15 180 Z"
-              fill={result.soluble ? 'rgba(0, 242, 254, 0.25)' : 'rgba(255, 255, 255, 0.15)'}
+              fill={result.soluble ? 'rgba(0, 242, 254, 0.2)' : 'rgba(255, 255, 255, 0.1)'}
               style={{ transition: 'fill 0.3s ease' }}
             />
 
-            {/* Insoluble Solid Precipitate at Bottom */}
-            {!result.soluble && (
+            {/* Spectator Ions floating in water */}
+            <text x="25" y="115" fill="rgba(255, 184, 108, 0.8)" fontSize="8" fontWeight="bold">Na⁺</text>
+            <text x="45" y="130" fill="rgba(255, 184, 108, 0.8)" fontSize="8" fontWeight="bold">NO₃⁻</text>
+            
+            {result.soluble ? (
+              <>
+                <text x="20" y="150" fill="rgba(0, 242, 254, 0.9)" fontSize="8" fontWeight="bold">{selectedCation.symbol}</text>
+                <text x="45" y="165" fill="rgba(0, 242, 254, 0.9)" fontSize="8" fontWeight="bold">{selectedAnion.symbol}</text>
+              </>
+            ) : (
+              /* Insoluble Solid Precipitate at Bottom */
               <path
                 d="M 15 170 Q 40 172 65 170 L 65 180 Q 40 185 15 180 Z"
                 fill="#ffffff"
                 style={{
-                  filter: 'drop-shadow(0 0 4px #ffffff)',
+                  filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.6))',
                   animation: 'settleDown 1.5s ease-out'
                 }}
               />

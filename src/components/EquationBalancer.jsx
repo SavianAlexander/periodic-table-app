@@ -12,7 +12,8 @@ const REACTIONS = [
       { text: 'H₂O', multiplier: { H: 2, O: 1 } }
     ],
     correctCoeffs: [2, 1, 2],
-    desc: 'Synthesis of water. Highly exothermic reaction!'
+    desc: 'Synthesis of water. Highly exothermic reaction!',
+    tip: 'Oxygen is diatomic on the left but single in water. Try placing a 2 in front of H₂O to balance Oxygen first, then adjust H₂.'
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ const REACTIONS = [
       { text: 'H₂O', multiplier: { H: 2, O: 1 } }
     ],
     correctCoeffs: [1, 2, 1, 2],
-    desc: 'Combustion of methane gas (natural gas).'
+    desc: 'Combustion of methane gas (natural gas).',
+    tip: 'Always balance Carbon first, then Hydrogen. Save Oxygen (which appears as a pure element O₂) for last.'
   },
   {
     id: 3,
@@ -39,7 +41,8 @@ const REACTIONS = [
       { text: 'Fe₂O₃', multiplier: { Fe: 2, O: 3 } }
     ],
     correctCoeffs: [4, 3, 2],
-    desc: 'Oxidation of iron (commonly known as rusting).'
+    desc: 'Oxidation of iron (commonly known as rusting).',
+    tip: 'Oxygen has 2 atoms on the reactant side and 3 on the product side. Find their least common multiple (6) to balance Oxygen first.'
   },
   {
     id: 4,
@@ -52,7 +55,8 @@ const REACTIONS = [
       { text: 'NH₃', multiplier: { N: 1, H: 3 } }
     ],
     correctCoeffs: [1, 3, 2],
-    desc: 'The Haber-Bosch process for industrial synthesis of ammonia.'
+    desc: 'The Haber-Bosch process for industrial synthesis of ammonia.',
+    tip: 'Nitrogen is diatomic on the reactants side. Start by placing a 2 in front of NH₃, then calculate the Hydrogen needed.'
   }
 ];
 
@@ -60,6 +64,7 @@ export function EquationBalancer() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [coefficients, setCoefficients] = useState([1, 1, 1]);
   const [isBalanced, setIsBalanced] = useState(false);
+  const [showTip, setShowTip] = useState(false);
 
   const reaction = REACTIONS[currentIdx];
 
@@ -68,6 +73,7 @@ export function EquationBalancer() {
     const initialCoeffs = Array(reaction.reactants.length + reaction.products.length).fill(1);
     setCoefficients(initialCoeffs);
     setIsBalanced(false);
+    setShowTip(false);
   }, [currentIdx]);
 
   // Compute element tallies on both sides
@@ -150,8 +156,56 @@ export function EquationBalancer() {
       <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
         <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.8, textAlign: 'center' }}>{reaction.desc}</p>
         
+        <button
+          onClick={() => setShowTip(!showTip)}
+          style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '6px',
+            color: '#00f2fe',
+            padding: '4px 10px',
+            fontSize: '0.8rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s'
+          }}
+        >
+          {showTip ? 'Hide Balancing Tip' : 'Show Balancing Tip'}
+        </button>
+
+        {showTip && (
+          <div style={{
+            background: 'rgba(0, 242, 254, 0.05)',
+            border: '1px solid rgba(0, 242, 254, 0.2)',
+            borderRadius: '8px',
+            padding: '10px 14px',
+            fontSize: '0.85rem',
+            color: '#00f2fe',
+            maxWidth: '500px',
+            textAlign: 'center',
+            lineHeight: '1.4'
+          }}>
+            💡 {reaction.tip}
+          </div>
+        )}
+        
         {/* Interaction Workspace */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', color: '#fff', margin: '20px 0' }}>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '1.4rem',
+          color: '#fff',
+          margin: '10px 0',
+          padding: '16px 24px',
+          borderRadius: '12px',
+          border: isBalanced ? '2px solid #2ed573' : '2px dashed rgba(255,255,255,0.05)',
+          background: isBalanced ? 'rgba(46, 213, 115, 0.05)' : 'transparent',
+          boxShadow: isBalanced ? '0 0 25px rgba(46, 213, 115, 0.3)' : 'none',
+          transform: isBalanced ? 'scale(1.03)' : 'scale(1)',
+          transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+        }}>
           
           {/* Reactants */}
           {reaction.reactants.map((react, i) => (
@@ -162,7 +216,7 @@ export function EquationBalancer() {
                   <button onClick={() => handleCoefficientChange(i, -1)} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '2px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.8rem' }}>▼</button>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <strong style={{ color: '#00f2fe' }}>{coefficients[i]}</strong>
+                  <strong style={{ color: isBalanced ? '#2ed573' : '#00f2fe' }}>{coefficients[i]}</strong>
                   <span>{react.text}</span>
                 </div>
               </div>
@@ -170,7 +224,7 @@ export function EquationBalancer() {
             </React.Fragment>
           ))}
 
-          <span style={{ padding: '0 12px', color: '#ff4757' }}>→</span>
+          <span style={{ padding: '0 12px', color: isBalanced ? '#2ed573' : '#ff4757' }}>→</span>
 
           {/* Products */}
           {reaction.products.map((prod, i) => {
@@ -183,7 +237,7 @@ export function EquationBalancer() {
                     <button onClick={() => handleCoefficientChange(index, -1)} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '2px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.8rem' }}>▼</button>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <strong style={{ color: '#00f2fe' }}>{coefficients[index]}</strong>
+                    <strong style={{ color: isBalanced ? '#2ed573' : '#00f2fe' }}>{coefficients[index]}</strong>
                     <span>{prod.text}</span>
                   </div>
                 </div>

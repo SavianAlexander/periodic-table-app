@@ -16,6 +16,7 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
   const [activeElement, setActiveElement] = useState(elements[0]); // default Hydrogen
   const [electrons, setElectrons] = useState({}); // key: subshell-boxIdx, val: Array of spins ['up', 'down']
   const [feedback, setFeedback] = useState('');
+  const [quantumState, setQuantumState] = useState('Ground State');
 
   useEffect(() => {
     if (selectedElement) {
@@ -59,6 +60,7 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
     }
 
     setElectrons(nextElectrons);
+    setQuantumState('Ground State');
     setFeedback(`Automatically filled configurations for ${el.name} (Atomic Number: ${el.atomicNumber}).`);
   };
 
@@ -109,15 +111,60 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
 
     if (hasPauliViolation) {
       setFeedback('⚠️ Pauli Exclusion Principle Violation: An orbital box cannot hold more than 2 electrons.');
+      setQuantumState('Violated');
     } else if (hasHundViolation) {
       setFeedback("⚠️ Hund's Rule Violation: Fill all orbitals in a subshell singly (with parallel spins) first before pairing up.");
+      setQuantumState('Violated');
     } else {
       const match = totalPlaced === activeElement.atomicNumber;
-      setFeedback(
-        match 
-          ? `🟢 Correct! Electron configuration matches ${activeElement.name} (${totalPlaced} e⁻).`
-          : `Placed ${totalPlaced} electrons. Target for ${activeElement.name} is ${activeElement.atomicNumber} electrons.`
-      );
+      
+      // Ground state check: generate ground state for comparison
+      const groundState = {};
+      let remaining = activeElement.atomicNumber;
+      SUBSHELLS.forEach(sub => {
+        for (let i = 0; i < sub.count; i++) {
+          groundState[`${sub.name}-${i}`] = [];
+        }
+      });
+      for (const sub of SUBSHELLS) {
+        if (remaining <= 0) break;
+        const fillAmount = Math.min(remaining, sub.limit);
+        remaining -= fillAmount;
+        for (let step = 0; step < fillAmount; step++) {
+          if (step < sub.count) {
+            groundState[`${sub.name}-${step}`].push('up');
+          } else {
+            groundState[`${sub.name}-${step - sub.count}`].push('down');
+          }
+        }
+      }
+
+      let isGroundState = true;
+      let hasExcitedLeap = false;
+      
+      SUBSHELLS.forEach(sub => {
+        for (let i = 0; i < sub.count; i++) {
+          const key = `${sub.name}-${i}`;
+          const currentVal = [...(states[key] || [])].sort().join(',');
+          const groundVal = groundState[key].sort().join(',');
+          if (currentVal !== groundVal) {
+            isGroundState = false;
+          }
+        }
+      });
+
+      if (match) {
+        if (isGroundState) {
+          setFeedback(`🟢 Correct! Ground State config achieved for ${activeElement.name} (${totalPlaced} e⁻).`);
+          setQuantumState('Ground State');
+        } else {
+          setFeedback(`⚡ Excited State! Valid quantum state for ${activeElement.name}, but electrons occupy higher orbitals than the Ground State.`);
+          setQuantumState('Excited State');
+        }
+      } else {
+        setFeedback(`Placed ${totalPlaced} e⁻. Target for ${activeElement.name} is ${activeElement.atomicNumber} e⁻.`);
+        setQuantumState('Incomplete');
+      }
     }
   };
 
@@ -129,6 +176,7 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
       }
     });
     setElectrons(nextElectrons);
+    setQuantumState('Incomplete');
     setFeedback('Workspace cleared. Click boxes to manually place electrons.');
   };
 
@@ -151,24 +199,39 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
         <h2 style={{ margin: 0, fontSize: '1.3rem', color: '#fff' }}>Aufbau Electron Configuration Sandbox</h2>
-        {!selectedElement && (
-          <select
-            value={elements.indexOf(activeElement)}
-            onChange={(e) => setActiveElement(elements[e.target.value])}
-            style={{
-              background: 'rgba(0,0,0,0.3)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: '#fff',
-              borderRadius: '8px',
-              padding: '6px 12px',
-              fontSize: '0.85rem'
-            }}
-          >
-            {elements.slice(0, 36).map((el, i) => (
-              <option key={i} value={i}>{el.atomicNumber}. {el.name} ({el.symbol})</option>
-            ))}
-          </select>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{
+            background: quantumState === 'Ground State' ? '#2ed573' :
+                        quantumState === 'Excited State' ? '#ffa502' :
+                        quantumState === 'Violated' ? '#ff4757' : 'rgba(255,255,255,0.1)',
+            color: quantumState === 'Incomplete' ? '#fff' : '#12131c',
+            borderRadius: '12px',
+            padding: '4px 10px',
+            fontSize: '0.8rem',
+            fontWeight: 'bold',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+          }}>
+            {quantumState}
+          </span>
+          {!selectedElement && (
+            <select
+              value={elements.indexOf(activeElement)}
+              onChange={(e) => setActiveElement(elements[e.target.value])}
+              style={{
+                background: 'rgba(0,0,0,0.3)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: '#fff',
+                borderRadius: '8px',
+                padding: '6px 12px',
+                fontSize: '0.85rem'
+              }}
+            >
+              {elements.slice(0, 36).map((el, i) => (
+                <option key={i} value={i}>{el.atomicNumber}. {el.name} ({el.symbol})</option>
+              ))}
+            </select>
+          )}
+        </div>
       </div>
 
       <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '16px' }}>
