@@ -68,6 +68,38 @@ export function ComparisonGraph() {
 
   const groupBlocks = Array.from(new Set(elements.map(el => el.groupBlock).filter(Boolean)));
 
+  const calculateCorrelation = () => {
+    if (validElements.length < 2) return null;
+    const n = validElements.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+    
+    validElements.forEach(el => {
+      const x = el[propX.key];
+      const y = el[propY.key];
+      sumX += x;
+      sumY += y;
+      sumXY += x * y;
+      sumX2 += x * x;
+      sumY2 += y * y;
+    });
+    
+    const num = (n * sumXY) - (sumX * sumY);
+    const den = Math.sqrt(((n * sumX2) - (sumX * sumX)) * ((n * sumY2) - (sumY * sumY)));
+    if (den === 0) return 0;
+    return num / den;
+  };
+
+  const correlation = calculateCorrelation();
+  const getCorrelationStrength = (r) => {
+    if (r === null) return 'N/A';
+    const abs = Math.abs(r);
+    let strength = '';
+    if (abs >= 0.7) strength = 'Strong';
+    else if (abs >= 0.3) strength = 'Moderate';
+    else strength = 'Weak/None';
+    return `${strength} ${r > 0 ? 'Positive' : 'Negative'} Correlation`;
+  };
+
   return (
     <div className="comparison-graph-container" style={{
       background: 'rgba(255, 255, 255, 0.02)',
@@ -118,6 +150,38 @@ export function ComparisonGraph() {
           </select>
         </div>
       </div>
+
+      {correlation !== null && (
+        <div style={{
+          background: 'rgba(255,255,255,0.02)',
+          border: '1px solid rgba(255,255,255,0.05)',
+          borderRadius: '8px',
+          padding: '10px 14px',
+          fontSize: '0.85rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '14px',
+          flexWrap: 'wrap',
+          gap: '8px'
+        }}>
+          <div>
+            <span style={{ opacity: 0.8 }}>Pearson Correlation Coefficient (r):</span>{' '}
+            <strong style={{ color: '#00f2fe', fontFamily: 'monospace' }}>{correlation.toFixed(3)}</strong>
+          </div>
+          <div style={{
+            background: Math.abs(correlation) >= 0.7 ? 'rgba(46, 213, 115, 0.15)' : Math.abs(correlation) >= 0.3 ? 'rgba(255, 165, 2, 0.15)' : 'rgba(255, 71, 87, 0.15)',
+            border: `1px solid ${Math.abs(correlation) >= 0.7 ? '#2ed573' : Math.abs(correlation) >= 0.3 ? '#ffa502' : '#ff4757'}`,
+            color: Math.abs(correlation) >= 0.7 ? '#2ed573' : Math.abs(correlation) >= 0.3 ? '#ffa502' : '#ff4757',
+            padding: '3px 8px',
+            borderRadius: '6px',
+            fontSize: '0.75rem',
+            fontWeight: 'bold'
+          }}>
+            {getCorrelationStrength(correlation)}
+          </div>
+        </div>
+      )}
 
       <div style={{ position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Render interactive SVG graph */}
