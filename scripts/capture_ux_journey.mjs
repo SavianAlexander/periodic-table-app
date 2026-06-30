@@ -28,7 +28,7 @@ async function main() {
         console.error("[Vite Error]", data.toString().trim());
       });
     }),
-    delay(5000) // Fallback timeout of 5 seconds
+    delay(20000) // Fallback timeout of 20 seconds
   ]);
 
   console.log("Dev server is ready. Launching Playwright...");
@@ -262,13 +262,42 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '12_narrator_active.png') });
 
+  // Close panel to return to the main dashboard
+  console.log("Closing panel to show main dashboard...");
+  await page.click('[data-testid="right-panel-close"]');
+  await delay(1000);
+
+  // 13. 13_aufbau_sandbox.png: Navigate to Aufbau Sandbox
+  console.log("Step 13: Capturing Aufbau Sandbox tab...");
+  await page.click('button:has-text("Aufbau Sandbox")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '13_aufbau_sandbox.png') });
+
+  // 14. 14_equation_balancer.png: Navigate to Equation Balancer
+  console.log("Step 14: Capturing Equation Balancer tab...");
+  await page.click('button:has-text("Equation Balancer")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '14_equation_balancer.png') });
+
+  // 15. 15_explorer_quiz.png: Navigate to Explorer Quiz
+  console.log("Step 15: Capturing Explorer Quiz tab...");
+  await page.click('button:has-text("Explorer Quiz")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '15_explorer_quiz.png') });
+
+  // 16. 16_solubility_matrix.png: Navigate to Solubility Matrix
+  console.log("Step 16: Capturing Solubility Matrix tab...");
+  await page.click('button:has-text("Solubility Matrix")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '16_solubility_matrix.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 12 screenshots captured successfully!");
+  console.log("All 16 screenshots captured successfully!");
 }
 
 main().catch((err) => {
