@@ -180,6 +180,40 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
     setFeedback('Workspace cleared. Click boxes to manually place electrons.');
   };
 
+  const getConfigurationString = () => {
+    let parts = [];
+    let total = 0;
+    
+    SUBSHELLS.forEach(sub => {
+      let subshellTotal = 0;
+      for (let i = 0; i < sub.count; i++) {
+        const key = `${sub.name}-${i}`;
+        subshellTotal += (electrons[key] || []).length;
+      }
+      if (subshellTotal > 0) {
+        const superscripts = { '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '10': '¹⁰' };
+        const supStr = superscripts[subshellTotal.toString()] || subshellTotal.toString();
+        parts.push(`${sub.name}${supStr}`);
+        total += subshellTotal;
+      }
+    });
+
+    const fullStr = parts.join(' ');
+    let shorthand = fullStr;
+    
+    if (total >= 18 && fullStr.startsWith('1s² 2s² 2p⁶ 3s² 3p⁶')) {
+      shorthand = fullStr.replace('1s² 2s² 2p⁶ 3s² 3p⁶', '[Ar]');
+    } else if (total >= 10 && fullStr.startsWith('1s² 2s² 2p⁶')) {
+      shorthand = fullStr.replace('1s² 2s² 2p⁶', '[Ne]');
+    } else if (total >= 2 && fullStr.startsWith('1s²')) {
+      shorthand = fullStr.replace('1s²', '[He]');
+    }
+    
+    return { fullStr, shorthand };
+  };
+
+  const cfg = getConfigurationString();
+
   return (
     <div className="aufbau-sandbox" style={{
       background: 'rgba(255, 255, 255, 0.02)',
@@ -279,6 +313,12 @@ export function AufbauSandbox({ selectedElement, onElementChange }) {
               </div>
             );
           })}
+        </div>
+
+        {/* Electron Configuration Notations */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', margin: '14px 0', fontFamily: 'monospace', fontSize: '0.9rem' }}>
+          <div><span style={{ color: '#ffb86c', fontWeight: 'bold' }}>Configuration:</span> <span style={{ color: '#fff' }} data-testid="aufbau-config-str">{cfg.fullStr || 'Empty'}</span></div>
+          <div><span style={{ color: '#00f2fe', fontWeight: 'bold' }}>Shorthand:</span> <span style={{ color: '#fff' }} data-testid="aufbau-shorthand-str">{cfg.shorthand || 'Empty'}</span></div>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', flexWrap: 'wrap', gap: '10px' }}>

@@ -68,6 +68,23 @@ const getSolubility = (cation, anion) => {
   return { soluble: true, formula: 'Compound', rule: 'General Solubility rules applied.' };
 };
 
+const KSP_DATA = {
+  'Ag⁺-Cl⁻': { val: '1.8 × 10⁻¹⁰', expr: 'Ksp = [Ag⁺][Cl⁻]' },
+  'Ag⁺-CO₃²⁻': { val: '8.1 × 10⁻¹²', expr: 'Ksp = [Ag⁺]²[CO₃²⁻]' },
+  'Ag⁺-OH⁻': { val: '2.0 × 10⁻⁸', expr: 'Ksp = [Ag⁺][OH⁻]' },
+  'Ag⁺-SO₄²⁻': { val: '1.2 × 10⁻⁵', expr: 'Ksp = [Ag⁺]²[SO₄²⁻]' },
+  'Pb²⁺-Cl⁻': { val: '1.7 × 10⁻⁵', expr: 'Ksp = [Pb²⁺][Cl⁻]²' },
+  'Pb²⁺-SO₄²⁻': { val: '1.6 × 10⁻⁸', expr: 'Ksp = [Pb²⁺][SO₄²⁻]' },
+  'Pb²⁺-CO₃²⁻': { val: '7.4 × 10⁻¹⁴', expr: 'Ksp = [Pb²⁺][CO₃²⁻]' },
+  'Pb²⁺-OH⁻': { val: '1.2 × 10⁻¹⁵', expr: 'Ksp = [Pb²⁺][OH⁻]²' },
+  'Ca²⁺-SO₄²⁻': { val: '4.9 × 10⁻⁵', expr: 'Ksp = [Ca²⁺][SO₄²⁻]' },
+  'Ca²⁺-CO₃²⁻': { val: '6.0 × 10⁻⁹', expr: 'Ksp = [Ca²⁺][CO₃²⁻]' },
+  'Ca²⁺-OH⁻': { val: '5.5 × 10⁻⁶', expr: 'Ksp = [Ca²⁺][OH⁻]²' },
+  'Ba²⁺-SO₄²⁻': { val: '1.1 × 10⁻¹⁰', expr: 'Ksp = [Ba²⁺][SO₄²⁻]' },
+  'Ba²⁺-CO₃²⁻': { val: '2.6 × 10⁻⁹', expr: 'Ksp = [Ba²⁺][CO₃²⁻]' },
+  'Ba²⁺-OH⁻': { val: '2.55 × 10⁻⁴', expr: 'Ksp = [Ba²⁺][OH⁻]²' }
+};
+
 const getReactionEquations = (cation, anion, result) => {
   const cat = cation.symbol;
   const ani = anion.symbol;
@@ -81,11 +98,14 @@ const getReactionEquations = (cation, anion, result) => {
   const sodiumReactant = aniCharge === 1 ? `Na${aniBase}` : `Na₂${aniBase}`;
   const spectatorNitrate = "NaNO₃";
   
+  const kspKey = `${cat}-${ani}`;
+  const ksp = KSP_DATA[kspKey] || { val: 'N/A (highly soluble)', expr: 'N/A' };
+  
   if (result.soluble) {
     const molecular = `${nitrateReactant} (aq) + ${sodiumReactant} (aq) → ${nitrateReactant} (aq) + ${sodiumReactant} (aq)`;
     const spectators = `${cation.symbol}, ${anion.symbol}, Na⁺, NO₃⁻`;
     const netIonic = "No Reaction (All ions remain dissolved)";
-    return { molecular, spectators, netIonic };
+    return { molecular, spectators, netIonic, ksp };
   } else {
     let coeffReact1 = 1;
     let coeffReact2 = 1;
@@ -118,7 +138,7 @@ const getReactionEquations = (cation, anion, result) => {
     
     const netIonic = `${netCatCoeff}${cation.symbol} (aq) + ${netAniCoeff}${anion.symbol} (aq) → ${result.formula} (s) ↓`;
     
-    return { molecular, spectators, netIonic };
+    return { molecular, spectators, netIonic, ksp };
   }
 };
 
@@ -212,6 +232,13 @@ export function SolubilityCalculator() {
               <div style={{ fontWeight: 'bold', color: '#00f2fe', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Net Ionic Equation:</div>
               <div style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: '#fff', marginTop: '2px', background: 'rgba(0,0,0,0.2)', padding: '6px', borderRadius: '4px' }}>
                 {eq.netIonic}
+              </div>
+            </div>
+
+            <div>
+              <div style={{ fontWeight: 'bold', color: '#ff79c6', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Equilibrium Constant (Ksp):</div>
+              <div style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: '#ff79c6', marginTop: '2px', background: 'rgba(0,0,0,0.2)', padding: '6px', borderRadius: '4px' }}>
+                {eq.ksp.expr} = {eq.ksp.val}
               </div>
             </div>
 

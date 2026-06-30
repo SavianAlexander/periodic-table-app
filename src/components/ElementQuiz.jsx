@@ -88,6 +88,8 @@ const QUESTIONS = [
   }
 ];
 
+import { useEffect } from 'react';
+
 export function ElementQuiz() {
   const [qIdx, setQIdx] = useState(0);
   const [score, setScore] = useState(0);
@@ -97,10 +99,31 @@ export function ElementQuiz() {
   const [selectedSymbol, setSelectedSymbol] = useState('');
   const [showFact, setShowFact] = useState(false);
 
+  // Time Attack states
+  const [isTimeAttack, setIsTimeAttack] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [gameActive, setGameActive] = useState(true);
+  const [highScore, setHighScore] = useState(0);
+
   const question = QUESTIONS[qIdx];
 
+  useEffect(() => {
+    let timer;
+    if (isTimeAttack && gameActive && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft(prev => prev - 1);
+      }, 1000);
+    } else if (timeLeft === 0) {
+      setGameActive(false);
+      if (score > highScore) {
+        setHighScore(score);
+      }
+    }
+    return () => clearInterval(timer);
+  }, [isTimeAttack, gameActive, timeLeft, score, highScore]);
+
   const handleAnswerSubmit = () => {
-    if (!selectedSymbol) return;
+    if (!selectedSymbol || !gameActive) return;
     const el = elements.find(item => item.symbol.toLowerCase() === selectedSymbol.toLowerCase());
     
     if (el && question.check(el)) {
@@ -117,6 +140,7 @@ export function ElementQuiz() {
   };
 
   const handleNext = () => {
+    if (!gameActive) return;
     setQIdx((qIdx + 1) % QUESTIONS.length);
     setFeedback('');
     setSelectedSymbol('');
@@ -131,6 +155,8 @@ export function ElementQuiz() {
     setFeedback('');
     setSelectedSymbol('');
     setShowFact(false);
+    setTimeLeft(60);
+    setGameActive(true);
   };
 
   return (
@@ -150,9 +176,55 @@ export function ElementQuiz() {
       flexDirection: 'column',
       gap: '16px'
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ margin: 0, fontSize: '1.3rem', color: '#fff' }}>Periodic Table Explorer Quiz</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+        <div>
+          <h2 style={{ margin: 0, fontSize: '1.3rem', color: '#fff' }}>Periodic Table Explorer Quiz</h2>
+          <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+            <button
+              onClick={() => { setIsTimeAttack(false); resetQuiz(); }}
+              style={{
+                background: !isTimeAttack ? 'rgba(0, 242, 254, 0.15)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${!isTimeAttack ? '#00f2fe' : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: '6px',
+                color: '#fff',
+                fontSize: '0.75rem',
+                padding: '3px 8px',
+                cursor: 'pointer'
+              }}
+            >
+              Practice Mode
+            </button>
+            <button
+              onClick={() => { setIsTimeAttack(true); resetQuiz(); }}
+              style={{
+                background: isTimeAttack ? 'rgba(255, 71, 87, 0.15)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${isTimeAttack ? '#ff4757' : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: '6px',
+                color: '#fff',
+                fontSize: '0.75rem',
+                padding: '3px 8px',
+                cursor: 'pointer'
+              }}
+            >
+              ⏱️ Time Attack
+            </button>
+          </div>
+        </div>
+        
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {isTimeAttack && (
+            <span style={{
+              background: timeLeft <= 10 ? 'rgba(255,71,87,0.2)' : 'rgba(255,255,255,0.05)',
+              border: `1px solid ${timeLeft <= 10 ? '#ff4757' : 'rgba(255,255,255,0.1)'}`,
+              color: timeLeft <= 10 ? '#ff4757' : '#fff',
+              fontSize: '0.85rem',
+              fontWeight: 'bold',
+              borderRadius: '8px',
+              padding: '4px 10px'
+            }}>
+              ⏳ {timeLeft}s
+            </span>
+          )}
           {streak > 1 && (
             <span style={{
               background: 'linear-gradient(135deg, #ffa502, #ff4757)',
@@ -166,106 +238,134 @@ export function ElementQuiz() {
               🔥 {streak}x Streak!
             </span>
           )}
-          <div style={{ fontSize: '0.9rem', color: '#00f2fe', fontWeight: 'bold' }}>
-            Score: {score} / {attempts}
+          <div style={{ fontSize: '0.9rem', color: '#00f2fe', fontWeight: 'bold', textAlign: 'right' }}>
+            <div>Score: {score} / {attempts}</div>
+            {highScore > 0 && <span style={{ display: 'block', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: '2px' }}>High: {highScore}</span>}
           </div>
         </div>
       </div>
 
-      <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>Question {qIdx + 1}:</h3>
-        <p style={{ margin: 0, fontSize: '1.05rem', lineHeight: 1.4 }}>{question.text}</p>
-
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center', marginTop: '10px' }}>
-          <select
-            value={selectedSymbol}
-            onChange={(e) => setSelectedSymbol(e.target.value)}
-            style={{
-              background: 'rgba(0,0,0,0.3)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: '#fff',
-              borderRadius: '8px',
-              padding: '8px 16px',
-              fontSize: '0.9rem',
-              flex: '1 1 200px'
-            }}
-          >
-            <option value="">-- Choose an Element --</option>
-            {elements.map((el, i) => (
-              <option key={i} value={el.symbol}>{el.atomicNumber}. {el.name} ({el.symbol})</option>
-            ))}
-          </select>
-
-          <button
-            onClick={handleAnswerSubmit}
-            disabled={!selectedSymbol}
-            style={{
-              background: selectedSymbol ? '#00f2fe' : 'rgba(255,255,255,0.05)',
-              border: 'none',
-              color: selectedSymbol ? '#12131c' : 'rgba(255,255,255,0.3)',
-              borderRadius: '8px',
-              padding: '8px 20px',
-              fontSize: '0.9rem',
-              fontWeight: 'bold',
-              cursor: selectedSymbol ? 'pointer' : 'default',
-              transition: 'all 0.2s'
-            }}
-          >
-            Submit Answer
-          </button>
-        </div>
-
-        {feedback && (
-          <div style={{ fontSize: '0.95rem', margin: '10px 0', lineHeight: 1.4 }}>
-            {feedback}
+      <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px', position: 'relative' }}>
+        {!gameActive ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px 20px', textAlign: 'center', gap: '16px' }}>
+            <span style={{ fontSize: '3rem' }}>⏳</span>
+            <h3 style={{ margin: 0, fontSize: '1.4rem', color: '#ff4757' }}>Time's Up!</h3>
+            <p style={{ margin: 0, fontSize: '1.05rem' }}>You correctly answered <strong>{score}</strong> out of <strong>{attempts}</strong> clues!</p>
+            <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.6 }}>High Score: {highScore}</p>
+            <button
+              onClick={resetQuiz}
+              style={{
+                background: '#ff4757',
+                border: 'none',
+                color: '#fff',
+                borderRadius: '8px',
+                padding: '10px 24px',
+                fontSize: '0.95rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 4px 15px rgba(255, 71, 87, 0.4)'
+              }}
+            >
+              Play Again
+            </button>
           </div>
-        )}
+        ) : (
+          <>
+            <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>Question {qIdx + 1}:</h3>
+            <p style={{ margin: 0, fontSize: '1.05rem', lineHeight: 1.4 }}>{question.text}</p>
 
-        {showFact && (
-          <div style={{
-            background: 'rgba(46, 213, 115, 0.05)',
-            border: '1px solid rgba(46, 213, 115, 0.2)',
-            borderRadius: '8px',
-            padding: '12px 16px',
-            marginTop: '8px',
-            fontSize: '0.9rem',
-            color: '#2ed573',
-            lineHeight: '1.45'
-          }}>
-            🎓 <strong>Did you know?</strong> {question.fact}
-          </div>
-        )}
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center', marginTop: '10px' }}>
+              <select
+                value={selectedSymbol}
+                onChange={(e) => setSelectedSymbol(e.target.value)}
+                style={{
+                  background: 'rgba(0,0,0,0.3)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  color: '#fff',
+                  borderRadius: '8px',
+                  padding: '8px 16px',
+                  fontSize: '0.9rem',
+                  flex: '1 1 200px'
+                }}
+              >
+                <option value="">-- Choose an Element --</option>
+                {elements.map((el, i) => (
+                  <option key={i} value={el.symbol}>{el.atomicNumber}. {el.name} ({el.symbol})</option>
+                ))}
+              </select>
 
-        <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '10px' }}>
-          <button
-            onClick={resetQuiz}
-            style={{
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '8px',
-              color: '#fff',
-              padding: '6px 14px',
-              fontSize: '0.85rem',
-              cursor: 'pointer'
-            }}
-          >
-            Reset Game
-          </button>
-          <button
-            onClick={handleNext}
-            style={{
-              background: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              borderRadius: '8px',
-              color: '#fff',
-              padding: '6px 14px',
-              fontSize: '0.85rem',
-              cursor: 'pointer'
-            }}
-          >
-            Next Question →
-          </button>
-        </div>
+              <button
+                onClick={handleAnswerSubmit}
+                disabled={!selectedSymbol}
+                style={{
+                  background: selectedSymbol ? '#00f2fe' : 'rgba(255,255,255,0.05)',
+                  border: 'none',
+                  color: selectedSymbol ? '#12131c' : 'rgba(255,255,255,0.3)',
+                  borderRadius: '8px',
+                  padding: '8px 20px',
+                  fontSize: '0.9rem',
+                  fontWeight: 'bold',
+                  cursor: selectedSymbol ? 'pointer' : 'default',
+                  transition: 'all 0.2s'
+                }}
+              >
+                Submit Answer
+              </button>
+            </div>
+
+            {feedback && (
+              <div style={{ fontSize: '0.95rem', margin: '10px 0', lineHeight: 1.4 }}>
+                {feedback}
+              </div>
+            )}
+
+            {showFact && (
+              <div style={{
+                background: 'rgba(46, 213, 115, 0.05)',
+                border: '1px solid rgba(46, 213, 115, 0.2)',
+                borderRadius: '8px',
+                padding: '12px 16px',
+                marginTop: '8px',
+                fontSize: '0.9rem',
+                color: '#2ed573',
+                lineHeight: '1.45'
+              }}>
+                🎓 <strong>Did you know?</strong> {question.fact}
+              </div>
+            )}
+
+            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '10px' }}>
+              <button
+                onClick={resetQuiz}
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '8px',
+                  color: '#fff',
+                  padding: '6px 14px',
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Reset Game
+              </button>
+              <button
+                onClick={handleNext}
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  borderRadius: '8px',
+                  color: '#fff',
+                  padding: '6px 14px',
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Next Question →
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

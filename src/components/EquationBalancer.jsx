@@ -248,20 +248,40 @@ export function EquationBalancer() {
         </div>
 
         {/* Dynamic Element Tallies */}
-        <div style={{ width: '100%', maxWidth: '400px' }}>
+        <div style={{ width: '100%', maxWidth: '450px' }}>
           <h3 style={{ margin: '0 0 10px 0', fontSize: '0.95rem', opacity: 0.8, textAlign: 'center' }}>Conservation of Mass Tally</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {elementsInvolved.map(el => {
               const rCount = reactantsTally[el] || 0;
               const pCount = productsTally[el] || 0;
               const isMatch = rCount === pCount;
+              const tiltAngle = rCount === pCount ? 0 : rCount > pCount ? -12 : 12;
+              const scaleColor = isMatch ? '#2ed573' : '#ff4757';
 
               return (
-                <div key={el} style={{ display: 'flex', justifyContent: 'space-between', background: 'rgba(255,255,255,0.03)', padding: '6px 12px', borderRadius: '8px', border: `1px solid ${isMatch ? 'rgba(46, 213, 115, 0.2)' : 'rgba(255, 71, 87, 0.2)'}` }}>
-                  <span style={{ fontWeight: 'bold' }}>{el} atoms</span>
-                  <span style={{ color: isMatch ? '#2ed573' : '#ff4757' }}>
-                    Reactants: <strong>{rCount}</strong> vs Products: <strong>{pCount}</strong>
-                  </span>
+                <div key={el} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(255,255,255,0.03)', padding: '8px 16px', borderRadius: '12px', border: `1px solid ${isMatch ? 'rgba(46, 213, 115, 0.25)' : 'rgba(255, 71, 87, 0.25)'}`, gap: '12px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{el} Atoms</span>
+                    <span style={{ fontSize: '0.8rem', color: isMatch ? '#2ed573' : '#ff4757', marginTop: '2px' }}>
+                      Reactants: <strong>{rCount}</strong> vs Products: <strong>{pCount}</strong>
+                    </span>
+                  </div>
+                  
+                  {/* Visual SVG Balance Scale */}
+                  <svg width="60" height="40" viewBox="0 0 60 40" style={{ overflow: 'visible' }}>
+                    <path d="M 30 20 L 30 35 M 20 35 L 40 35" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" />
+                    <polygon points="30,17 26,22 34,22" fill={scaleColor} />
+                    
+                    <g style={{ transform: `rotate(${tiltAngle}deg)`, transformOrigin: '30px 20px', transition: 'transform 0.4s ease' }}>
+                      <line x1="12" y1="20" x2="48" y2="20" stroke={scaleColor} strokeWidth="3" strokeLinecap="round" />
+                      
+                      <line x1="15" y1="20" x2="15" y2="28" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                      <ellipse cx="15" cy="28" rx="7" ry="2" fill="rgba(0,0,0,0.4)" stroke={scaleColor} strokeWidth="1.5" />
+                      
+                      <line x1="45" y1="20" x2="45" y2="28" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                      <ellipse cx="45" cy="28" rx="7" ry="2" fill="rgba(0,0,0,0.4)" stroke={scaleColor} strokeWidth="1.5" />
+                    </g>
+                  </svg>
                 </div>
               );
             })}
