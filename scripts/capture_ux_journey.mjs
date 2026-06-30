@@ -291,13 +291,33 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '16_solubility_matrix.png') });
 
+  // 17. 17_bonding_simulator.png: Navigate to Bonding Simulator, synthesize H2O, and take screenshot
+  console.log("Step 17: Capturing Bonding Simulator tab with H2O synthesis...");
+  await page.click('button:has-text("Bonding Simulator")');
+  await delay(1000);
+  await page.click('button:has-text("Hydrogen")');
+  await delay(200);
+  await page.click('button:has-text("Hydrogen")');
+  await delay(200);
+  await page.click('button:has-text("Oxygen")');
+  await delay(200);
+  await page.click('button:has-text("Synthesize Bond")');
+  await delay(1500);
+  await page.screenshot({ path: path.join(screenshotDir, '17_bonding_simulator.png') });
+
+  // 18. 18_property_analyzer.png: Navigate to Property Analyzer
+  console.log("Step 18: Capturing Property Analyzer tab...");
+  await page.click('button:has-text("Property Analyzer")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '18_property_analyzer.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 16 screenshots captured successfully!");
+  console.log("All 18 screenshots captured successfully!");
 }
 
 main().catch((err) => {

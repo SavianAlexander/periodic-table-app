@@ -35,11 +35,19 @@ This application is designed for students, educators, and science enthusiasts. I
 - **Interactive SVG Bohr Model**: Generates concentric quantum orbits dynamically based on the element's actual electron shell distribution. Electrons animate in real-time around the central nucleus.
 - **Glowing Emission Spectra Visualizer**: Uses physics-based algorithms to map exact element emission wavelengths (in nm) to precise RGB values, rendering an authentic, glowing emission spectrum bar for advanced analysis.
 
-### 4. Interactive Search & Legend Filters
+### 4. Interactive Chemical Bonding Simulator
+- Synthesize compounds (such as $H_2O$, $CO_2$, $NaCl$, $NH_3$) with customized SVG diagram overlays.
+- Displays detailed **VSEPR molecular geometries** (e.g. Bent, Trigonal Pyramidal) and **ideal bond angles**.
+- Displays full **Lewis Dot structure** overlays including lone pairs and shared bonding electron pairs.
+
+### 5. Property Analyzer & Trends Graph
+- Plots elements' physical/chemical parameters (electronegativity, melting point, density, etc.) in a dynamic comparisons bar graph.
+
+### 6. Interactive Search & Legend Filters
 - **Property-Range Search**: Instantly query elements by name, symbol, atomic number, or property ranges (e.g. `mass > 50` or `electronegativity < 2.0`).
 - **Interactive Legend**: Highlight elements matching specific chemical groups (Alkali Metals, Transition Metals, Halogens, Noble Gases, Lanthanides, Actinides) on hover or toggle them on click. Non-matching elements dim gracefully to draw focus.
 
-### 5. Premium Styling & UX
+### 7. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -72,6 +80,12 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 4. Solubility Matrix Calculator
 ![Solubility Matrix](docs/ux_journey/16_solubility_matrix.png)
+
+#### 5. Chemical Bonding Simulator
+![Bonding Simulator](docs/ux_journey/17_bonding_simulator.png)
+
+#### 6. Property Analyzer
+![Property Analyzer](docs/ux_journey/18_property_analyzer.png)
 
 ---
 
