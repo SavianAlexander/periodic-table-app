@@ -30,7 +30,10 @@ const getSolubility = (cation, anion) => {
   if (['Na⁺', 'K⁺', 'NH₄⁺'].includes(cat)) {
     let sub = '';
     if (ani.includes('²')) sub = '₂';
-    return { soluble: true, formula: `(${cat.replace('⁺','').replace('²⁺','')})${sub}${ani.replace('⁻','').replace('²⁻','')}`, rule: `Rule: All salts of alkali metals (Na⁺, K⁺) and ammonium (NH₄⁺) are soluble.` };
+    const cationBase = cat.replace('⁺','').replace('²⁺','');
+    const anionBase = ani.replace('⁻','').replace('²⁻','');
+    const formattedCation = (cationBase === 'NH₄' && sub) ? `(${cationBase})${sub}` : `${cationBase}${sub}`;
+    return { soluble: true, formula: `${formattedCation}${anionBase}`, rule: `Rule: All salts of alkali metals (Na⁺, K⁺) and ammonium (NH₄⁺) are soluble.` };
   }
 
   // 3. Chlorides exception (Ag, Pb)
