@@ -69,16 +69,19 @@ if (insideWorkTree.status !== 0 || insideWorkTree.stdout.trim() !== 'true') {
   process.exit(1);
 }
 
+let canUseGh = true;
 const ghVer = run('gh', ['--version']);
 if (ghVer.status !== 0) {
-  console.error('GitHub CLI (gh) is not installed or returned an error.');
-  process.exit(1);
+  console.warn('Warning: GitHub CLI (gh) is not installed or returned an error. Draft release step will be skipped.');
+  canUseGh = false;
 }
 
-const ghAuth = run('gh', ['auth', 'status']);
-if (ghAuth.status !== 0) {
-  console.error('GitHub CLI is not authenticated.');
-  process.exit(1);
+if (canUseGh) {
+  const ghAuth = run('gh', ['auth', 'status']);
+  if (ghAuth.status !== 0) {
+    console.warn('Warning: GitHub CLI is not authenticated. Draft release step will be skipped.');
+    canUseGh = false;
+  }
 }
 
 // 3. Extract version from package.json
@@ -216,13 +219,17 @@ if (tagPush.status !== 0) {
   process.exit(1);
 }
 
-console.log('Creating draft release on GitHub...');
-const ghRelease = run('gh', ['release', 'create', tagName, '--draft', '--title', `Release ${tagName}`, '--notes', releaseNotes]);
-if (ghRelease.status !== 0) {
-  console.error('Error creating GitHub Release.');
-  if (ghRelease.stderr) console.error(ghRelease.stderr);
-  process.exit(1);
+if (canUseGh) {
+  console.log('Creating draft release on GitHub...');
+  const ghRelease = run('gh', ['release', 'create', tagName, '--draft', '--title', `Release ${tagName}`, '--notes', releaseNotes]);
+  if (ghRelease.status !== 0) {
+    console.error('Error creating GitHub Release.');
+    if (ghRelease.stderr) console.error(ghRelease.stderr);
+    process.exit(1);
+  }
+  console.log(`Successfully tagged ${tagName} and created GitHub Release draft!`);
+} else {
+  console.log(`Successfully tagged ${tagName} and pushed to origin!`);
+  console.log('You can now draft the release on GitHub manually under the Releases/Tags page.');
 }
-
-console.log(`Successfully tagged ${tagName} and created GitHub Release draft!`);
 process.exit(0);
