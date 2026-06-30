@@ -354,10 +354,10 @@
 
 .floating-video-wrapper {
   position: fixed;
-  top: 0;
+  top: 100px;
   left: 0;
   width: calc(100vw - 400px);
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -833,6 +833,12 @@
   margin-left: auto;
   margin-right: auto;
   pointer-events: none;
+}
+
+.panel-open .search-container,
+.panel-open .advanced-filters-row,
+.panel-open .interactive-legend {
+  display: none !important;
 }
 
 .controls-container > * {
