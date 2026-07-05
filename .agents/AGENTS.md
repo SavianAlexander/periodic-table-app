@@ -16,3 +16,10 @@
 
 ## 4. E2E Cross-Origin Iframe Mocking
 *   *Rule*: Never load real YouTube/cross-origin embeds inside E2E tests, which causes WebKit/Firefox to hang or timeout. Detect testing environments (`window.__speechSynthesisCalls` or testing parameters) and render `about:blank?hl=...` with the required parameters to accelerate test speeds.
+
+## 5. Mandatory Feature Showcase and Screenshot Updates
+*   *Rule*: Whenever a new application feature, sub-panel, or visual tab is implemented or modified:
+  1. Immediately capture high-definition screenshots representing the new feature states.
+  2. Append or update the screenshots and their corresponding visual descriptions in the `README.md` file under the feature showcase sections.
+  3. Ensure the visual files are added to git version tracking (`git add docs/ux_journey/`) and committed alongside the feature code.
+
