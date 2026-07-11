@@ -51,10 +51,35 @@ test.describe('Academic Upgrades E2E Tests', () => {
     await expect(solubilityTab).toBeVisible();
     await solubilityTab.click();
     await expect(page.locator('h2:has-text("Solubility Matrix Calculator")')).toBeVisible();
+
+    // Click History Timeline tab
+    const historyTab = page.locator('button:has-text("History Timeline")');
+    await expect(historyTab).toBeVisible();
+    await historyTab.click();
+    await expect(page.locator('h2:has-text("Historical Discovery Timeline")')).toBeVisible();
     
     // Switch back to grid
     const gridTab = page.locator('button:has-text("Periodic Grid")');
     await gridTab.click();
     await expect(page.locator('[data-testid="periodic-table-grid"]')).toBeVisible();
+  });
+
+  test('Should filter elements by discovery year and country in History Timeline', async ({ page }) => {
+    // Navigate to History Timeline
+    await page.locator('button:has-text("History Timeline")').click();
+    await expect(page.locator('h2:has-text("Historical Discovery Timeline")')).toBeVisible();
+
+    // Click Sweden country filter badge
+    const swedenBadge = page.locator('button.country-filter-btn:has-text("Sweden")');
+    await swedenBadge.click();
+
+    // Verify Sweden filter is active
+    await expect(swedenBadge).toHaveClass(/active/);
+
+    // Click Oxygen (O) in the mini grid and verify historical details card
+    const oCell = page.locator('.mini-grid-cell:has-text("O")').first();
+    await oCell.click();
+    await expect(page.locator('.history-details-card h3')).toContainText('Oxygen (O)');
+    await expect(page.locator('.history-details-card')).toContainText('Sweden');
   });
 });

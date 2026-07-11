@@ -9,6 +9,7 @@ import { AufbauSandbox } from './components/AufbauSandbox'
 import { EquationBalancer } from './components/EquationBalancer'
 import { ElementQuiz } from './components/ElementQuiz'
 import { SolubilityCalculator } from './components/SolubilityCalculator'
+import { HistoryTimeline } from './components/HistoryTimeline'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -70,6 +71,12 @@ function App() {
           >
             Solubility Matrix
           </button>
+          <button 
+            onClick={() => setActiveTab('history')} 
+            className={`tab-btn ${activeTab === 'history' ? 'active' : ''}`}
+          >
+            History Timeline
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -103,6 +110,7 @@ function App() {
         {activeTab === 'balancer' && <EquationBalancer />}
         {activeTab === 'quiz' && <ElementQuiz />}
         {activeTab === 'solubility' && <SolubilityCalculator />}
+        {activeTab === 'history' && <HistoryTimeline />}
       </div>
       {selectedElement && (
         <RightPanel 

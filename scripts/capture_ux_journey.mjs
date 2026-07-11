@@ -311,13 +311,25 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '18_property_analyzer.png') });
 
+  // 19. 19_history_timeline.png: Navigate to History Timeline
+  console.log("Step 19: Capturing History Timeline tab...");
+  await page.click('button:has-text("History Timeline")');
+  await delay(1000);
+  // Click Sweden filter
+  await page.click('button.country-filter-btn:has-text("Sweden")');
+  await delay(500);
+  // Select Oxygen
+  await page.click('.mini-grid-cell:has-text("O")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '19_history_timeline.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 18 screenshots captured successfully!");
+  console.log("All 19 screenshots captured successfully!");
 }
 
 main().catch((err) => {

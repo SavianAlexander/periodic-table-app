@@ -47,7 +47,12 @@ This application is designed for students, educators, and science enthusiasts. I
 - **Property-Range Search**: Instantly query elements by name, symbol, atomic number, or property ranges (e.g. `mass > 50` or `electronegativity < 2.0`).
 - **Interactive Legend**: Highlight elements matching specific chemical groups (Alkali Metals, Transition Metals, Halogens, Noble Gases, Lanthanides, Actinides) on hover or toggle them on click. Non-matching elements dim gracefully to draw focus.
 
-### 7. Premium Styling & UX
+### 7. Historical Discovery Timeline & Map
+- An interactive **Discovery Year Slider** from antiquity (prehistoric) to 2026 showing element waves.
+- Interactive country/location filter badges (United Kingdom, Sweden, Germany, France, USA, Russia, Antiquity).
+- Displays detailed discoverer biographies, discovery year, location, and fun chemistry trivia cards.
+
+### 8. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -86,6 +91,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 6. Property Analyzer
 ![Property Analyzer](docs/ux_journey/18_property_analyzer.png)
+
+#### 7. Historical Discovery Timeline
+![History Timeline](docs/ux_journey/19_history_timeline.png)
 
 ---
 
