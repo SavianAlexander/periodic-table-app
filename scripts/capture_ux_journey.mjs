@@ -348,13 +348,25 @@ async function main() {
   await delay(500);
   await page.screenshot({ path: path.join(screenshotDir, '21_lattice_viewer.png') });
 
+  // 22. 22_lab_simulator.png: Navigate to Lab Simulator
+  console.log("Step 22: Capturing Lab Simulator tab...");
+  await page.click('button:has-text("Lab Simulator")');
+  await delay(1000);
+  // Switch to Titration Lab sub-tab
+  await page.click('button.sub-tab-btn-titration');
+  await delay(500);
+  // Fast Add drop
+  await page.click('button.titrate-add-fast-btn');
+  await delay(500);
+  await page.screenshot({ path: path.join(screenshotDir, '22_lab_simulator.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 21 screenshots captured successfully!");
+  console.log("All 22 screenshots captured successfully!");
 }
 
 main().catch((err) => {

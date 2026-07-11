@@ -124,4 +124,34 @@ test.describe('Academic Upgrades E2E Tests', () => {
     await page.locator('input.lattice-slider-y').fill('-45');
     await page.locator('input.lattice-slider-opacity').fill('50');
   });
+
+  test('Should interact with all three sub-labs in Lab Simulator Room', async ({ page }) => {
+    // Navigate to Lab Simulator
+    await page.locator('button:has-text("Lab Simulator")').click();
+    await expect(page.locator('h2:has-text("Lab Simulator Room")')).toBeVisible();
+
+    // Verify default Electrochemistry Lab is active
+    await expect(page.locator('.voltmeter-readout')).toContainText('1.10 V');
+
+    // Change electrode select dropdown values
+    const selectLeft = page.locator('select.electro-select-left');
+    await selectLeft.selectOption({ label: 'Lead (E° = -0.13V)' });
+    await expect(page.locator('.voltmeter-readout')).toContainText('0.47 V');
+
+    // Switch to Gas Laws Lab sub-tab
+    await page.locator('button.sub-tab-btn-gas').click();
+    await expect(page.locator('h3:has-text("Gas Parameters")')).toBeVisible();
+
+    // Interact with Gas mode buttons and sliders
+    await page.locator('button.gas-mode-boyle-btn').click();
+    await page.locator('input.gas-slider-vol').fill('60');
+
+    // Switch to Titration Lab sub-tab
+    await page.locator('button.sub-tab-btn-titration').click();
+    await expect(page.locator('h3:has-text("Titration Controls")')).toBeVisible();
+
+    // Add titration drop and check pH increment
+    await page.locator('button.titrate-add-drop-btn').click();
+    await expect(page.locator('.titration-stats-card')).toContainText('0.5 mL');
+  });
 });
