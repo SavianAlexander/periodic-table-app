@@ -57,7 +57,12 @@ This application is designed for students, educators, and science enthusiasts. I
 - Live SVG nuclei grid showing radioactive particle animations (Alpha, Beta, Gamma) in real-time.
 - Real-time plotting of the exponential decay curve $N(t) = N_0 e^{-\lambda t}$ against elapsed half-lives.
 
-### 9. Premium Styling & UX
+### 9. 3D Crystal Lattice Visualizer
+- Visualizes **FCC (Face-Centered Cubic)**, **BCC (Body-Centered Cubic)**, and **HCP (Hexagonal Close-Packed)** unit cell systems inside a custom 3D rotation projection SVG canvas.
+- Integration with elements dataset (Iron, Copper, Gold, Magnesium, Sodium, Zinc) to dynamically scale atomic spheres by real atomic radius parameters.
+- Features sliders to adjust X/Y axis rotation angles and transparency/opacity to view inner unit cell fractions.
+
+### 10. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -102,6 +107,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 8. Nuclear Decay & Half-Life Simulator
 ![Decay Simulator](docs/ux_journey/20_decay_simulator.png)
+
+#### 9. 3D Crystal Lattice Visualizer
+![Lattice Viewer](docs/ux_journey/21_lattice_viewer.png)
 
 ---
 
