@@ -11,6 +11,7 @@ import { ElementQuiz } from './components/ElementQuiz'
 import { SolubilityCalculator } from './components/SolubilityCalculator'
 import { HistoryTimeline } from './components/HistoryTimeline'
 import { DecaySimulator } from './components/DecaySimulator'
+import { LatticeViewer } from './components/LatticeViewer'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -84,6 +85,12 @@ function App() {
           >
             Decay Simulator
           </button>
+          <button 
+            onClick={() => setActiveTab('lattice')} 
+            className={`tab-btn ${activeTab === 'lattice' ? 'active' : ''}`}
+          >
+            Lattice Viewer
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -119,6 +126,7 @@ function App() {
         {activeTab === 'solubility' && <SolubilityCalculator />}
         {activeTab === 'history' && <HistoryTimeline />}
         {activeTab === 'decay' && <DecaySimulator />}
+        {activeTab === 'lattice' && <LatticeViewer />}
       </div>
       {selectedElement && (
         <RightPanel 

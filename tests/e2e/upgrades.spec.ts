@@ -104,4 +104,24 @@ test.describe('Academic Upgrades E2E Tests', () => {
     // Reset button should clear graphs
     await page.locator('button.reset-decay-btn').click();
   });
+
+  test('Should interact with 3D Crystal Lattice Visualizer', async ({ page }) => {
+    // Navigate to Lattice Viewer
+    await page.locator('button:has-text("Lattice Viewer")').click();
+    await expect(page.locator('h2:has-text("3D Crystal Lattice Visualizer")')).toBeVisible();
+
+    // Click Copper element toggle
+    const copperBtn = page.locator('button.lattice-element-btn:has-text("Copper")');
+    await copperBtn.click();
+    await expect(copperBtn).toHaveClass(/active/);
+
+    // Verify coordinates info updates
+    await expect(page.locator('.lattice-info-card')).toContainText('FCC (Face-Centered Cubic)');
+    await expect(page.locator('.lattice-info-card')).toContainText('74%');
+
+    // Drag sliders to update rotation
+    await page.locator('input.lattice-slider-x').fill('45');
+    await page.locator('input.lattice-slider-y').fill('-45');
+    await page.locator('input.lattice-slider-opacity').fill('50');
+  });
 });

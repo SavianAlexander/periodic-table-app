@@ -335,13 +335,26 @@ async function main() {
   await delay(2000); // Allow decay curve graph points to render
   await page.screenshot({ path: path.join(screenshotDir, '20_decay_simulator.png') });
 
+  // 21. 21_lattice_viewer.png: Navigate to Lattice Viewer
+  console.log("Step 21: Capturing Lattice Viewer tab...");
+  await page.click('button:has-text("Lattice Viewer")');
+  await delay(1000);
+  // Select Copper
+  await page.click('button.lattice-element-btn:has-text("Copper")');
+  await delay(500);
+  // Rotate slightly
+  await page.locator('input.lattice-slider-x').fill('35');
+  await page.locator('input.lattice-slider-y').fill('-40');
+  await delay(500);
+  await page.screenshot({ path: path.join(screenshotDir, '21_lattice_viewer.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 20 screenshots captured successfully!");
+  console.log("All 21 screenshots captured successfully!");
 }
 
 main().catch((err) => {
