@@ -62,7 +62,12 @@ This application is designed for students, educators, and science enthusiasts. I
 - Integration with elements dataset (Iron, Copper, Gold, Magnesium, Sodium, Zinc) to dynamically scale atomic spheres by real atomic radius parameters.
 - Features sliders to adjust X/Y axis rotation angles and transparency/opacity to view inner unit cell fractions.
 
-### 10. Premium Styling & UX
+### 10. Lab Simulator Room
+- **Electrochemistry Lab**: Select Anode/Cathode metals to visualize salt bridges, electron flow directions, and calculate voltmeter potential readings ($E^\circ_{\text{cell}}$).
+- **Gas Laws Lab**: Interactive piston SVG containing bouncing gas particles to verify Boyle's Law ($P \propto 1/V$) and Charles's Law ($V \propto T$).
+- **Acid-Base Titration**: Dropper and beaker indicator system with dynamic pH curve graphs showing equivalence points.
+
+### 11. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -110,6 +115,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 9. 3D Crystal Lattice Visualizer
 ![Lattice Viewer](docs/ux_journey/21_lattice_viewer.png)
+
+#### 10. Lab Simulator Room
+![Lab Simulator](docs/ux_journey/22_lab_simulator.png)
 
 ---
 
