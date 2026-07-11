@@ -82,4 +82,26 @@ test.describe('Academic Upgrades E2E Tests', () => {
     await expect(page.locator('.history-details-card h3')).toContainText('Oxygen (O)');
     await expect(page.locator('.history-details-card')).toContainText('Sweden');
   });
+
+  test('Should simulate exponential decay in Decay Simulator', async ({ page }) => {
+    // Navigate to Decay Simulator
+    await page.locator('button:has-text("Decay Simulator")').click();
+    await expect(page.locator('h2:has-text("Nuclear Decay & Half-Life Simulator")')).toBeVisible();
+
+    // Select Radium-226 from isotope dropdown
+    const selectDropdown = page.locator('select.isotope-select-dropdown');
+    await selectDropdown.selectOption({ label: 'Radium-226' });
+
+    // Verify decay equation displays correct details
+    await expect(page.locator('.decay-equation-card')).toContainText('Radium-226');
+    await expect(page.locator('.decay-equation-card')).toContainText('Radon-222');
+
+    // Click Start Decay and verify progress
+    const startBtn = page.locator('button.start-decay-btn');
+    await expect(startBtn).toBeEnabled();
+    await startBtn.click();
+    
+    // Reset button should clear graphs
+    await page.locator('button.reset-decay-btn').click();
+  });
 });

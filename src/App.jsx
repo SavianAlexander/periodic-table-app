@@ -10,6 +10,7 @@ import { EquationBalancer } from './components/EquationBalancer'
 import { ElementQuiz } from './components/ElementQuiz'
 import { SolubilityCalculator } from './components/SolubilityCalculator'
 import { HistoryTimeline } from './components/HistoryTimeline'
+import { DecaySimulator } from './components/DecaySimulator'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -77,6 +78,12 @@ function App() {
           >
             History Timeline
           </button>
+          <button 
+            onClick={() => setActiveTab('decay')} 
+            className={`tab-btn ${activeTab === 'decay' ? 'active' : ''}`}
+          >
+            Decay Simulator
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -111,6 +118,7 @@ function App() {
         {activeTab === 'quiz' && <ElementQuiz />}
         {activeTab === 'solubility' && <SolubilityCalculator />}
         {activeTab === 'history' && <HistoryTimeline />}
+        {activeTab === 'decay' && <DecaySimulator />}
       </div>
       {selectedElement && (
         <RightPanel 

@@ -52,7 +52,12 @@ This application is designed for students, educators, and science enthusiasts. I
 - Interactive country/location filter badges (United Kingdom, Sweden, Germany, France, USA, Russia, Antiquity).
 - Displays detailed discoverer biographies, discovery year, location, and fun chemistry trivia cards.
 
-### 8. Premium Styling & UX
+### 8. Nuclear Decay & Half-Life Simulator
+- Choose between isotopes (Carbon-14, Uranium-238, Cobalt-60, Radium-226, Polonium-210) to observe decay rates.
+- Live SVG nuclei grid showing radioactive particle animations (Alpha, Beta, Gamma) in real-time.
+- Real-time plotting of the exponential decay curve $N(t) = N_0 e^{-\lambda t}$ against elapsed half-lives.
+
+### 9. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -94,6 +99,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 7. Historical Discovery Timeline
 ![History Timeline](docs/ux_journey/19_history_timeline.png)
+
+#### 8. Nuclear Decay & Half-Life Simulator
+![Decay Simulator](docs/ux_journey/20_decay_simulator.png)
 
 ---
 

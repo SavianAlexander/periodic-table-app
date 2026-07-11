@@ -323,13 +323,25 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '19_history_timeline.png') });
 
+  // 20. 20_decay_simulator.png: Navigate to Decay Simulator
+  console.log("Step 20: Capturing Decay Simulator tab...");
+  await page.click('button:has-text("Decay Simulator")');
+  await delay(1000);
+  // Select Uranium-238
+  await page.selectOption('select.isotope-select-dropdown', { label: 'Uranium-238' });
+  await delay(500);
+  // Click Start Decay
+  await page.click('button.start-decay-btn');
+  await delay(2000); // Allow decay curve graph points to render
+  await page.screenshot({ path: path.join(screenshotDir, '20_decay_simulator.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 19 screenshots captured successfully!");
+  console.log("All 20 screenshots captured successfully!");
 }
 
 main().catch((err) => {
