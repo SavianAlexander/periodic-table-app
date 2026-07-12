@@ -154,4 +154,23 @@ test.describe('Academic Upgrades E2E Tests', () => {
     await page.locator('button.titrate-add-drop-btn').click();
     await expect(page.locator('.titration-stats-card')).toContainText('0.5 mL');
   });
+
+  test('Should interact with Organic Covalent Molecule Builder', async ({ page }) => {
+    // Navigate to Molecule Builder
+    await page.locator('button:has-text("Molecule Builder")').click();
+    await expect(page.locator('h2:has-text("Organic Molecule Covalent Builder")')).toBeVisible();
+
+    // Load Methane template
+    await page.locator('button.template-btn-CH₄').click();
+    await expect(page.locator('.builder-info-card')).toContainText('Methane (Natural Gas)');
+    await expect(page.locator('.builder-info-card')).toContainText('CH₄');
+
+    // Add Carbon atom
+    await page.locator('button.add-atom-btn-C').click();
+    await expect(page.locator('.draggable-atom-node')).toHaveCount(6); // 5 from template + 1 new
+
+    // Clear canvas
+    await page.locator('button.clear-canvas-btn').click();
+    await expect(page.locator('.draggable-atom-node')).toHaveCount(0);
+  });
 });

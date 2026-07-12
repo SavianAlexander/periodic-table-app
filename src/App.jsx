@@ -13,6 +13,7 @@ import { HistoryTimeline } from './components/HistoryTimeline'
 import { DecaySimulator } from './components/DecaySimulator'
 import { LatticeViewer } from './components/LatticeViewer'
 import { LabSimulator } from './components/LabSimulator'
+import { MoleculeBuilder } from './components/MoleculeBuilder'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -98,6 +99,12 @@ function App() {
           >
             Lab Simulator
           </button>
+          <button 
+            onClick={() => setActiveTab('builder')} 
+            className={`tab-btn ${activeTab === 'builder' ? 'active' : ''}`}
+          >
+            Molecule Builder
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -135,6 +142,7 @@ function App() {
         {activeTab === 'decay' && <DecaySimulator />}
         {activeTab === 'lattice' && <LatticeViewer />}
         {activeTab === 'lab' && <LabSimulator />}
+        {activeTab === 'builder' && <MoleculeBuilder />}
       </div>
       {selectedElement && (
         <RightPanel 

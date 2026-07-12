@@ -360,13 +360,22 @@ async function main() {
   await delay(500);
   await page.screenshot({ path: path.join(screenshotDir, '22_lab_simulator.png') });
 
+  // 23. 23_molecule_builder.png: Navigate to Molecule Builder
+  console.log("Step 23: Capturing Molecule Builder tab...");
+  await page.click('button:has-text("Molecule Builder")');
+  await delay(1000);
+  // Click Ammonia template
+  await page.click('button.template-btn-NH₃');
+  await delay(500);
+  await page.screenshot({ path: path.join(screenshotDir, '23_molecule_builder.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 22 screenshots captured successfully!");
+  console.log("All 23 screenshots captured successfully!");
 }
 
 main().catch((err) => {
