@@ -67,7 +67,13 @@ This application is designed for students, educators, and science enthusiasts. I
 - **Gas Laws Lab**: Interactive piston SVG containing bouncing gas particles to verify Boyle's Law ($P \propto 1/V$) and Charles's Law ($V \propto T$).
 - **Acid-Base Titration**: Dropper and beaker indicator system with dynamic pH curve graphs showing equivalence points.
 
-### 11. Premium Styling & UX
+### 11. Organic Covalent Molecule Builder
+- Drag-and-drop atom nodes (Carbon, Hydrogen, Oxygen, Nitrogen) onto an interactive SVG sandbox workspace.
+- Cycle covalent bond paths (single, double, triple) to connect atoms.
+- Track shell valencies via outer indicator rings that glow green when valence octets are fully satisfied.
+- Auto-recognizes compound formulas and IUPAC structures (Methane, Carbon Dioxide, Water, Formaldehyde, Ammonia, Ethane, Ethene, Ethyne, Ethanol).
+
+### 12. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -118,6 +124,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 10. Lab Simulator Room
 ![Lab Simulator](docs/ux_journey/22_lab_simulator.png)
+
+#### 11. Organic Covalent Molecule Builder
+![Molecule Builder](docs/ux_journey/23_molecule_builder.png)
 
 ---
 
