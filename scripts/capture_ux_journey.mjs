@@ -377,13 +377,23 @@ async function main() {
   await delay(1000);
   await page.screenshot({ path: path.join(screenshotDir, '24_teacher_resources.png') });
 
+  // 25. 25_ghs_safety.png: Open Chlorine (Cl) card in Intermediate mode to show GHS safety details card
+  console.log("Step 25: Capturing GHS Safety symbols inside element detail panel...");
+  await page.click('button:has-text("Periodic Grid")');
+  await delay(500);
+  await page.click('button:has-text("Intermediate")');
+  await delay(500);
+  await page.click('[data-testid="element-17"]'); // Chlorine (Cl)
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '25_ghs_safety.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 24 screenshots captured successfully!");
+  console.log("All 25 screenshots captured successfully!");
 }
 
 main().catch((err) => {

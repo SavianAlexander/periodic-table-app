@@ -251,9 +251,70 @@ const getSimpleDescription = (element, lang) => {
   return `${name} (${symbol}) ${t.isChemicalElement} ${atomicNumber}. ${t.classifiedAs} ${groupTranslated}, ${t.hasAtomicMass} ${atomicMass} u. ${usesStr}`;
 };
 
+const getGHSHazards = (symbol) => {
+  const sym = symbol.toUpperCase();
+  if (['H', 'LI', 'NA', 'K', 'P'].includes(sym)) {
+    return [
+      { type: 'Flammable', icon: '🔥', code: 'H220', desc: 'Extremely flammable substance.' }
+    ];
+  }
+  if (sym === 'O') {
+    return [
+      { type: 'Oxidizer', icon: '⭕', code: 'H270', desc: 'May cause or intensify fire; oxidizer.' }
+    ];
+  }
+  if (['F', 'CL', 'BR'].includes(sym)) {
+    return [
+      { type: 'Corrosive', icon: '🧪', code: 'H314', desc: 'Causes severe skin burns and eye damage.' },
+      { type: 'Toxic', icon: '💀', code: 'H330', desc: 'Fatal if inhaled.' }
+    ];
+  }
+  if (['PB', 'HG', 'CD', 'PO', 'AS'].includes(sym)) {
+    return [
+      { type: 'Toxic', icon: '💀', code: 'H300', desc: 'Fatal if swallowed. Chronic health hazard.' }
+    ];
+  }
+  if (['N', 'HE', 'AR', 'NE', 'KR', 'XE'].includes(sym)) {
+    return [
+      { type: 'Compressed Gas', icon: '💨', code: 'H280', desc: 'Contains gas under pressure; may explode if heated.' }
+    ];
+  }
+  return [
+    { type: 'Non-Hazardous', icon: '✅', code: 'N/A', desc: 'No major GHS hazard classifications under standard laboratory conditions.' }
+  ];
+};
+
 export function RightPanel({ element, difficulty, onClose }) {
   const closeBtnRef = useRef(null);
   const panelRef = useRef(null);
+
+  const renderSafetySection = () => {
+    const hazards = getGHSHazards(element.symbol);
+    return (
+      <div className="right-panel-section ghs-safety-section" data-testid="ghs-safety-section">
+        <h3>GHS Safety Classification</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
+          {hazards.map((h, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '8px',
+              padding: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }} className="ghs-hazard-card">
+              <span style={{ fontSize: '1.8rem', background: 'rgba(255,165,0,0.1)', padding: '6px', borderRadius: '8px' }}>{h.icon}</span>
+              <div>
+                <strong style={{ display: 'block', fontSize: '0.85rem', color: '#ffa502' }}>{h.type} {h.code !== 'N/A' && `(${h.code})`}</strong>
+                <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>{h.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
   const [photoState, setPhotoState] = useState({ loading: true, error: false, url: '' });
   const [language, setLanguage] = useState('en');
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -604,6 +665,7 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <CrystalLattice structure={element.crystalStructure} />
                   </div>
                 )}
+                {renderSafetySection()}
               </div>
             )}
 
@@ -638,6 +700,7 @@ export function RightPanel({ element, difficulty, onClose }) {
                     <CrystalLattice structure={element.crystalStructure} />
                   </div>
                 )}
+                {renderSafetySection()}
 
                 <div className="right-panel-section">
                   <h3>{translations[language].electronConfiguration}</h3>
