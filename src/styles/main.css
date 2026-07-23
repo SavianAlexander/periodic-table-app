@@ -1258,6 +1258,65 @@
   flex-wrap: wrap;
 }
 
+/* Accessibility Mode high contrast overrides */
+.accessibility-mode .nonmetal {
+  --group-color: rgba(0, 100, 80, 0.95);
+  --group-glow: rgba(0, 200, 160, 1);
+  border: 2px dashed #00ffcc !important;
+}
+.accessibility-mode .noble-gas {
+  --group-color: rgba(50, 0, 100, 0.95);
+  --group-glow: rgba(150, 0, 255, 1);
+  border: 2px double #e066ff !important;
+}
+.accessibility-mode .alkali-metal {
+  --group-color: rgba(120, 0, 0, 0.95);
+  --group-glow: rgba(255, 50, 50, 1);
+  border: 2px dotted #ff3333 !important;
+}
+.accessibility-mode .alkaline-earth-metal {
+  --group-color: rgba(130, 80, 0, 0.95);
+  --group-glow: rgba(255, 165, 0, 1);
+  border: 2px solid #ffa500 !important;
+}
+.accessibility-mode .metalloid {
+  --group-color: rgba(90, 90, 0, 0.95);
+  --group-glow: rgba(200, 200, 0, 1);
+  border: 3px double #ffff00 !important;
+}
+.accessibility-mode .halogen {
+  --group-color: rgba(100, 100, 50, 0.95);
+  --group-glow: rgba(255, 255, 100, 1);
+  border: 2px dashed #ffff33 !important;
+}
+.accessibility-mode .transition-metal {
+  --group-color: rgba(0, 60, 120, 0.95);
+  --group-glow: rgba(50, 150, 255, 1);
+  border: 2px solid #3399ff !important;
+}
+.accessibility-mode .post-transition-metal {
+  --group-color: rgba(60, 60, 60, 0.95);
+  --group-glow: rgba(150, 150, 150, 1);
+  border: 2px dotted #cccccc !important;
+}
+.accessibility-mode .lanthanide {
+  --group-color: rgba(100, 0, 100, 0.95);
+  --group-glow: rgba(255, 100, 255, 1);
+  border: 2px solid #ff66ff !important;
+}
+.accessibility-mode .actinide {
+  --group-color: rgba(100, 0, 50, 0.95);
+  --group-glow: rgba(255, 50, 150, 1);
+  border: 2px dashed #ff3399 !important;
+}
+
+/* Ensure focus outline is extremely visible in accessibility mode */
+.accessibility-mode *:focus {
+  outline: 3px solid #00f2fe !important;
+  outline-offset: 2px !important;
+}
+
+
 
 
 

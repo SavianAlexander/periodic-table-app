@@ -14,6 +14,7 @@ import { DecaySimulator } from './components/DecaySimulator'
 import { LatticeViewer } from './components/LatticeViewer'
 import { LabSimulator } from './components/LabSimulator'
 import { MoleculeBuilder } from './components/MoleculeBuilder'
+import { TeacherResources } from './components/TeacherResources'
 
 function App() {
   const [activeTab, setActiveTab] = useState('grid')
@@ -23,13 +24,32 @@ function App() {
   const [activeGroup, setActiveGroup] = useState(null)
   const [stateFilter, setStateFilter] = useState(null)
   const [maxElectronegativity, setMaxElectronegativity] = useState(4.0)
+  const [accessibilityMode, setAccessibilityMode] = useState(false)
 
   const handleClosePanel = useCallback(() => setSelectedElement(null), [])
 
   return (
-    <div className={`App ${selectedElement ? 'panel-open' : ''}`}>
+    <div className={`App ${selectedElement ? 'panel-open' : ''} ${accessibilityMode ? 'accessibility-mode' : ''}`}>
       <div className="main-content">
-        <h1>Periodic Table App</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '10px' }}>
+          <h1 style={{ margin: 0 }}>Periodic Table App</h1>
+          <button
+            onClick={() => setAccessibilityMode(!accessibilityMode)}
+            style={{
+              background: accessibilityMode ? '#00f2fe' : 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              color: accessibilityMode ? '#000' : '#fff',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              fontSize: '0.8rem'
+            }}
+            className="accessibility-toggle-btn"
+          >
+            ♿ {accessibilityMode ? 'High Contrast Mode Active' : 'Enable High Contrast / Colorblind Mode'}
+          </button>
+        </div>
         
         {/* Navigation Tabs */}
         <div className="nav-tabs">
@@ -105,6 +125,12 @@ function App() {
           >
             Molecule Builder
           </button>
+          <button 
+            onClick={() => setActiveTab('resources')} 
+            className={`tab-btn ${activeTab === 'resources' ? 'active' : ''}`}
+          >
+            Teacher Resources
+          </button>
         </div>
 
         {activeTab === 'grid' && (
@@ -143,6 +169,7 @@ function App() {
         {activeTab === 'lattice' && <LatticeViewer />}
         {activeTab === 'lab' && <LabSimulator />}
         {activeTab === 'builder' && <MoleculeBuilder />}
+        {activeTab === 'resources' && <TeacherResources />}
       </div>
       {selectedElement && (
         <RightPanel 

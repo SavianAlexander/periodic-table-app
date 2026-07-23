@@ -369,13 +369,21 @@ async function main() {
   await delay(500);
   await page.screenshot({ path: path.join(screenshotDir, '23_molecule_builder.png') });
 
+  // 24. 24_teacher_resources.png: Toggle High Contrast and navigate to Teacher Resources
+  console.log("Step 24: Capturing Teacher Resources and High Contrast toggles...");
+  await page.click('button.accessibility-toggle-btn');
+  await delay(500);
+  await page.click('button:has-text("Teacher Resources")');
+  await delay(1000);
+  await page.screenshot({ path: path.join(screenshotDir, '24_teacher_resources.png') });
+
   console.log("Closing browser...");
   await browser.close();
 
   console.log("Stopping Vite dev server...");
   devServer.kill();
   
-  console.log("All 23 screenshots captured successfully!");
+  console.log("All 24 screenshots captured successfully!");
 }
 
 main().catch((err) => {
