@@ -78,7 +78,11 @@ This application is designed for students, educators, and science enthusiasts. I
 - **NGSS Standards Alignment**: Full mapping of high school chemistry standards (HS-PS1-1, HS-PS1-7, HS-PS1-8) to the respective simulations.
 - **Guided Student Worksheets**: Detailed laboratory guides for hands-on classroom activities.
 
-### 13. Premium Styling & UX
+### 13. GHS Safety Hazard Classifications
+- Displays official GHS Safety icons (Flammable 🔥, Corrosive 🧪, Toxic 💀, Oxidizer ⭕, Compressed Gas 💨, or Safe ✅) in Element Detail panels (Intermediate and Advanced difficulty levels).
+- Interactive hovers mapping GHS hazard codes (e.g. H220, H314) and standard safety descriptions for student labs.
+
+### 14. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -135,6 +139,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 12. Section 508 Accessibility & Teacher Resources
 ![Teacher Resources](docs/ux_journey/24_teacher_resources.png)
+
+#### 13. GHS Safety Hazard Classifications
+![GHS Safety Warnings](docs/ux_journey/25_ghs_safety.png)
 
 ---
 
