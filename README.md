@@ -73,7 +73,12 @@ This application is designed for students, educators, and science enthusiasts. I
 - Track shell valencies via outer indicator rings that glow green when valence octets are fully satisfied.
 - Auto-recognizes compound formulas and IUPAC structures (Methane, Carbon Dioxide, Water, Formaldehyde, Ammonia, Ethane, Ethene, Ethyne, Ethanol).
 
-### 12. Premium Styling & UX
+### 12. Section 508 Accessibility & Teacher Resources
+- **Section 508 High-Contrast Toggle**: Instantly activate colorblind-safe patterns, double-borders, and high-contrast text tags to remove pure color dependencies from the periodic grid.
+- **NGSS Standards Alignment**: Full mapping of high school chemistry standards (HS-PS1-1, HS-PS1-7, HS-PS1-8) to the respective simulations.
+- **Guided Student Worksheets**: Detailed laboratory guides for hands-on classroom activities.
+
+### 13. Premium Styling & UX
 - State-of-the-art **Glassmorphism** styling with animated gradients, custom dark mode, and color-matched category glows.
 - Fully responsive design using viewport-unit grid calculations (`vw`, `vh`, `vmin`) that adapts perfectly from mobile devices to ultra-wide displays without scrolling.
 
@@ -127,6 +132,9 @@ This application is designed for students, educators, and science enthusiasts. I
 
 #### 11. Organic Covalent Molecule Builder
 ![Molecule Builder](docs/ux_journey/23_molecule_builder.png)
+
+#### 12. Section 508 Accessibility & Teacher Resources
+![Teacher Resources](docs/ux_journey/24_teacher_resources.png)
 
 ---
 
