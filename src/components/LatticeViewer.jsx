@@ -161,20 +161,11 @@ export function LatticeViewer() {
     }
   }, [activeElement]);
 
-  // Rotates a single 3D coordinate based on rotX and rotY sliders
-  const projectPoint = (pt) => {
-    const rx = (rotX * Math.PI) / 180;
-    const ry = (rotY * Math.PI) / 180;
-    
-    // Rotate Y axis
-    const cosY = Math.cos(ry);
-    const sinY = Math.sin(ry);
+  // Rotates a single 3D coordinate based on precomputed sine/cosine constants
+  const projectPoint = (pt, cosX, sinX, cosY, sinY) => {
     let x1 = pt.x * cosY + pt.z * sinY;
     let z1 = -pt.x * sinY + pt.z * cosY;
 
-    // Rotate X axis
-    const cosX = Math.cos(rx);
-    const sinX = Math.sin(rx);
     let y2 = pt.y * cosX - z1 * sinX;
     let z2 = pt.y * sinX + z1 * cosX;
 
@@ -189,8 +180,15 @@ export function LatticeViewer() {
 
   // Projected atoms sorted by depth Z (back atoms first)
   const projectedAtoms = useMemo(() => {
+    const rx = (rotX * Math.PI) / 180;
+    const ry = (rotY * Math.PI) / 180;
+    const cosX = Math.cos(rx);
+    const sinX = Math.sin(rx);
+    const cosY = Math.cos(ry);
+    const sinY = Math.sin(ry);
+
     const projected = latticePoints.map((pt, idx) => ({
-      ...projectPoint(pt),
+      ...projectPoint(pt, cosX, sinX, cosY, sinY),
       idx
     }));
     return projected.sort((a, b) => a.z - b.z);
@@ -198,9 +196,16 @@ export function LatticeViewer() {
 
   // Projected wireframe line coordinates
   const projectedLines = useMemo(() => {
+    const rx = (rotX * Math.PI) / 180;
+    const ry = (rotY * Math.PI) / 180;
+    const cosX = Math.cos(rx);
+    const sinX = Math.sin(rx);
+    const cosY = Math.cos(ry);
+    const sinY = Math.sin(ry);
+
     return wireframeLines.map(line => {
-      const p1 = projectPoint(latticePoints[line.start]);
-      const p2 = projectPoint(latticePoints[line.end]);
+      const p1 = projectPoint(latticePoints[line.start], cosX, sinX, cosY, sinY);
+      const p2 = projectPoint(latticePoints[line.end], cosX, sinX, cosY, sinY);
       return { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
     });
   }, [latticePoints, wireframeLines, rotX, rotY]);
