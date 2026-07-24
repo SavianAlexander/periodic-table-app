@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import elements from '../data/elements.json';
 import { ElementCard } from './ElementCard';
 import { getGridPosition } from '../utils/grid';
@@ -88,6 +88,19 @@ export function PeriodicTable({ difficulty, searchQuery, activeGroup, stateFilte
 
   const hasActiveFilters = !!((searchQuery && searchQuery.trim()) || activeGroup || stateFilter || maxElectronegativity < 4.0);
 
+  // Pre-calculate elements filter match state dictionary to optimize card hover transitions
+  const filteredMatches = useMemo(() => {
+    const matchesMap = {};
+    elements.forEach(element => {
+      matchesMap[element.atomicNumber] = 
+        matchesGroup(element.groupBlock, activeGroup) && 
+        matchesSearch(element, searchQuery) &&
+        matchesState(element.stateAtRoomTemp, stateFilter) &&
+        matchesElectronegativity(element.electronegativity, maxElectronegativity);
+    });
+    return matchesMap;
+  }, [searchQuery, activeGroup, stateFilter, maxElectronegativity]);
+
   return (
     <div className="table-container">
       <div 
@@ -99,10 +112,7 @@ export function PeriodicTable({ difficulty, searchQuery, activeGroup, stateFilte
         <div data-testid="actinide-series" style={{ gridRow: 10, gridColumn: '1 / 4', alignSelf: 'center', textAlign: 'right', paddingRight: '10px', fontSize: '0.8rem', fontWeight: 'bold', color: '#fff' }}>Actinides</div>
         {elements.map((element) => {
           const { row, col } = getGridPosition(element.atomicNumber);
-          const isMatch = matchesGroup(element.groupBlock, activeGroup) && 
-                          matchesSearch(element, searchQuery) &&
-                          matchesState(element.stateAtRoomTemp, stateFilter) &&
-                          matchesElectronegativity(element.electronegativity, maxElectronegativity);
+          const isMatch = filteredMatches[element.atomicNumber];
           return (
             <ElementCard 
               key={element.atomicNumber} 
