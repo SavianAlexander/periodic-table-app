@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import elements from '../data/elements.json';
 
 const PROPERTIES = [
@@ -18,35 +18,42 @@ export function ComparisonGraph() {
   const [hoveredPoint, setHoveredPoint] = useState(null);
 
   // Filter elements with valid numeric properties for the selected X and Y keys
-  const validElements = elements.filter(el => {
-    const valX = el[propX.key];
-    const valY = el[propY.key];
-    
-    // Group filter
-    if (selectedGroup !== 'All' && el.groupBlock?.toLowerCase().replace(/\s+/g, '-') !== selectedGroup) {
-      return false;
-    }
+  const validElements = useMemo(() => {
+    return elements.filter(el => {
+      const valX = el[propX.key];
+      const valY = el[propY.key];
+      
+      // Group filter
+      if (selectedGroup !== 'All' && el.groupBlock?.toLowerCase().replace(/\s+/g, '-') !== selectedGroup) {
+        return false;
+      }
 
-    return typeof valX === 'number' && typeof valY === 'number';
-  });
+      return typeof valX === 'number' && typeof valY === 'number';
+    });
+  }, [propX.key, propY.key, selectedGroup]);
 
   // Calculate scales and mins/maxes
-  const valuesX = validElements.map(el => el[propX.key]);
-  const valuesY = validElements.map(el => el[propY.key]);
+  const { boundMinX, boundMaxX, boundMinY, boundMaxY } = useMemo(() => {
+    const valuesX = validElements.map(el => el[propX.key]);
+    const valuesY = validElements.map(el => el[propY.key]);
 
-  const minX = valuesX.length > 0 ? Math.min(...valuesX) : 0;
-  const maxX = valuesX.length > 0 ? Math.max(...valuesX) : 100;
-  const minY = valuesY.length > 0 ? Math.min(...valuesY) : 0;
-  const maxY = valuesY.length > 0 ? Math.max(...valuesY) : 100;
+    const minX = valuesX.length > 0 ? Math.min(...valuesX) : 0;
+    const maxX = valuesX.length > 0 ? Math.max(...valuesX) : 100;
+    const minY = valuesY.length > 0 ? Math.min(...valuesY) : 0;
+    const maxY = valuesY.length > 0 ? Math.max(...valuesY) : 100;
 
-  // Add padding to chart bounds
-  const paddingPct = 0.1;
-  const rangeX = maxX - minX || 1;
-  const rangeY = maxY - minY || 1;
-  const boundMinX = minX - rangeX * paddingPct;
-  const boundMaxX = maxX + rangeX * paddingPct;
-  const boundMinY = minY - rangeY * paddingPct;
-  const boundMaxY = maxY + rangeY * paddingPct;
+    // Add padding to chart bounds
+    const paddingPct = 0.1;
+    const rangeX = maxX - minX || 1;
+    const rangeY = maxY - minY || 1;
+    
+    return {
+      boundMinX: minX - rangeX * paddingPct,
+      boundMaxX: maxX + rangeX * paddingPct,
+      boundMinY: minY - rangeY * paddingPct,
+      boundMaxY: maxY + rangeY * paddingPct
+    };
+  }, [validElements, propX.key, propY.key]);
 
   // Dimensions of SVG viewBox
   const width = 500;
@@ -68,7 +75,7 @@ export function ComparisonGraph() {
 
   const groupBlocks = Array.from(new Set(elements.map(el => el.groupBlock).filter(Boolean)));
 
-  const calculateCorrelation = () => {
+  const correlation = useMemo(() => {
     if (validElements.length < 2) return null;
     const n = validElements.length;
     let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
@@ -87,9 +94,7 @@ export function ComparisonGraph() {
     const den = Math.sqrt(((n * sumX2) - (sumX * sumX)) * ((n * sumY2) - (sumY * sumY)));
     if (den === 0) return 0;
     return num / den;
-  };
-
-  const correlation = calculateCorrelation();
+  }, [validElements, propX.key, propY.key]);
   const getCorrelationStrength = (r) => {
     if (r === null) return 'N/A';
     const abs = Math.abs(r);
